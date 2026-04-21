@@ -1,0 +1,91 @@
+fileVersion: 1
+id: f7092925-3b98-444a-a437-0870956488d5
+name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+type: Node
+operation:
+  name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: PLANNING_ALLIANT_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a835fc5-8f67-4277-bc6f-a82f7c00e167
+          stepCounter: f7092925-3b98-444a-a437-0870956488d5
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ''
+        description: ''
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8a32a61-1e8b-4b2a-a9e9-d7b44edb9f48
+          stepCounter: f7092925-3b98-444a-a437-0870956488d5
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 745d1d6a-54eb-4a1d-a0e2-d4b9670d8a56
+          stepCounter: f7092925-3b98-444a-a437-0870956488d5
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8b6408f-e14b-48af-ab9a-2ef428db3235
+          stepCounter: f7092925-3b98-444a-a437-0870956488d5
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ''
+        description: ''
+        name: DIMENSION_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2056ab7-b8d4-4f81-b530-ab945391d4d3
+          stepCounter: f7092925-3b98-444a-a437-0870956488d5
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ''
+        description: ''
+        name: CHANGE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1
