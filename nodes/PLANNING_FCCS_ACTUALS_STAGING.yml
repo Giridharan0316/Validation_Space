@@ -1,0 +1,196 @@
+fileVersion: 1
+id: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+name: PLANNING_FCCS_ACTUALS_STAGING
+type: Node
+operation:
+  name: PLANNING_FCCS_ACTUALS_STAGING
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: PLANNING_ALLIANT_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345001
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CLIENT_PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345002
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CLIENT_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345003
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345004
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CLIENT_STATUS_INDICATOR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345005
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CLIENT_ALIAS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345006
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345007
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: NUMBER(19,0)
+        defaultValue: ''
+        description: ''
+        name: DW_CLIENT_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345008
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345009
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_CLIENT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345010
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: NUMBER(19,0)
+        defaultValue: ''
+        description: ''
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345011
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ''
+        description: ''
+        name: POST_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a8b7c6d-1234-5678-90ab-cdef12345012
+          stepCounter: 59fc3de6-7a1b-4b10-91c2-3e4b78c9d0a1
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: THRESHOLD_RULE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1

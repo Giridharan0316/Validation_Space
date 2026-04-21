@@ -1,0 +1,91 @@
+fileVersion: 1
+id: a3c2e1b4-5f6d-4780-9a0b-1c2d3e4f5a6b
+name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+type: Node
+operation:
+  name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: PLANNING_ALLIANT_DBO
+  metadata:
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a01
+          stepCounter: a3c2e1b4-5f6d-4780-9a0b-1c2d3e4f5a6b
+        config: {}
+        dataType: NUMBER(19,0)
+        defaultValue: ''
+        description: ''
+        name: DW_BROKER_CLIENT_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a02
+          stepCounter: a3c2e1b4-5f6d-4780-9a0b-1c2d3e4f5a6b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a03
+          stepCounter: a3c2e1b4-5f6d-4780-9a0b-1c2d3e4f5a6b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: DIMENSION_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a04
+          stepCounter: a3c2e1b4-5f6d-4780-9a0b-1c2d3e4f5a6b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: CHANGE_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a05
+          stepCounter: a3c2e1b4-5f6d-4780-9a0b-1c2d3e4f5a6b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ''
+        description: ''
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1
