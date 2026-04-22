@@ -1,0 +1,491 @@
+fileVersion: 1
+id: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+name: STG_PAYEE_CASE3
+type: Node
+operation:
+  name: STG_PAYEE_CASE3
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: false
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ALLIANT_CLAIMS_ASTRUS_STAGE_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0001-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(16)
+        description: ''
+        name: SOURCE_SYSTEM_PAYEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0001-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.SOURCE_SYSTEM_PAYEE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0002-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER
+        description: ''
+        name: ACA_IRS_FORM_1099_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0002-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.ACA_IRS_FORM_1099_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0003-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(12)
+        description: ''
+        name: PAYEE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0003-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.PAYEE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0004-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: PAYEE_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0004-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.PAYEE_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0005-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: LAST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0005-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.LAST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0006-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: FIRST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0006-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.FIRST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0007-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: ORGANIZATION_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0007-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.ORGANIZATION_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0008-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: ADDRESS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0008-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.ADDRESS_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0009-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(50)
+        description: ''
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0009-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.CITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-000a-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(5)
+        description: ''
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-000a-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-000b-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(11)
+        description: ''
+        name: ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-000b-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.ZIP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-000c-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: CHAR(3)
+        description: ''
+        name: COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-000c-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-000d-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-000d-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-000e-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: CHAR(1)
+        description: ''
+        name: IRS_FORM_1099_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-000e-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.IRS_FORM_1099_TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-000f-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(25)
+        description: ''
+        name: IRS_FORM_1099_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-000f-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.IRS_FORM_1099_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0010-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(12)
+        description: ''
+        name: MAIL_TO_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0010-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0011-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: MAIL_TO_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0011-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0012-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: MAIL_TO_LAST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0012-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_LAST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0013-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: MAIL_TO_FIRST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0013-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_FIRST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0014-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: MAIL_TO_ORGANIZATION_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0014-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_ORGANIZATION_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0015-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: BINARY(8000)
+        description: ''
+        name: MAIL_TO_ADDRESS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0015-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_ADDRESS_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0016-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(50)
+        description: ''
+        name: MAIL_TO_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0016-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_CITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0017-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(5)
+        description: ''
+        name: MAIL_TO_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0017-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0018-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(11)
+        description: ''
+        name: MAIL_TO_ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0018-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_ZIP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0019-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: CHAR(3)
+        description: ''
+        name: MAIL_TO_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-0019-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.MAIL_TO_COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-001a-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER
+        description: ''
+        name: CASE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '3'
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-001b-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ''
+        name: CASE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''RECORDS THAT EXISTS ESIS AND GB AND HAVING THE SAME ACA_DATE_UPDATED'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-001c-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: NUMBER
+        description: ''
+        name: ACA_SOURCE_SYSTEM_ID_WINNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b4c6e8a-001a-4e5a-9c7b-3a1d5f8c2e4b
+                stepCounter: 2b4c6e8a-d1f3-4e5a-9c7b-3a1d5f8c2e4b
+            transform: GB.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-001d-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ''
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-001e-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''SPACA_ACA_PAYEE_STAGING_INSERT'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-001f-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ''
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-0020-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR(100)
+        description: ''
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''SPACA_ACA_PAYEE_STAGING_INSERT'''
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ESIS: ESIS
+          GB: GB
+        customSQL:
+          customSQL: ''
+        dependencies:
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_PAYEE_GB
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_PAYEE_ESIS
+          - locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+            nodeName: ACA_PAYEE
+        join:
+          joinCondition: "FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_PAYEE_GB')\
+            \ }} AS GB\nINNER JOIN {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_PAYEE_ESIS')\
+            \ }} AS ESIS\n  ON GB.SOURCE_SYSTEM_PAYEE_ID = ESIS.SOURCE_SYSTEM_PAYEE_ID\n\
+            \  AND GB.ACA_DATE_UPDATED = ESIS.ACA_DATE_UPDATED\nWHERE GB.ACA_PAYEE_GB_ID\
+            \ <> -1\n  AND ESIS.ACA_PAYEE_ESIS_ID <> -1\n  AND GB.ACA_DATE_UPDATED\
+            \ > (\n    SELECT COALESCE(MAX(ACA_DATE_UPDATED), CAST('1776-07-04 00:00:00.000'\
+            \ AS TIMESTAMP_NTZ))\n    FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_PAYEE')\
+            \ }}\n    WHERE ACA_PAYEE_ID <> -1\n  )\n  AND ESIS.ACA_DATE_UPDATED >\
+            \ (\n    SELECT COALESCE(MAX(ACA_DATE_UPDATED), CAST('1776-07-04 00:00:00.000'\
+            \ AS TIMESTAMP_NTZ))\n    FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_PAYEE')\
+            \ }}\n    WHERE ACA_PAYEE_ID <> -1\n  )"
+        name: STG_PAYEE_CASE3
+        noLinkRefs: []
+  overrideSQL: false
+  schema: ''
+  sqlType: Stage
+  version: 1
