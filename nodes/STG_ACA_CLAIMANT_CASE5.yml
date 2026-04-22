@@ -114,7 +114,7 @@ operation:
           - columnReferences:
               - columnCounter: 81d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c07
                 stepCounter: e2c70220-4ea5-4            
-              transform: GB.FIRST_NAME_ENCRYPTED
+            transform: GB.FIRST_NAME_ENCRYPTED
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 51d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c08
