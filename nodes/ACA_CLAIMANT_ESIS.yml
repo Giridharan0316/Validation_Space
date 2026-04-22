@@ -1,0 +1,574 @@
+fileVersion: 1
+id: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+name: ACA_CLAIMANT_ESIS
+type: Node
+operation:
+  name: ACA_CLAIMANT_ESIS
+  type: sourceInput
+  database: ''
+  deployEnabled: true
+  description: ''
+  locationName: ALLIANT_CLAIMS_ASTRUS_DBO
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: BINARY(16)
+        defaultValue: ''
+        description: ''
+        name: SOURCE_SYSTEM_CLAIMANT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_EMPLOYMENT_STATUS_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_MARITAL_STATUS_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(12)
+        defaultValue: ''
+        description: ''
+        name: CLAIMANT_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c5_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: BINARY(8000)
+        defaultValue: ''
+        description: ''
+        name: CLAIMANT_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: BINARY(8000)
+        defaultValue: ''
+        description: ''
+        name: LAST_NAME_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: BINARY(8000)
+        defaultValue: ''
+        description: ''
+        name: FIRST_NAME_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: BINARY(8000)
+        defaultValue: ''
+        description: ''
+        name: ORGANIZATION_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: BINARY(8000)
+        defaultValue: ''
+        description: ''
+        name: ADDRESS_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c10_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ''
+        description: ''
+        name: CITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c11_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ''
+        description: ''
+        name: STATE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c12_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: CHAR(3)
+        defaultValue: ''
+        description: ''
+        name: COUNTRY_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c13_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(11)
+        defaultValue: ''
+        description: ''
+        name: ZIP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c14_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: NUMBER(3,0)
+        defaultValue: ''
+        description: ''
+        name: AGE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c15_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: CHAR(1)
+        defaultValue: ''
+        description: ''
+        name: GENDER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c16_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: BINARY(8000)
+        defaultValue: ''
+        description: ''
+        name: SSN_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c17_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: NUMBER(19,2)
+        defaultValue: ''
+        description: ''
+        name: AVERAGE_WEEKLY_WAGE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c18_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(4)
+        defaultValue: ''
+        description: ''
+        name: NCCI_JOB_CLASSIFICATION_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c19_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: LENGTH_OF_SERVICE_IN_YEAR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c20_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: BINARY(8000)
+        defaultValue: ''
+        description: ''
+        name: PHONE_ENCRYPTED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c21_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: DATE
+        defaultValue: ''
+        description: ''
+        name: HIRE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c22_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: CHAR(1)
+        defaultValue: ''
+        description: ''
+        name: EMPLOYMENT_STATUS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c23_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(30)
+        defaultValue: ''
+        description: ''
+        name: EMPLOYMENT_STATUS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c24_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: DATE
+        defaultValue: ''
+        description: ''
+        name: BIRTH_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c25_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: CHAR(1)
+        defaultValue: ''
+        description: ''
+        name: MARITAL_STATUS_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c26_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(30)
+        defaultValue: ''
+        description: ''
+        name: MARITAL_STATUS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c27_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ''
+        description: ''
+        name: OCCUPATION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c28_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: VARCHAR(20)
+        defaultValue: ''
+        description: ''
+        name: EMPLOYEE_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c29_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c30_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ''
+        description: ''
+        name: ACA_CLAIMANT_ESIS_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c31_7b4a0f32
+          stepCounter: 7b4a0f32-1c6d-5e9f-0a8b-2c4d6e8f0a2b
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ''
+        description: ''
+        name: ACA_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ''
+        uniqueKey: false
+  schema: ''
+  sqlType: Source
+  version: 1
