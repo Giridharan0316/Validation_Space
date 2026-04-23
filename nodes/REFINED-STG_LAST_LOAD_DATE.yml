@@ -1,0 +1,56 @@
+fileVersion: 1
+id: 4b8e1a7f-d4e5-7f6a-b8c9-3d4e5f6a7b8c
+name: STG_LAST_LOAD_DATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a1b2c3d-1111-4a5b-6c7d-8e9f0a1b2c3d
+          stepCounter: 4b8e1a7f-d4e5-7f6a-b8c9-3d4e5f6a7b8c
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: LASTLOADDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a1b2c3d-2222-4a5b-6c7d-8e9f0a1b2c3d
+                stepCounter: 3a7d0f6e-c3d4-6e5f-a7b8-2c3d4e5f6a7b
+            transform: COALESCE(MAX(P.ACA_DATE_UPDATED), CAST('1776-07-04 00:00:00.000' AS TIMESTAMP_NTZ))
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          P: 3a7d0f6e-c3d4-6e5f-a7b8-2c3d4e5f6a7b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ALLIANT_CLAIMS_ASTRUS
+            nodeName: ACA_POLICY
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ALLIANT_CLAIMS_ASTRUS', 'ACA_POLICY') }} AS P
+            WHERE P.ACA_POLICY_ID <> -1
+        name: STG_LAST_LOAD_DATE
+        noLinkRefs: []
+  name: STG_LAST_LOAD_DATE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
