@@ -1,0 +1,136 @@
+fileVersion: 1
+id: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+name: PSTG_SPAO_AO_RESPONSE_FEED_STAGING_UPDATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          USE DATABASE ALLIANT_ONE;
+          UPDATE ALLIANT_ONE.STG.AO_RESPONSE_FEED_STAGING AS s
+          SET
+              dw_client_id = source.new_dw_client_id,
+              dw_policy_id = source.new_dw_policy_id,
+              sf_account_owner_id = source.new_sf_account_owner_id
+          FROM (
+              SELECT
+                  s_inner.Epic_UniqPolicy,
+                  s_inner.Epic_Client_Lookup_Code,
+                  s_inner.SFAcctID,
+                  COALESCE(cc.dw_client_id, -1) AS new_dw_client_id,
+                  COALESCE(pc.dw_policy_id, -1) AS new_dw_policy_id,
+                  sa.OwnerId AS new_sf_account_owner_id
+              FROM ALLIANT_ONE.STG.AO_RESPONSE_FEED_STAGING AS s_inner
+              LEFT JOIN ALLIANT_DW.DBO.DW_POLICY_CURRENT AS pc
+                  ON TO_VARCHAR(s_inner.Epic_UniqPolicy ) = pc.source_system_policy_id
+                  AND pc.source_system = 'EPIC'
+              LEFT JOIN ALLIANT_DW.DBO.DW_CLIENT_CURRENT AS cc
+                  ON s_inner.Epic_Client_Lookup_Code = cc.lookup_code
+              LEFT JOIN ALLIANT_DW.REF.SALESFORCE_ACCOUNT AS sa
+                  ON s_inner.SFAcctID = sa.Id
+          ) AS source
+          WHERE
+              EQUAL_NULL(s.Epic_UniqPolicy, source.Epic_UniqPolicy)
+              AND EQUAL_NULL(s.Epic_Client_Lookup_Code, source.Epic_Client_Lookup_Code)
+              AND EQUAL_NULL(s.SFAcctID, source.SFAcctID);
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ALLIANT_ONE_DBO
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c24d5842-ab85-5c93-bbdf-234567890123
+          stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(1 AS NUMBER(38,0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d35e6953-bc96-6da4-cce0-345678901234
+          stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(TRUE AS BOOLEAN)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e46f7a64-cd07-7eb5-ddf1-456789012345
+          stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5708b75-de18-8fc6-ee02-567890123456
+          stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06819c86-ef29-90d7-ff13-678901234567
+          stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1792ad97-f03a-a1e8-0024-789012345678
+          stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: PSTG_SPAO_AO_RESPONSE_FEED_STAGING_UPDATE
+        noLinkRefs: []
+  name: PSTG_SPAO_AO_RESPONSE_FEED_STAGING_UPDATE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
