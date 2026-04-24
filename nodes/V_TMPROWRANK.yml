@@ -1,0 +1,126 @@
+fileVersion: 1
+id: 5938d821-2a1c-4b5c-8b89-5a82260f8983
+name: V_TMPROWRANK
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ''
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8b86d9a0-f8d9-4b6c-8a21-9d10e6a8e31a
+        stepCounter: 5938d821-2a1c-4b5c-8b89-5a82260f8983
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: GUID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0ae8094f-e53c-41c6-a603-1f9d0e8e9e74
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.GUID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d3637e1c-5d6b-4395-950c-e2f7b8d4f04c
+        stepCounter: 5938d821-2a1c-4b5c-8b89-5a82260f8983
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLAIMNUMBER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 5b94e645-4896-4901-b0a2-36a9f8f53681
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.CLAIMNUMBER
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5c851722-38d5-45a7-94d0-a03577d61245
+        stepCounter: 5938d821-2a1c-4b5c-8b89-5a82260f8983
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLAIMNUMBERSUFFIX
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 2d7ae59f-b708-42af-8579-1fa058746a12
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.CLAIMNUMBERSUFFIX
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9a781d4a-a032-4d1d-91d1-6b8969b43d3e
+        stepCounter: 5938d821-2a1c-4b5c-8b89-5a82260f8983
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: HASHSUM
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d473476d-f4cc-44c8-84e3-2ba95f3e24e4
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.HASHSUM
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d39e3f11-739c-4e31-9e8a-8e2b8655e8c1
+        stepCounter: 5938d821-2a1c-4b5c-8b89-5a82260f8983
+      config: {}
+      dataType: BINARY
+      description: ''
+      name: RECORDHASHBYTE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 825eafcc-baf7-4fa4-95ef-0d651abab92e
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.RECORDHASHBYTE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f317585a-8b8b-4a87-8c3b-2856f6c9d2c2
+        stepCounter: 5938d821-2a1c-4b5c-8b89-5a82260f8983
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: ROWRANK
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0ae8094f-e53c-41c6-a603-1f9d0e8e9e74
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        - columnCounter: d473476d-f4cc-44c8-84e3-2ba95f3e24e4
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: ROW_NUMBER() OVER(PARTITION BY S.GUID ORDER BY S.HASHSUM DESC)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        s: s
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: DBSHIFT
+        nodeName: AO_CLAIM_STAGING
+      join:
+        joinCondition: FROM {{ ref('DBSHIFT', 'AO_CLAIM_STAGING') }} "S"
+      name: V_TMPROWRANK
+      noLinkRefs: []
+  name: V_TMPROWRANK
+  overrideSQL: false
+  schema: ''
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
