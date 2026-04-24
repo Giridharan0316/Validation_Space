@@ -1012,7 +1012,7 @@ operation:
       - columnReferences:
         - columnCounter: a6315264-b9c1-4712-a8c3-294b631d8e13
           stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
-      transform: SRC.DW_CLIENT_ID
+        transform: SRC.DW_CLIENT_ID
     - appliedColumnTests: {}
       columnReference:
         columnCounter: 42cf41e8-3a9d-478a-a9f8-85473fc34526
