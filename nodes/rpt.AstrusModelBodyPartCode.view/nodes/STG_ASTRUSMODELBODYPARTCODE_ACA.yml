@@ -1,0 +1,68 @@
+fileVersion: 1
+id: 0310e572-c0e8-4682-8c10-520e588eb7e3
+name: STG_ASTRUSMODELBODYPARTCODE_ACA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b13c4731-9f9f-43b6-81c0-2e452179b29d
+        stepCounter: 0310e572-c0e8-4682-8c10-520e588eb7e3
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PART_OF_BODY_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 295083b7-bfee-4405-b16f-e27d635d2715
+          stepCounter: a02db04c-8d48-4edc-83a3-cd7f3460574a
+        transform: S.PART_OF_BODY_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2f741d4c-1d57-41ef-8d8a-98de5cf54868
+        stepCounter: 0310e572-c0e8-4682-8c10-520e588eb7e3
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PART_OF_BODY
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 435935e7-2fc4-4019-b916-396683d2f5a8
+          stepCounter: a02db04c-8d48-4edc-83a3-cd7f3460574a
+        transform: S.DESCRIPTION
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        ACA_BODY_PART_CODE: S
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: SRC-ASTRUS
+        nodeName: ACA_BODY_PART_CODE
+      join:
+        joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_BODY_PART_CODE') }} AS S
+      name: STG_ASTRUSMODELBODYPARTCODE_ACA
+      noLinkRefs: []
+  name: STG_ASTRUSMODELBODYPARTCODE_ACA
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
