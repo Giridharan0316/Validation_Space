@@ -1,0 +1,202 @@
+fileVersion: 1
+id: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+name: STG_TMP_CONTROL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 4f5a6b7c-6677-4d9e-1515-f5a6b7c8d9e0
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLAIM_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: efa1b675-eb4b-45c6-942e-4e3b33199672
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.CLAIM_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5a6b7c8d-7788-4eaf-2626-a6b7c8d9e0f1
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: PAID_MEDICAL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: fa6b84cc-893e-4370-a6c2-2ecd97621c99
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.PAID_MEDICAL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6b7c8d9e-8899-4fba-3737-b7c8d9e0f1a2
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: PAID_EXPENSE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 1aabe348-9c00-42e4-8aba-e087b6015d17
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.PAID_EXPENSE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7c8d9e0f-9900-4acb-4848-c8d9e0f1a2b3
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: PAID_COMP
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 1b3e0d2b-23a2-4d80-82ec-33882d42f5a1
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.PAID_COMP
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8d9e0f1a-0011-4bcc-5959-d9e0f1a2b3c4
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: RES_MEDICAL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: dad79dc0-f898-4398-b24c-f88729bf17df
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.RES_MEDICAL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9e0f1a2b-1122-4cdd-6a6a-e0f1a2b3c4d5
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: RES_EXPENSE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 87fe6413-0e59-414b-9b29-ed49280230a7
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.RES_EXPENSE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f1a2b3c-2233-4dee-7b7b-f1a2b3c4d5e6
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: RES_COMP
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: e6e3ab80-d62b-4758-a111-9a6bcd1b17d2
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.RES_COMP
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 1a2b3c4d-3344-4eff-8c8c-a2b3c4d5e6f7
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: RECOVERY
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: b23f5167-95cb-49b7-889b-bf2ce715f7b3
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.RECOVERY
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2b3c4d5e-4455-4f0a-9d9d-b3c4d5e6f7a8
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: PAID_TOTAL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: fa6b84cc-893e-4370-a6c2-2ecd97621c99
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        - columnCounter: 1aabe348-9c00-42e4-8aba-e087b6015d17
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        - columnCounter: 1b3e0d2b-23a2-4d80-82ec-33882d42f5a1
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: CAST(S.PAID_MEDICAL + S.PAID_EXPENSE + S.PAID_COMP AS NUMBER(19,2))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 3c4d5e6f-5566-4a1b-aeae-c4d5e6f7a8b9
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: RES_TOTAL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: dad79dc0-f898-4398-b24c-f88729bf17df
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        - columnCounter: 87fe6413-0e59-414b-9b29-ed49280230a7
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        - columnCounter: e6e3ab80-d62b-4758-a111-9a6bcd1b17d2
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: CAST(S.RES_MEDICAL + S.RES_EXPENSE + S.RES_COMP AS NUMBER(19,2))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 4d5e6f7a-6677-4b2c-bfbf-d5e6f7a8b9c0
+        stepCounter: 8d9e0f1a-8899-4b2c-e2e1-9e0f1a2b3c4d
+      config: {}
+      dataType: NUMBER(19,2)
+      description: ''
+      name: RECOVERY_TOTAL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: b23f5167-95cb-49b7-889b-bf2ce715f7b3
+          stepCounter: 179d8a29-1815-4884-9077-deb4a1adacff
+        transform: S.RECOVERY
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        ACA_CONTROL_STAGING_ESIS: S
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: SRC-ASTRUS
+        nodeName: ACA_CONTROL_STAGING_ESIS
+      join:
+        joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_CONTROL_STAGING_ESIS') }} "S"
+      name: STG_TMP_CONTROL
+      noLinkRefs: []
+  name: STG_TMP_CONTROL
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
