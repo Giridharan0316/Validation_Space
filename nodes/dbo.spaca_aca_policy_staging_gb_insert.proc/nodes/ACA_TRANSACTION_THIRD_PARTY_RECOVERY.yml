@@ -1,0 +1,111 @@
+fileVersion: 1
+id: d7e7041a-9694-4d8b-bdc1-5c8e4f1a2b3c
+name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+operation:
+  database: AUS_DEV_RAW
+  deployEnabled: true
+  description: ''
+  locationName: SRC-ASTRUS
+  metadata:
+    columns:
+    - acceptedValues:
+        strictMatch: true
+        values: []
+      appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9c0b1e2f-3d4a-4b5c-8d9e-1f2a3b4c5d6e
+        stepCounter: d7e7041a-9694-4d8b-bdc1-5c8e4f1a2b3c
+      config: {}
+      dataType: VARCHAR(30)
+      defaultValue: ''
+      description: ''
+      name: POLICY_NUMBER30
+      nullable: true
+      primaryKey: false
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: ''
+      uniqueKey: false
+    - acceptedValues:
+        strictMatch: true
+        values: []
+      appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8b1c2d3e-4f5a-4b6c-9d8e-2f3a4b5c6d7e
+        stepCounter: d7e7041a-9694-4d8b-bdc1-5c8e4f1a2b3c
+      config: {}
+      dataType: DATE
+      defaultValue: ''
+      description: ''
+      name: POLICY_EFFECTIVE_DATE
+      nullable: true
+      primaryKey: false
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: ''
+      uniqueKey: false
+    - acceptedValues:
+        strictMatch: true
+        values: []
+      appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7a2b3c4d-5e6f-4a7b-8c9d-3f4a5b6c7d8e
+        stepCounter: d7e7041a-9694-4d8b-bdc1-5c8e4f1a2b3c
+      config: {}
+      dataType: DATE
+      defaultValue: ''
+      description: ''
+      name: POLICY_EXPIRATION_DATE
+      nullable: true
+      primaryKey: false
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: ''
+      uniqueKey: false
+    - acceptedValues:
+        strictMatch: true
+        values: []
+      appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6b3c4d5e-6f7a-4b8c-9d8e-4f5a6b7c8d9e
+        stepCounter: d7e7041a-9694-4d8b-bdc1-5c8e4f1a2b3c
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      defaultValue: ''
+      description: ''
+      name: ACA_DATE_UPDATED
+      nullable: true
+      primaryKey: false
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: ''
+      uniqueKey: false
+    - acceptedValues:
+        strictMatch: true
+        values: []
+      appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5c4d5e6f-7a8b-4c9d-8e9f-5a6b7c8d9e0f
+        stepCounter: d7e7041a-9694-4d8b-bdc1-5c8e4f1a2b3c
+      config: {}
+      dataType: DATE
+      defaultValue: ''
+      description: ''
+      name: THIRD_PARTY_RECOVERY_TRANSACTION_DATE
+      nullable: true
+      primaryKey: false
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: ''
+      uniqueKey: false
+  name: ACA_TRANSACTION_THIRD_PARTY_RECOVERY
+  schema: SNAPSHOT
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

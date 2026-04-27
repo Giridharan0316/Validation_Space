@@ -1,0 +1,158 @@
+fileVersion: 1
+id: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+name: STG_ACA_POLICY_STAGING_GB
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5d4d3c2b-1a0f-4b7c-8d9e-0f1a2b3c4d5e
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SOURCE_SYSTEM_POLICY_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 2c3c2b40-f5a4-4e9d-a02b-7c8d9e0f1a2b
+          stepCounter: 3b2b1a31-e4f3-4d8e-9f1a-6b7c8d9e0f1a
+        - columnCounter: 3d4d3c5f-a6b5-4f8c-b13c-8d9e0f1a2b3c
+          stepCounter: 3b2b1a31-e4f3-4d8e-9f1a-6b7c8d9e0f1a
+        transform: MD5(OBJECT_CONSTRUCT('policy_number', T.POLICY_NUMBER, 'effective_date', T.POLICY_EFFECTIVE_DATE)::STRING)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6e5e4d3c-2b1a-4c8d-9e0f-1a2b3c4d5e6f
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: VARCHAR(30)
+      description: ''
+      name: POLICY_NUMBER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 2c3c2b40-f5a4-4e9d-a02b-7c8d9e0f1a2b
+          stepCounter: 3b2b1a31-e4f3-4d8e-9f1a-6b7c8d9e0f1a
+        transform: T.POLICY_NUMBER
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7f6f5e4d-3c2b-4d9e-a01a-2b3c4d5e6f7a
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: DATE
+      description: ''
+      name: EFFECTIVE_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 3d4d3c5f-a6b5-4f8c-b13c-8d9e0f1a2b3c
+          stepCounter: 3b2b1a31-e4f3-4d8e-9f1a-6b7c8d9e0f1a
+        transform: T.POLICY_EFFECTIVE_DATE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8a7a6f5e-4d3c-4e8d-b12b-3c4d5e6f7a8b
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: DATE
+      description: ''
+      name: EXPIRATION_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 4e5e4d6e-b7c6-4e7b-c24d-9e0f1a2b3c4d
+          stepCounter: 3b2b1a31-e4f3-4d8e-9f1a-6b7c8d9e0f1a
+        transform: MAX(T.POLICY_EXPIRATION_DATE)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9b8b7a6f-5e4d-4f7c-c23c-4d5e6f7a8b9c
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: INT
+      description: ''
+      name: ACA_SOURCE_SYSTEM_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 82983634-86a9-4ea3-a0e2-d977935aa6b7
+          stepCounter: 253a155f-129a-4ff2-bfa4-96fbac65a041
+        transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: ac9c8b7a-6f5e-4e6b-d34d-5e6f7a8b9c0d
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: ACA_DATE_CREATED
+      nullable: true
+      sourceColumnReferences: []
+      transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: bdada98b-7a6f-4f5a-e45e-6f7a8b9c0d1e
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_CREATE_USER
+      nullable: true
+      sourceColumnReferences: []
+      transform: '''dbo.spaca_aca_policy_staging_gb_insert'''
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: cebbba9c-8b7a-4e49-f56f-7a8b9c0d1e2f
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: ACA_DATE_UPDATED
+      nullable: true
+      sourceColumnReferences: []
+      transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: dfccbba9-9c8b-4d38-0670-8b9c0d1e2f30
+        stepCounter: 4c3c2b1a-0f9e-4a6b-7c8d-9e0f1a2b3c4d
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_UPDATE_USER
+      nullable: true
+      sourceColumnReferences: []
+      transform: '''dbo.spaca_aca_policy_staging_gb_insert'''
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        STG_TEMP_GB_POLICY_COMBINED: T
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: ASTRUS-PRESENTATION
+        nodeName: STG_TEMP_GB_POLICY_COMBINED
+      - locationName: SRC-ASTRUS
+        nodeName: ACA_SOURCE_SYSTEM
+      join:
+        joinCondition: FROM {{ ref('ASTRUS-PRESENTATION', 'STG_TEMP_GB_POLICY_COMBINED') }} "T" GROUP BY T.POLICY_NUMBER, T.POLICY_EFFECTIVE_DATE
+      name: STG_ACA_POLICY_STAGING_GB
+      noLinkRefs: []
+  name: STG_ACA_POLICY_STAGING_GB
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
