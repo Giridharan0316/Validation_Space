@@ -1,0 +1,120 @@
+fileVersion: 1
+id: 610b9f5e-1a52-4e89-9831-29e18147d3d3
+name: DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: "BEGIN\nUSE ALLIANT_CLAIMS_ASTRUS;\nUPDATE ALLIANT_CLAIMS_ASTRUS.DBO.ACA_PAYMENT_TRANSACTION AS P\nSET\n    ACA_CLAIM_ID = C.ACA_CLAIM_ID,\n    ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),\n    ACA_UPDATE_USER = 'dbo.spaca_aca_payment_transaction_update'\nFROM\n    ALLIANT_CLAIMS_ASTRUS.DBO.ACA_CLAIM AS C\nWHERE\n    C.SOURCE_SYSTEM_CLAIM_ID = P.SOURCE_SYSTEM_CLAIM_ID\n    AND P.ACA_CLAIM_ID = -1\n    AND P.SOURCE_SYSTEM_CLAIM_ID IS NOT NULL;\nEND;"
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_payment_transaction_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f2b6e1a-4d7c-48b9-8c9f-3e1a0d8c1b5a
+        stepCounter: 610b9f5e-1a52-4e89-9831-29e18147d3d3
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_PAYMENT_TRANSACTION_KEY
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: ''''''
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9c8d7b6a-5e4f-4a3b-9c8d-7e6f5d4c3b2a
+        stepCounter: 610b9f5e-1a52-4e89-9831-29e18147d3d3
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: SYSTEM_VERSION
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: '1'
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8b7c6a5b-4d3c-4b2a-8b7c-6a5b4d3c2a1b
+        stepCounter: 610b9f5e-1a52-4e89-9831-29e18147d3d3
+      config: {}
+      dataType: BOOLEAN
+      description: ''
+      name: SYSTEM_CURRENT_FLAG
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: 'TRUE'
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7a6b5c4d-3c2b-4c1a-7a6b-5c4d3b2a1a0a
+        stepCounter: 610b9f5e-1a52-4e89-9831-29e18147d3d3
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: SYSTEM_START_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6f5e4d3c-2b1a-4d9f-6f5e-4d3c2b1a0a9f
+        stepCounter: 610b9f5e-1a52-4e89-9831-29e18147d3d3
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: SYSTEM_END_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: CAST(NULL AS TIMESTAMP)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5e4d3c2b-1a0f-4e8e-5e4d-3c2b1a0f9e8d
+        stepCounter: 610b9f5e-1a52-4e89-9831-29e18147d3d3
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: SYSTEM_CREATE_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 4d3c2b1a-0f9e-4f7d-4d3c-2b1a0f9e8d7c
+        stepCounter: 610b9f5e-1a52-4e89-9831-29e18147d3d3
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: SYSTEM_UPDATE_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  name: DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBO
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

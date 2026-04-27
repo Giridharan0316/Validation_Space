@@ -1,0 +1,256 @@
+fileVersion: 1
+id: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+name: ACA_RESERVE_TRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: "BEGIN\n  DELETE FROM ALLIANT_CLAIMS_ASTRUS.DBO.ACA_RESERVE_TRANSACTION\n  WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('DBSHIFT', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')\n  AND TRANSACTION_DATE IN (SELECT TRANSACTION_DATE\n                           FROM {{ ref('DBSHIFT', 'ACA_RESERVE_TRANSACTION_STAGING_GB') }}\n                           GROUP BY TRANSACTION_DATE);\nEND;"
+    testsEnabled: true
+    truncateBefore: false
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 47999818-40a8-44de-9e4a-4ffbd20c8f18
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SOURCE_SYSTEM_RESERVE_TRANSACTION_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c0516262-cb32-4e0d-9afa-904719cd97d8
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.SOURCE_SYSTEM_RESERVE_TRANSACTION_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a46b6c2c-a05e-4c78-b12e-15f5d02316e6
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: ACA_CLAIM_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 1d1402ee-f4ab-4b3c-8c64-8a5a4fb877a6
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.ACA_CLAIM_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b57ac68f-ac8d-4f18-a6d5-e55c65a31a98
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: ACA_RESERVE_TYPE_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 14eae9ed-33c1-4a94-8111-9e9bee75a9b1
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.ACA_RESERVE_TYPE_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b6a5be7f-8547-49d9-b6b8-6c39f041ff2f
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: ACA_POLICY_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 585e23ed-59df-4547-814c-626c669b56ab
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.ACA_POLICY_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c022a10d-2b47-4e6f-a63e-32420f17cc39
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: ACA_DATE_ID_TRANSACTION_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: f8b93cae-5594-455f-a15d-0d25a13a1748
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.ACA_DATE_ID_TRANSACTION_DATE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d16629a8-e160-49e0-84c8-47201c40b8a4
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SOURCE_SYSTEM_CLAIM_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 4955e0a3-a5b9-43d0-8ae3-18759142a722
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.SOURCE_SYSTEM_CLAIM_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f2b604e-e175-40b9-8260-6b6f3764b868
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: TRANSACTION_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: ed897cf1-6d94-4c2f-84c9-87cd0ade958d
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.TRANSACTION_DATE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f31e7d2d-20d0-47e0-b6f7-c5332f1704e9
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: TRANSACTION_SEQUENCE_NUMBER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 2ca1d72b-c859-4dee-b5f9-e0e7a364713c
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.TRANSACTION_SEQUENCE_NUMBER
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c0c6de14-f5f0-4660-8488-8422e8d2645c
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: COVERAGE_GROUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: e94a1e8a-3586-4ce5-9fd4-bda57312394b
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.COVERAGE_GROUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 97f39420-7f28-4ef7-86f7-e7e0e7a57a57
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: RESERVE_TYPE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 67e490ea-2f6a-44b3-ae99-43b699f05a47
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.RESERVE_TYPE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 323315a4-56b9-46be-a764-16a7605d3923
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: NUMBER(38,2)
+      description: ''
+      name: RESERVE_AMOUNT
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 51cd88e5-71de-425c-8d41-98f17e101457
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.RESERVE_AMOUNT
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5210bd3a-a162-4318-86d3-98282df58145
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: ACA_SOURCE_SYSTEM_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 603c7de8-f6a8-4cff-93ad-b17d5252b9bb
+          stepCounter: 10239b66-2660-4c87-aa4b-6acb2efaace6
+        transform: SRC.ACA_SOURCE_SYSTEM_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 03254921-2f3b-488f-a952-b4c4ab3a71b4
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: ACA_DATE_CREATED
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 1a9f1479-7dd2-4eb3-b26a-8b832b4969fd
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_CREATE_USER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: '''DBO.SPACA_ACA_RESERVE_TRANSACTION_GB_DELETEINSERT'''
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f7d19a31-97b7-4b52-b9e7-f07613768233
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: ACA_DATE_UPDATED
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 42247f9f-7bd4-44b4-8250-717904481d8c
+        stepCounter: 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_UPDATE_USER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: '''DBO.SPACA_ACA_RESERVE_TRANSACTION_GB_DELETEINSERT'''
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        ACA_RESERVE_TRANSACTION_STAGING_GB: SRC
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: DBSHIFT
+        nodeName: ACA_RESERVE_TRANSACTION_STAGING_GB
+      join:
+        joinCondition: FROM {{ ref('DBSHIFT', 'ACA_RESERVE_TRANSACTION_STAGING_GB') }} "SRC"
+      name: ACA_RESERVE_TRANSACTION
+      noLinkRefs: []
+  name: ACA_RESERVE_TRANSACTION
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,340 @@
+fileVersion: 1
+id: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+name: ACA_PYRAMID
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f2b2b1d-c914-419b-b27b-58673f4b4c73
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: LEVEL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: e2104de1-5836-4500-ae3a-11de6ab39dee
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING."LEVEL"
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2d1ab5a7-47b8-4c6e-8120-1e5f58c7e6c9
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: UNIT_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 3fb0f8f2-a528-4f73-8897-8a6faf3858f9
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.UNIT_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: ed1f200c-3965-4f40-8b2b-0728c505315b
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: STATUS
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 514cfab6-dc14-484f-bbcb-26f9dcc4f808
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING."STATUS"
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: caa0740b-4786-455c-a548-7096e1b60882
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: UNIT_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: be6cb1fc-ef6b-441f-a34e-8c62487ff428
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.UNIT_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b5635848-18e5-4f7f-8567-8858e92f2c25
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ADDRESS_1
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 92da6e93-c1ba-43a2-8106-bcdf8cfdf641
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.ADDRESS_1
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 3fdc6bb7-b08e-4a6c-9473-b3eb22199b0c
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ADDRESS_2
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 504073f9-bfe5-4a45-8715-3eb213b30fec
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.ADDRESS_2
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c0651842-8c17-48f8-b397-ff08381dd00e
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ADDRESS_3
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c9607faf-c568-4077-a405-292806ded7dc
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.ADDRESS_3
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b5122ab6-5743-4e4b-97fa-47c3ab944b2c
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CITY
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: e2ac6b8c-4a90-4dea-a11f-6cc261d9963d
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.CITY
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2d141e97-1588-4679-b88a-36427d14210e
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: STATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c0c4a537-d2e5-4e26-b812-b8436b74af86
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING."STATE"
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 3a2c5a24-9b88-4e8c-a110-8b1b36df86e5
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: POSTAL_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 8ac06275-aeb6-40af-a0fb-2fb1a18a35d7
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.POSTAL_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 33866d9f-a20c-4573-8a39-509bb231b54a
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: INSURED
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0503068b-7f5d-4a23-a805-7f90f58cb58f
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.INSURED
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7c02b212-094d-44a6-9bd6-2c9ff506822c
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SUBSIDIARY
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d6f06c68-c799-4978-a404-ec1a8fc7e4d2
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.SUBSIDIARY
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e82e0c2f-e8b3-4676-9d22-ddce33fd1078
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: LOCATION
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: ac8aa3be-00ab-4dfa-b70f-c15e1995d61a
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING."LOCATION"
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7d6c7031-64d1-4da2-8a9d-16fce1687d60
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLIENT
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 61d32b8b-bb74-4807-b38d-215b4eaf9380
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.CLIENT
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: ed1302fd-0acb-4c21-9e76-35cdb1d9c22e
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: DATE
+      description: ''
+      name: DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d1a3a274-68f4-43d7-89c0-d74384ee9a22
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: CAST(ACA_PYRAMID_STAGING."DATE" AS DATE)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c0e3006d-7614-46c5-afc7-542157796dce
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: LVLSEQ
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 83d413a3-a345-488d-a50b-7b21321df0f5
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.LVLSEQ
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f7234676-c567-48f0-bcf5-9018e6988225
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ASSOC
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 518527a9-16bf-4207-86a7-707660b00b27
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.ASSOC
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: cce2674e-5390-410a-b33c-3932e67610fd
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: LEVEL_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 8d4440ee-a779-4f1d-ad91-648687358621
+          stepCounter: b89fde41-c58c-4a06-a9a4-6967e56024a6
+        transform: ACA_PYRAMID_STAGING.LEVEL_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 14757c2e-436f-4a00-af60-038c3501f2fd
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: ACA_DATE_CREATED
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6331a1e7-a9a5-4303-bf6b-9c3f0c138f12
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_CREATE_USER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: '''spaca_aca_pyramid_insert'''
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 97970d47-66a7-471a-af89-da6b856b3b2a
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: ACA_DATE_UPDATED
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f4b361a-0e9f-4318-8428-5645e7e1f486
+        stepCounter: 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_UPDATE_USER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: '''spaca_aca_pyramid_insert'''
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        ACA_PYRAMID_STAGING: aca_pyramid_staging
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: DBSHIFT
+        nodeName: ACA_PYRAMID_STAGING
+      join:
+        joinCondition: FROM {{ ref('DBSHIFT', 'ACA_PYRAMID_STAGING') }} "ACA_PYRAMID_STAGING"
+      name: ACA_PYRAMID
+      noLinkRefs: []
+  name: ACA_PYRAMID
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
