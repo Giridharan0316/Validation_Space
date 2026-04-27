@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-name: ACA_TRANSACTION_HEADER_STAGING
+id: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+name: PLANNING_FCCS_CLIENT
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: SRC-ASTRUS
+  locationName: SRC-CLAIMS
   metadata:
     columns:
       - acceptedValues:
@@ -13,33 +13,14 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 37fea6b3-40ad-43a6-99bb-a6eb51530561
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
+          columnCounter: fff04279-2104-459b-aab9-2e2c91b2e11a
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: ACA_TRANSACTION_HEADER_STAGING_ID
+        name: PLANNING_FCCS_CLIENT_ID
         nullable: false
-        primaryKey: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 85ef6086-c6cf-40b3-acce-65e227b17b48
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: ACTIVITY_FROM_YR
-        nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
@@ -51,165 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f9afb719-a160-498a-b373-3a5b4a5c312d
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: ACTIVITY_FROM_MO
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 19ceecfe-89fd-49d3-8720-663af24e7a07
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: ACTIVITY_FROM_DAY
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 157f8efc-aac5-4753-8d34-f5e128ef6d14
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: ACTIVITY_TO_YR
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: d0cf8f6c-8302-4149-8f2f-39713bc71db3
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: ACTIVITY_TO_MO
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 10f7462b-d76f-4938-81f9-6bcf753c98c6
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: ACTIVITY_TO_DAY
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: d4c159eb-05e3-484a-9a5d-4c77209d56bc
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: DATE
-        defaultValue: ""
-        description: ""
-        name: ACTIVITY_FROM_DATE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: a71ec1f6-fe41-4780-a863-f2b703f5ad57
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: DATE
-        defaultValue: ""
-        description: ""
-        name: ACTIVITY_TO_DATE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 9d472b39-05ab-4bca-a63d-d83c644bd34c
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: TIMESTAMP_NTZ(9)
-        defaultValue: ""
-        description: ""
-        name: ACA_DATE_CREATED
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 269350af-6177-4554-9f2d-99a4132fa868
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
+          columnCounter: 2f20275e-8740-4bf4-9c66-078afaa85895
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
         config: {}
         dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: ACA_CREATE_USER
+        name: PARENT_PLANNING_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -222,32 +51,32 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: e2f101cf-9554-413f-a321-e9cdacb0b8d6
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
-        config: {}
-        dataType: TIMESTAMP_NTZ(9)
-        defaultValue: ""
-        description: ""
-        name: ACA_DATE_UPDATED
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 759c1f36-fc53-4285-8f3f-2c2f3142b416
-          stepCounter: 13cafa94-92b9-4930-bbbc-b3c4e26604bf
+          columnCounter: c726d4ab-0c85-4b23-a358-09733359c31b
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
         config: {}
         dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: ACA_UPDATE_USER
+        name: PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 452fc4fe-971a-4b26-8c02-41c9d285a68f
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: CLIENT_NAME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -255,7 +84,254 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_TRANSACTION_HEADER_STAGING
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a50a054e-9b92-4886-95c6-20654f3efb37
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 14ad17f1-c550-439c-a19f-b107ec80111c
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(72)
+        defaultValue: ""
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92982238-ac70-4b4f-9c99-84db58babc9d
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc4c3b95-b903-4385-bd33-6efb37a8105a
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLIENT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00cb16d7-76fc-48cb-93c3-bc139863a089
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DW_CLIENT_MASTER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ccbcaf22-9e48-411f-adf2-c454d86afbe1
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 282c7901-479e-43b3-bf07-2fcc2348cc91
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb38d9d1-0da4-48d1-98db-3e96530c2a96
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(1)
+        defaultValue: ""
+        description: ""
+        name: CLIENT_STATUS_INDICATOR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a48e2b39-9af8-45e3-9923-b80bb2ca14c7
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(1)
+        defaultValue: ""
+        description: ""
+        name: CURRENT_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0babc20-f404-42f3-a500-2813ad6f27fc
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04b143dd-da2e-45ee-a4ab-672bb748d09a
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: DW_CREATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a6b246d-064b-40bc-b1e7-6b242fe3c461
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16a94738-1423-4375-bcdb-02e6bb5566b1
+          stepCounter: eb21e92f-1285-4847-a25b-9d2dc2672a4f
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: DW_UPDATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_CLIENT
   schema: ""
   sqlType: Source
   type: sourceInput

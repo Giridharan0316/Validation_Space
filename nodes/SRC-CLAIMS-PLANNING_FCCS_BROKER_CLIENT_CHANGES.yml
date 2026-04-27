@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 552198c5-97f0-463e-baaf-6095cf736a29
-name: ACA_ACCOUNT_STRUCTURE_GB_HISTORY
+id: 348bae50-e6e3-45ad-bad0-819b27e59320
+name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: SRC-ASTRUS
+  locationName: SRC-CLAIMS
   metadata:
     columns:
       - acceptedValues:
@@ -13,15 +13,15 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c21c99b5-10d7-4bc2-8c16-185aa13a44ba
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 8b7c4cfe-7a34-44bb-a055-ab5e473f997f
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: ACA_ACCOUNT_STRUCTURE_GB_ID
+        name: PLANNING_FCCS_BROKER_CLIENT_CHANGES_ID
         nullable: false
-        primaryKey: false
+        primaryKey: true
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 1f1ec4fd-c086-4bc6-913d-50b6769250f0
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 058c1ac4-da94-4054-9eb1-7475f5386a83
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
-        dataType: BINARY(16)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID
+        name: CHANGE_TYPE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,32 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 52d71dc1-a64b-4f43-90a7-aa4f873c618a
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
-        config: {}
-        dataType: VARCHAR(6)
-        defaultValue: ""
-        description: ""
-        name: CLIENT_NUMBER
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: b0476e70-5589-4608-b010-757c5e477724
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: a499c8c5-bbe4-46a9-8c16-6d8d8097eb14
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
         dataType: VARCHAR(20)
         defaultValue: ""
         description: ""
-        name: UNIT_ID
+        name: DIMENSION_TYPE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 65e098f4-11a5-4d1c-937a-f7775894ad8e
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 3182caf8-1e77-4f0f-91a2-9c04474f52c3
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
-        dataType: VARCHAR(20)
+        dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: SITE_NUMBER
+        name: PLANNING_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -108,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0391e2e4-6de5-4867-a098-edb09f70beb6
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 8342cce6-3e43-4f5b-a084-1a48f66d7795
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
-        dataType: VARCHAR(25)
+        dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: DIVISION_ID
+        name: LOOKUP_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -127,13 +108,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b4c40323-571b-4c95-8394-edb0a18d3f46
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 0ea66826-d693-4e99-ab3a-714fa6a34619
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
-        dataType: VARCHAR(250)
+        dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: DIVISION_NAME
+        name: SOURCE_SYSTEM
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -146,13 +127,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f4e1ceaf-f2d5-4774-87e5-f32619c2cb97
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 6df5e00a-9953-4bb6-b22d-e08b2be1ee78
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
-        dataType: VARCHAR(25)
+        dataType: VARCHAR(72)
         defaultValue: ""
         description: ""
-        name: SUBSIDIARY_ID
+        name: PLANNING_ALIAS
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -165,70 +146,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: db7dbbf9-cfce-4609-81bb-eedd655fa4f6
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
-        config: {}
-        dataType: VARCHAR(250)
-        defaultValue: ""
-        description: ""
-        name: SUBSIDIARY_NAME
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 00c2e6ab-ccf4-4a62-97e8-619766a62627
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
-        config: {}
-        dataType: VARCHAR(25)
-        defaultValue: ""
-        description: ""
-        name: LOCATION_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: e15d0e9d-4fef-4abb-a921-dbf67c22bb46
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
-        config: {}
-        dataType: VARCHAR(250)
-        defaultValue: ""
-        description: ""
-        name: LOCATION_NAME
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 4162145e-47f8-451a-9844-176b0c6ff77a
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 515ad2a9-6240-41a9-be25-0bf422a8970f
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: ACA_SOURCE_SYSTEM_ID
+        name: DW_BROKER_CLIENT_MASTER_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -241,13 +165,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 86df6828-f4c8-45da-9ccd-b0254c0ef60a
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 7a469fc4-2f7a-4d48-809e-dfb5e464f062
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
-        dataType: TIMESTAMP_NTZ(9)
+        dataType: VARCHAR(1)
         defaultValue: ""
         description: ""
-        name: ACA_DATE_CREATED
+        name: STATUS_INDICATOR
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -260,13 +184,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b85ff1e2-d2ff-4226-873c-cc22c81a237d
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: 7c61445d-d03b-4c54-9b0a-29eebd2e1aaf
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
         dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: ACA_CREATE_USER
+        name: ORIGINAL_PLANNING_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -279,32 +203,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 00d18338-c07f-4cc6-b356-5fe277aa152c
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
-        config: {}
-        dataType: TIMESTAMP_NTZ(9)
-        defaultValue: ""
-        description: ""
-        name: ACA_DATE_UPDATED
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: a7e45ba2-de83-4dc9-9295-a14286deea17
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: db6b9b5e-9c97-4a46-b1f1-9dceb70b24c8
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
         dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: ACA_UPDATE_USER
+        name: ORIGINAL_LOOKUP_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -317,14 +222,14 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b2f95946-8741-455d-919d-fb1061a219b4
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: c7492439-c87c-43ac-90ac-83b770a0fd12
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
-        dataType: TIMESTAMP_NTZ(9)
+        dataType: VARCHAR(72)
         defaultValue: ""
         description: ""
-        name: BEGIN_DATE
-        nullable: false
+        name: ORIGINAL_PLANNING_ALIAS
+        nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
@@ -336,21 +241,173 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c138a55b-2033-466b-98ad-0e247a376aae
-          stepCounter: 552198c5-97f0-463e-baaf-6095cf736a29
+          columnCounter: f8b33410-6714-4713-a108-9b25eac93789
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
         config: {}
-        dataType: TIMESTAMP_NTZ(9)
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: END_DATE
-        nullable: false
+        name: DW_BROKER_CLIENT_MASTER_ID_ORIGINAL
+        nullable: true
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
         transform: ""
         uniqueKey: false
-  name: ACA_ACCOUNT_STRUCTURE_GB_HISTORY
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 818f8868-34dd-4fff-b1ed-87f37c745145
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: BEGIN_POST_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43986f8d-1411-4593-b570-0e17c9184f84
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: END_POST_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cbfb2ec0-58d1-494a-9692-f9ac3ae22abe
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12214acb-997b-4e5f-80aa-f22d05bdf60a
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: DW_CREATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3150ecce-2e94-4da9-9c9c-a6170bb899fd
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_UPDATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: db1642b9-ff51-4db7-be99-f0ed66dd3795
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: DW_UPDATE_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: de5b27c0-e169-49b1-9e87-b16ac72928b1
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: PARENT_PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49868f33-6cae-4526-833c-d4f8f400a60b
+          stepCounter: 348bae50-e6e3-45ad-bad0-819b27e59320
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: ORIGINAL_PARENT_PLANNING_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: PLANNING_FCCS_BROKER_CLIENT_CHANGES
   schema: ""
   sqlType: Source
   type: sourceInput
