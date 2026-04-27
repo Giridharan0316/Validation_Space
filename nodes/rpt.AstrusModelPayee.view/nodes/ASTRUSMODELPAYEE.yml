@@ -1,0 +1,390 @@
+fileVersion: 1
+id: d769c8c7-4348-4389-9b97-15c01ac0526e
+name: ASTRUSMODELPAYEE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a634493e-2586-4444-933e-e64d7c6b412b
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_PAYEE_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: a210d83f-424e-4395-b1dc-8f951f67849f
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.ACA_PAYEE_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e3419356-655f-4a0b-8041-e945c85b57f0
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PAYEE_TYPE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: f02b2d32-b7cb-424c-a8d1-a77ab6b83df8
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.PAYEE_TYPE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c2e293a9-e2b2-4d1c-b035-1f9e29f8f3c7
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: PAYEE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 85a705d9-d649-45d2-8973-f72e0672fd55
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.PAYEE_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b57e491c-99d9-482f-87d3-f0274c4e7c72
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: LAST_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 5d6a5810-dc79-417c-b2e1-0d643c4a6ed9
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.LAST_NAME_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c1f66d21-f2f2-49d7-84a2-1d0f5c1d6b5e
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: FIRST_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0ff5a7d8-f8be-4ca8-9ad3-2eac9ce7465b
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.FIRST_NAME_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2d141e6e-c6e6-4299-bbd1-6c2e8e9e7b23
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: ORGANIZATION
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: ddae66c1-a47d-4e44-865c-91d53ff4b9c4
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.ORGANIZATION_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e8c67a7a-97a9-45f8-958a-8b1e4a1a5b4f
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: ADDRESS
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d04dd2c1-0aeb-4330-8ca4-cf95d9b7ecd8
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.ADDRESS_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b1e5f8b9-e4d3-455b-b9f1-d8c9a3b2b1e2
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CITY
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: e4e62d32-c0ac-48ac-8126-0e0eb26ead93
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.CITY
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 3a2c5b7c-c8e9-4e1b-b4a3-e2d1f0b9a8c7
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: STATE_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: bc20ca6c-f049-4f9c-ad79-27ea2e214d9c
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.STATE_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d9c8b7a6-3c2e-4b1a-8e9f-0c9b8a7d6e5f
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ZIP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: b670e9b2-206e-48a8-ae7d-fb847a8adef6
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.ZIP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2b1c4a5d-6e3f-4e2b-b1a4-c3d2e1f0b9a8
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: COUNTRY_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 83c2a9b2-64a0-4ab4-8e70-6d5dbf8f8648
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.COUNTRY_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f8e7d6c5-4b3a-4e2b-a1e4-d3c2b1a0f9e8
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: IRS_TAX_IDENTIFICATION_NUMBER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0455eef8-2838-4987-8910-9c7af72355f5
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a9d8c7b6-5a4b-4f3c-b2e5-e4d3c2b1a0f9
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: IRS_FORM_1099_TYPE_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 127ac8e6-724a-4b24-b0e1-735ae09419ca
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.IRS_FORM_1099_TYPE_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b0e9d8c7-6b5a-4e4f-b3e6-f5e4d3c2b1a0
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: IRS_FORM_1099_TYPE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 64debee7-2906-4420-b2d2-9630ede817e2
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.IRS_FORM_1099_TYPE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c1f0e9d8-7c6b-4f5a-b4e7-06f5e4d3c2b1
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: MAIL_TO_TYPE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: af3884c5-9a51-4835-8d3d-653fbf0c53ac
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.MAIL_TO_TYPE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d201f0e9-8d7c-406b-b5e8-1706f5e4d3c2
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: MAIL_TO
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 097206c7-6ad9-42c8-aaa0-a18078cae8d2
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.MAIL_TO_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e31201f0-9e8d-417c-b6e9-281706f5e4d3
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: MAIL_TO_LAST_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 23d8490e-953a-4b0b-bcff-678f1a06dc35
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.MAIL_TO_LAST_NAME_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f4231201-af9e-428d-b7ea-39281706f5e4
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: MAIL_TO_FIRST_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 1ea39669-deff-4ef4-9fc9-139e27802497
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.MAIL_TO_FIRST_NAME_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 05342312-b0af-439e-b8eb-4a39281706f5
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: MAIL_TO_ORGANIZATION
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 1096c5dd-1005-4d12-9ba3-2ccf13c7579d
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.MAIL_TO_ORGANIZATION_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 16453423-c1b0-44af-b9ec-5b4a39281706
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR(256)
+      description: ''
+      name: MAIL_TO_ADDRESS
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c5ca33d5-7b6c-43e0-9594-4ab48e709690
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: CAST(P.MAIL_TO_ADDRESS_ENCRYPTED AS VARCHAR(256))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 27564534-d2c1-45b0-baed-6c5b4a392817
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: MAIL_TO_CITY
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 945f1372-0821-4f3f-8d34-c3c324b26808
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.MAIL_TO_CITY
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 38675645-e3d2-46c1-bbfd-7d6c5b4a3928
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: MAIL_TO_STATE_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: a1c64c00-56cf-4252-be05-173394acd77b
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.MAIL_TO_STATE_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 49786756-f4e3-47d2-bc0e-8e7d6c5b4a39
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: MAIL_TO_ZIP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 74182800-8a59-4471-a62b-c103b1449e66
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.MAIL_TO_ZIP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5a897867-05f4-48e3-bd1f-9f8e7d6c5b4a
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: MAIL_TO_COUNTRY_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: a1d711cd-1062-412c-98ed-a6c837d553b9
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.MAIL_TO_COUNTRY_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6b9a8978-1605-49f4-be20-a09f8e7d6c5b
+        stepCounter: d769c8c7-4348-4389-9b97-15c01ac0526e
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACA_SOURCE_SYSTEM_ID_WINNER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: f4918e80-b83e-4e99-a413-12f19c2869c5
+          stepCounter: 4851f322-bef8-472f-9901-2ed67fd27ba0
+        transform: P.ACA_SOURCE_SYSTEM_ID_WINNER
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        ACA_PAYEE: P
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: SRC-ASTRUS
+        nodeName: ACA_PAYEE
+      join:
+        joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_PAYEE') }} "P"
+      name: ASTRUSMODELPAYEE
+      noLinkRefs: []
+  name: ASTRUSMODELPAYEE
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
