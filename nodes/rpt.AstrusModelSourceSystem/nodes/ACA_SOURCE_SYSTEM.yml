@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 5a7e6b89-2c3d-4e1f-b8c9-d0e9f8a7b6c5
+name: ACA_SOURCE_SYSTEM
+operation:
+  database: AUS_DEV_RAW
+  deployEnabled: true
+  description: ""
+  locationName: SRC-ASTRUS
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b8c9d0e-3d4e-4f2g-a9b0-c1d2e3f4a5b6
+          stepCounter: 5a7e6b89-2c3d-4e1f-b8c9-d0e9f8a7b6c5
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c9d0e1f-4e5f-4g3h-b0c1-d2e3f4a5b6c7
+          stepCounter: 5a7e6b89-2c3d-4e1f-b8c9-d0e9f8a7b6c5
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ACA_SOURCE_SYSTEM
+  schema: SNAPSHOT
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
