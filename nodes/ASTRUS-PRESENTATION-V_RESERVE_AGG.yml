@@ -1,0 +1,71 @@
+fileVersion: 1
+id: 5678abcd-ef01-2345-6789-abcdef012345
+name: V_RESERVE_AGG
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f8e7d6c-5b4a-3c2d-1e0f-9a8b7c6d5e4f
+          stepCounter: 5678abcd-ef01-2345-6789-abcdef012345
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa63c769-29c1-40a3-9444-25f0620f49af
+                stepCounter: 3aeba5a8-8846-43a1-a6ec-d69fd6eef338
+            transform: T.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e7d6c5b-4a3c-2d1e-0f9a-8b7c6d5e4f3a
+          stepCounter: 5678abcd-ef01-2345-6789-abcdef012345
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1fdb218-26e0-4988-b206-2692538584b6
+                stepCounter: 3aeba5a8-8846-43a1-a6ec-d69fd6eef338
+            transform: MAX(T.TRANSACTION_DATE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_RESERVE_TRANSACTION: T
+          ACA_SOURCE_SYSTEM: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_RESERVE_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_RESERVE_TRANSACTION') }} AS T INNER JOIN {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} AS S ON T.ACA_SOURCE_SYSTEM_ID = S.ACA_SOURCE_SYSTEM_ID WHERE S.SOURCE_SYSTEM = 'ESIS' GROUP BY T.ACA_SOURCE_SYSTEM_ID
+        name: V_RESERVE_AGG
+        noLinkRefs: []
+  name: V_RESERVE_AGG
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
