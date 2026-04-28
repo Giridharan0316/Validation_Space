@@ -1,0 +1,6 @@
+fileVersion: 1
+id: 03085d5c-e815-4f0c-b798-4ddc09a2a432
+name: dbo.spaca_aca_claim_transaction_update.proc
+steps:
+  - 5a4b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+type: Subgraph

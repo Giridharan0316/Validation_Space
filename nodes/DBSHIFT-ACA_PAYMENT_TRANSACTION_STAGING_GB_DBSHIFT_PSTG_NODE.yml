@@ -1,0 +1,85 @@
+fileVersion: 1
+id: a7b1c4e8-8d3f-4e6a-b9c1-d2f0a1b2c3d4
+name: ACA_PAYMENT_TRANSACTION_STAGING_GB_DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          UPDATE AUS_DEV_RAW.PUBLIC.ACA_PAYMENT_TRANSACTION_STAGING_GB AS P
+          SET
+              P.ACA_CLAIM_ID = SOURCE.NEW_ACA_CLAIM_ID,
+              P.ACA_POLICY_ID = SOURCE.NEW_ACA_POLICY_ID,
+              P.ACA_PAYMENT_ATTRIBUTE_ID = SOURCE.NEW_ACA_PAYMENT_ATTRIBUTE_ID,
+              P.ACA_PAYEE_ID = SOURCE.NEW_ACA_PAYEE_ID,
+              P.ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+              P.ACA_UPDATE_USER = 'spaca_aca_payment_transaction_staging_gb_update'
+          FROM (
+              SELECT
+                  P_INNER.SOURCE_SYSTEM_CLAIM_ID,
+                  P_INNER.SOURCE_SYSTEM_POLICY_ID,
+                  P_INNER.SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID,
+                  P_INNER.SOURCE_SYSTEM_PAYEE_ID,
+                  IFNULL(C.ACA_CLAIM_ID, -1) AS NEW_ACA_CLAIM_ID,
+                  IFNULL(PO.ACA_POLICY_ID, -1) AS NEW_ACA_POLICY_ID,
+                  IFNULL(PA.ACA_PAYMENT_ATTRIBUTE_ID, -1) AS NEW_ACA_PAYMENT_ATTRIBUTE_ID,
+                  IFNULL(PE.ACA_PAYEE_ID, -1) AS NEW_ACA_PAYEE_ID
+              FROM AUS_DEV_RAW.PUBLIC.ACA_PAYMENT_TRANSACTION_STAGING_GB AS P_INNER
+              LEFT JOIN AUS_DEV_RAW.PUBLIC.ACA_CLAIM AS C ON C.SOURCE_SYSTEM_CLAIM_ID = P_INNER.SOURCE_SYSTEM_CLAIM_ID
+              LEFT JOIN AUS_DEV_RAW.PUBLIC.ACA_POLICY AS PO ON PO.SOURCE_SYSTEM_POLICY_ID = P_INNER.SOURCE_SYSTEM_POLICY_ID
+              LEFT JOIN AUS_DEV_RAW.PUBLIC.ACA_PAYMENT_ATTRIBUTE AS PA ON PA.SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID = P_INNER.SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID
+              LEFT JOIN AUS_DEV_RAW.PUBLIC.ACA_PAYEE AS PE ON PE.SOURCE_SYSTEM_PAYEE_ID = P_INNER.SOURCE_SYSTEM_PAYEE_ID
+          ) AS SOURCE
+          WHERE
+              (P.SOURCE_SYSTEM_CLAIM_ID = SOURCE.SOURCE_SYSTEM_CLAIM_ID OR (P.SOURCE_SYSTEM_CLAIM_ID IS NULL AND SOURCE.SOURCE_SYSTEM_CLAIM_ID IS NULL)) AND
+              (P.SOURCE_SYSTEM_POLICY_ID = SOURCE.SOURCE_SYSTEM_POLICY_ID OR (P.SOURCE_SYSTEM_POLICY_ID IS NULL AND SOURCE.SOURCE_SYSTEM_POLICY_ID IS NULL)) AND
+              (P.SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID = SOURCE.SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID OR (P.SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID IS NULL AND SOURCE.SOURCE_SYSTEM_PAYMENT_ATTRIBUTE_ID IS NULL)) AND
+              (P.SOURCE_SYSTEM_PAYEE_ID = SOURCE.SOURCE_SYSTEM_PAYEE_ID OR (P.SOURCE_SYSTEM_PAYEE_ID IS NULL AND SOURCE.SOURCE_SYSTEM_PAYEE_ID IS NULL));
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_payment_transaction_staging_gb_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f9e8d7c-6b5a-4c3d-2f1e-4e8b9c7d6a5b
+          stepCounter: a7b1c4e8-8d3f-4e6a-b9c1-d2f0a1b2c3d4
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CURRENT_TIMESTAMP()
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: ACA_PAYMENT_TRANSACTION_STAGING_GB_DBSHIFT_PSTG_NODE
+        noLinkRefs: []
+  name: ACA_PAYMENT_TRANSACTION_STAGING_GB_DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,70 @@
+fileVersion: 1
+id: 5a4b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+name: ACA_CLAIM_TRANSACTION_DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+      UPDATE {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }}
+      SET
+          ACA_CLAIM_ID = IFF(T.ACA_CLAIM_ID = -1, COALESCE(C.ACA_CLAIM_ID, -1), T.ACA_CLAIM_ID),
+          ACA_POLICY_ID = IFF(T.ACA_POLICY_ID = -1, COALESCE(P.ACA_POLICY_ID, -1), T.ACA_POLICY_ID),
+          ACA_CLAIMANT_ID = IFF(T.ACA_CLAIMANT_ID = -1, COALESCE(CL.ACA_CLAIMANT_ID, -1), T.ACA_CLAIMANT_ID),
+          ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          ACA_UPDATE_USER = 'dbo.spaca_aca_claim_transaction_update'
+      FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }} T
+      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_CLAIM') }} C 
+          ON T.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID 
+          AND T.ACA_SOURCE_SYSTEM_ID = C.ACA_SOURCE_SYSTEM_ID
+      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_POLICY') }} P 
+          ON T.SOURCE_SYSTEM_POLICY_ID = P.SOURCE_SYSTEM_POLICY_ID
+      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_CLAIMANT') }} CL 
+          ON T.SOURCE_SYSTEM_CLAIMANT_ID = CL.SOURCE_SYSTEM_CLAIMANT_ID
+      WHERE (
+          (T.ACA_CLAIM_ID = -1 AND T.SOURCE_SYSTEM_CLAIM_ID IS NOT NULL)
+          OR (T.ACA_POLICY_ID = -1 AND T.SOURCE_SYSTEM_POLICY_ID IS NOT NULL)
+          OR (T.ACA_CLAIMANT_ID = -1 AND T.SOURCE_SYSTEM_CLAIMANT_ID IS NOT NULL)
+      );
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_claim_transaction_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          stepCounter: 5a4b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CURRENT_TIMESTAMP()
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: ACA_CLAIM_TRANSACTION_DBSHIFT_PSTG_NODE
+        noLinkRefs: []
+  name: ACA_CLAIM_TRANSACTION_DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

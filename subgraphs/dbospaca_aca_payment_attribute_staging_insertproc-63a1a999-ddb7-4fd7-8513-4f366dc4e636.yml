@@ -1,0 +1,10 @@
+fileVersion: 1
+id: 63a1a999-ddb7-4fd7-8513-4f366dc4e636
+name: dbo.spaca_aca_payment_attribute_staging_insert.proc
+steps:
+  - 2ed7f066-2909-4944-81ef-c76b84971bc5
+  - 5a8e0f6c-8979-4a47-a3a8-48b04a8e9989
+  - 978a1f7e-128a-4c28-98e9-d7575224bbce
+  - a2c1c6e1-925a-4e89-a5c2-9e909a3c861e
+  - be910c8d-9782-40c6-bb03-f1999aed3967
+type: Subgraph
