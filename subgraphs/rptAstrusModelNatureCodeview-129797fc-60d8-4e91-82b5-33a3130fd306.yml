@@ -1,0 +1,10 @@
+fileVersion: 1
+id: 129797fc-60d8-4e91-82b5-33a3130fd306
+name: rpt.AstrusModelNatureCode.view
+steps:
+  - 2435ba06-7b12-47f7-96b6-8215e65b212a
+  - 7a8b2c0d-4b9d-4f9e-a06c-3c4d5e6f7a8b
+  - 89ed1367-e3dc-4f81-8df2-750d004047fb
+  - 8d9e3f1a-5e1f-4c2b-d39f-6f7a8b9c0d1e
+  - 9e0f4a2b-6f2a-4d3c-e4a0-7a8b9c0d1e2f
+type: Subgraph

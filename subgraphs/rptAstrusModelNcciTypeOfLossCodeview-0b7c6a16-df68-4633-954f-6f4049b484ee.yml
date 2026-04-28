@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 0b7c6a16-df68-4633-954f-6f4049b484ee
+name: rpt.AstrusModelNcciTypeOfLossCode.view
+steps:
+  - 849ab78a-4732-49bf-87f1-46e6182e89e6
+  - d4b39a3f-67f7-47b8-b80c-0335e236528d
+type: Subgraph

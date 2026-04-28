@@ -1,0 +1,11 @@
+fileVersion: 1
+id: aed4954f-352e-463a-aac5-428eaa857a03
+name: rpt.AstrusModelNcciLossCoverageCode.view
+steps:
+  - 169dbd7b-8349-4700-b685-b4cdeb8b6a65
+  - 7c6b5a4b-3d2c-4e1b-0a9e-8d7c6b5a4b3c
+  - 8d7c6b5a-4e3f-4d2c-1b0a-9e8d7c6b5a4b
+  - 8fce4594-da02-4d44-a74d-9fc75c3bf9ca
+  - 9a8b7c6d-5e4f-4d3c-2b1a-0f9e8d7c6b5a
+  - b5e4c3d2-1a0f-4d7a-8b6c-9e8d7c6b5a4b
+type: Subgraph
