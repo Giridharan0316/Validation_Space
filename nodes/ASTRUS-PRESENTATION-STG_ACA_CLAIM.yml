@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: Staging table for ACA claims with payment transaction structure
   isMultisource: false
-  locationName: SRC-ASTRUS
+  locationName: ASTRUS-PRESENTATION
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -562,7 +562,7 @@ operation:
   name: STG_ACA_CLAIM
   overrideSQL: false
   schema: ""
-  sqlType: Stage
+  sqlType: View
   type: sql
   version: 1
 type: Node

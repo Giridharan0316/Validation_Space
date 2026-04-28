@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: Staging table for ACA payment transactions with filtered columns
   isMultisource: false
-  locationName: SRC-ASTRUS
+  locationName: ASTRUS-PRESENTATION
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -546,7 +546,7 @@ operation:
   name: STG_ACA_PAYMENT_TRANSACTION
   overrideSQL: false
   schema: ""
-  sqlType: Stage
+  sqlType: View
   type: sql
   version: 1
 type: Node

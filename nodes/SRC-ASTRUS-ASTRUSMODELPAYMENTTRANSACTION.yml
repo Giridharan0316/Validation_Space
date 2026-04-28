@@ -530,21 +530,21 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: SRC-ASTRUS
+          - locationName: ASTRUS-PRESENTATION
             nodeName: STG_ACA_CLAIM
-          - locationName: SRC-ASTRUS
+          - locationName: ASTRUS-PRESENTATION
             nodeName: STG_ACA_PAYMENT_TRANSACTION
         join:
           joinCondition: |-
-            FROM {{ ref('SRC-ASTRUS', 'STG_ACA_PAYMENT_TRANSACTION') }} 
+            FROM {{ ref('ASTRUS-PRESENTATION', 'STG_ACA_PAYMENT_TRANSACTION') }} 
             UNION ALL
-            FROM {{ ref('SRC-ASTRUS', 'STG_ACA_CLAIM') }}
+            select * FROM {{ ref('ASTRUS-PRESENTATION', 'STG_ACA_CLAIM') }}
         name: ASTRUSMODELPAYMENTTRANSACTION
         noLinkRefs: []
   name: ASTRUSMODELPAYMENTTRANSACTION
   overrideSQL: false
   schema: ""
-  sqlType: Dimension
+  sqlType: View
   type: sql
   version: 1
 type: Node
