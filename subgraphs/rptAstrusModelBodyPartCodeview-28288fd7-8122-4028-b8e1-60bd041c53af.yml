@@ -1,0 +1,10 @@
+fileVersion: 1
+id: 28288fd7-8122-4028-b8e1-60bd041c53af
+name: rpt.AstrusModelBodyPartCode.view
+steps:
+  - 0310e572-c0e8-4682-8c10-520e588eb7e3
+  - 56c4d7e0-252c-4977-8c38-517b6a9c9f41
+  - 5a73e4b8-f9b8-4c8d-90c7-1d2a1c0d5c0b
+  - 89ed1367-e3dc-4f81-8df2-750d004047fb
+  - a02db04c-8d48-4edc-83a3-cd7f3460574a
+type: Subgraph
