@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 5747120a-7067-464a-a160-b6f488663884
-name: DW_POLICY
+id: 597a7e8e-ff57-41b2-bf4b-e666a7071d3c
+name: DW_TRANSACTION
 operation:
   database: DEV_RAW
   deployEnabled: true
   description: ""
-  locationName: SRC-CLAIMS
+  locationName: SRC-ALLIANT_DW
   metadata:
     columns:
       - acceptedValues:
@@ -13,65 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 32669e4f-2f84-484d-9a79-27a94939bce5
-          stepCounter: 5747120a-7067-464a-a160-b6f488663884
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        name: DW_CLIENT_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 1301c3e0-321b-4573-b78f-682570081d64
-          stepCounter: 5747120a-7067-464a-a160-b6f488663884
-        config: {}
-        dataType: VARCHAR
-        defaultValue: ""
-        description: ""
-        name: POLICY_NUMBER
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: d7f0e9fa-b320-4221-8255-a0edcc7c5d08
-          stepCounter: 5747120a-7067-464a-a160-b6f488663884
-        config: {}
-        dataType: DATE
-        defaultValue: ""
-        description: ""
-        name: POLICY_EFFECTIVE_DATE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 58a980dd-61e8-422f-ae2e-0797825d5fd1
-          stepCounter: 5747120a-7067-464a-a160-b6f488663884
+          columnCounter: 0c26c6d2-646f-40e8-a14a-14d8f28d8edb
+          stepCounter: 597a7e8e-ff57-41b2-bf4b-e666a7071d3c
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -84,7 +27,64 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: DW_POLICY
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c916450-4d56-4c40-9772-244e8d2e85a6
+          stepCounter: 597a7e8e-ff57-41b2-bf4b-e666a7071d3c
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a8c88f7-b28e-4a87-9b2f-9818ab4cd280
+          stepCounter: 597a7e8e-ff57-41b2-bf4b-e666a7071d3c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: REVENUE_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1424d86-0ac3-4330-9dfd-a8e56230985a
+          stepCounter: 597a7e8e-ff57-41b2-bf4b-e666a7071d3c
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: PREMIUM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DW_TRANSACTION
   schema: ADF_TMP
   sqlType: Source
   type: sourceInput

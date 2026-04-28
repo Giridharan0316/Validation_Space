@@ -5,7 +5,7 @@ operation:
   database: DEV_RAW
   deployEnabled: true
   description: ""
-  locationName: SRC-CLAIMS
+  locationName: SRC-ALLIANT_DW
   metadata:
     columns:
       - acceptedValues:
