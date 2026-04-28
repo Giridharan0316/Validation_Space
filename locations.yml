@@ -1,3 +1,10 @@
-defaultStorageMapping: null
+defaultStorageMapping: SRC-CLAIMS
 fileVersion: 1
-locations: []
+locations:
+  - CURATED
+  - DBSHIFT
+  - PRESENTATION
+  - REFINED
+  - SRC-ADF_TMP
+  - SRC-ASTRUS
+  - SRC-CLAIMS
