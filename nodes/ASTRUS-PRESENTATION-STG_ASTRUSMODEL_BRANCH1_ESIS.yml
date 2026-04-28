@@ -1,0 +1,114 @@
+fileVersion: 1
+id: fe7a3c3f-916c-4877-941f-8984918e7b39
+name: STG_ASTRUSMODEL_BRANCH1_ESIS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 479b1d92-7f92-4f0e-b2d9-e9b2bb12b509
+          stepCounter: fe7a3c3f-916c-4877-941f-8984918e7b39
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01eb9ff1-5ce5-4161-9ded-9d41600299b4
+                stepCounter: 10470cc4-1a19-4fcc-8360-e716b8bbf675
+              - columnCounter: edc088c5-d1d6-43c6-8b4c-c1cc3a79cea1
+                stepCounter: 8fce4594-da02-4d44-a74d-9fc75c3bf9ca
+            transform: REPLACE(MS.SOURCE_SYSTEM_METHOD_OF_SETTLEMENT_CODE, 'XX', S.BENEFIT_JURISDICTION_STATE_CODE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63b8417f-440a-4874-9b2f-90e633d43491
+          stepCounter: fe7a3c3f-916c-4877-941f-8984918e7b39
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d00888ae-81ca-4833-86a1-87536ad7e738
+                stepCounter: 10470cc4-1a19-4fcc-8360-e716b8bbf675
+            transform: MS.METHOD_OF_SETTLEMENT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b9c7929-16a2-4a0b-96d5-a7b643a6d71b
+          stepCounter: fe7a3c3f-916c-4877-941f-8984918e7b39
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: METHOD_OF_SETTLEMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 883015e4-75f7-410c-a6d3-cd04aa102c35
+                stepCounter: 10470cc4-1a19-4fcc-8360-e716b8bbf675
+            transform: MS.METHOD_OF_SETTLEMENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 52a1ebca-82ae-4c7b-b38b-8260a952d733
+          stepCounter: fe7a3c3f-916c-4877-941f-8984918e7b39
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1733b4e6-a677-4c4a-87c3-babc76a01f19
+                stepCounter: 10470cc4-1a19-4fcc-8360-e716b8bbf675
+            transform: MS.NCCI_METHOD_OF_SETTLEMENT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e824831d-b8d2-4318-8686-3532f4164b73
+          stepCounter: fe7a3c3f-916c-4877-941f-8984918e7b39
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_METHOD_OF_SETTLEMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f937180c-fe46-4eb0-81cb-e92b64e62e21
+                stepCounter: 10470cc4-1a19-4fcc-8360-e716b8bbf675
+            transform: MS.NCCI_METHOD_OF_SETTLEMENT
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_METHOD_OF_SETTLEMENT_ESIS: MS
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_METHOD_OF_SETTLEMENT_ESIS
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIM_TRANSACTION
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_METHOD_OF_SETTLEMENT_ESIS') }} AS MS CROSS JOIN (SELECT BENEFIT_JURISDICTION_STATE_CODE FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }} WHERE SOURCE_SYSTEM = 'ESIS' GROUP BY BENEFIT_JURISDICTION_STATE_CODE) AS S
+        name: STG_ASTRUSMODEL_BRANCH1_ESIS
+        noLinkRefs: []
+  name: STG_ASTRUSMODEL_BRANCH1_ESIS
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
