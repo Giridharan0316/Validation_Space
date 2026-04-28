@@ -1,0 +1,15 @@
+fileVersion: 1
+id: 899ca894-397f-43f4-b627-7d5291ec65c9
+name: dbo.sprpt_policy_transaction_insert.StoredProcedure
+steps:
+  - 09412e0e-a41f-4b87-9bc9-a37919c513cb
+  - 4254f9c3-83bc-47d6-b41a-73cf4ac62f74
+  - 4945d7d7-133a-4460-9bb4-b49911e3b5be
+  - 574efdae-b5f7-4148-8f85-79a0b4e05b63
+  - 57d81a17-27bb-455b-9d41-f6a31c5b88a9
+  - 59388c30-d886-444f-b67f-945b672a9121
+  - 61e13fc1-965a-4712-a7d1-e6d8a3791295
+  - 97890786-e089-4e08-bfb9-8e77c8e9d6d5
+  - a77610c1-2319-4623-a558-f94ac61726a5
+  - b6825bd2-491f-4959-99a3-5cc85f67b55f
+type: Subgraph

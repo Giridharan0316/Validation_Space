@@ -1,0 +1,7 @@
+fileVersion: 1
+id: e11ff7af-921a-48ea-816b-97b4af58295a
+name: dbo.spao_ao_claim_staging_insert.StoredProcedure
+steps:
+  - 48e8a715-18c7-4384-9351-460d37e6b2f9
+  - a7f8e9d0-1b2c-4d5e-6f7a-8b9c0d1e2f3a
+type: Subgraph
