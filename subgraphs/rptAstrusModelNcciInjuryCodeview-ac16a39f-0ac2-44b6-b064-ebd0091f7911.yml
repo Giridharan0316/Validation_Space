@@ -1,0 +1,12 @@
+fileVersion: 1
+id: ac16a39f-0ac2-44b6-b064-ebd0091f7911
+name: rpt.AstrusModelNcciInjuryCode.view
+steps:
+  - 872b88c6-3ba0-49dc-b778-2b7779335859
+  - 8d2e2e3c-1b4b-4a8f-bdbc-4d5e6f7a8b9c
+  - 8fce4594-da02-4d44-a74d-9fc75c3bf9ca
+  - 914e5faa-e2c9-4666-b10d-802fc2987979
+  - 9e3f3f4d-2c5c-4b9a-cecf-5e6f7a8b9c0d
+  - a04a4a5e-3d6d-4caB-dfdf-6f7a8b9c0d1e
+  - b15b5b6f-4e7e-4dbC-e0e0-7a8b9c0d1e2f
+type: Subgraph

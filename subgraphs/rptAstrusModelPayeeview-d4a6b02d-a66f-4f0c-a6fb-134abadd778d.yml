@@ -1,0 +1,7 @@
+fileVersion: 1
+id: d4a6b02d-a66f-4f0c-a6fb-134abadd778d
+name: rpt.AstrusModelPayee.view
+steps:
+  - 4851f322-bef8-472f-9901-2ed67fd27ba0
+  - d769c8c7-4348-4389-9b97-15c01ac0526e
+type: Subgraph
