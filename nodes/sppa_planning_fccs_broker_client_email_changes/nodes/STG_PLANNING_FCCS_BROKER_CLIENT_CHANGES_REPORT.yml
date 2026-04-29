@@ -1,0 +1,227 @@
+fileVersion: 1
+id: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+name: STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES_REPORT
+type: Node
+operation:
+  name: STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES_REPORT
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: "BEGIN\n  -- DECLARE VARIABLES FROM PARAMETERS\n  LET TO_RECIPIENT VARCHAR(255) := {{ parameters.TO_RECIPIENT }};\n  LET COPY_RECIPIENT VARCHAR(255) := {{ parameters.COPY_RECIPIENT }};\n  LET ENVIRONMENT VARCHAR(5) := {{ parameters.ENVIRONMENT }};\n  LET MACHINE VARCHAR(100) := {{ parameters.MACHINE }};\n\n  -- CHECK IF THE STAGED REPORT DATA (THIS NODE) HAS ROWS\n  LET ROW_COUNT INT;\n  SELECT COUNT(1) INTO :ROW_COUNT FROM {{ ref_no_link('PLANNING_ALLIANT_STG', 'STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES_REPORT') }};\n\n  LET SUBJECT_TEXT VARCHAR;\n  LET TABLEHTML VARCHAR;\n  LET SUBJECT VARCHAR;\n\n  IF (:ROW_COUNT > 0) THEN\n    SUBJECT_TEXT := 'Planning Cloud Dimension Changes';\n\n    LET TABLE_ROWS VARCHAR;\n    -- BUILD HTML TABLE ROWS FROM THE STAGED DATA\n    SELECT LISTAGG(\n        '<tr>' ||\n        '<td>' || COALESCE(CHANGE_TYPE, ' ') || '</td>' ||\n        '<td>' || COALESCE(DIMENSION_TYPE, ' ') || '</td>' ||\n        '<td>' || COALESCE(ORIGINAL_PLANNING_ID, ' ')\
+      \ || '</td>' ||\n        '<td>' || COALESCE(ORIGINAL_PLANNING_ALIAS, ' ') || '</td>' ||\n        '<td>' || COALESCE(SOURCE_SYSTEM, ' ') || '</td>' ||\n        '<td>' || COALESCE(PLANNING_ID, ' ') || '</td>' ||\n        '<td>' || COALESCE(PLANNING_ALIAS, ' ') || '</td>' ||\n        '<td>' || COALESCE(PARENT_PLANNING_ID, ' ') || '</td>' ||\n        '<td>' || COALESCE(ORIGINAL_PARENT_PLANNING_ID, ' ') || '</td>' ||\n        '<td>' || COALESCE(BEGIN_POST_DATE, ' ') || '</td>' ||\n        '<td>' || COALESCE(END_POST_DATE, ' ') || '</td>' ||\n        '<td>' || DW_DATE_CREATED_FORMATTED || '</td>' ||\n        '</tr>', ''\n    ) WITHIN GROUP (ORDER BY DW_DATE_CREATED_RAW, CHANGE_TYPE, CASE WHEN CHANGE_TYPE = 'PlanningAlias' THEN ORIGINAL_PLANNING_ALIAS ELSE DIMENSION_TYPE END, CASE WHEN CHANGE_TYPE = 'PlanningAlias' THEN DIMENSION_TYPE ELSE ORIGINAL_PLANNING_ID END)\n    INTO :TABLE_ROWS\n    FROM {{ ref_no_link('PLANNING_ALLIANT_STG', 'STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES_REPORT') }};\n\
+      \n    TABLEHTML := '<html><body><h1>Planning Cloud Dimension Changes</h1>' ||\n                 '<table border=\"1\" width=\"100%\">' ||\n                 '<tr bgcolor=\"silver\"><td>Change Type</td><td>Dimension Type</td><td>Original Planning ID</td><td>Original Planning Alias</td><td>SourceSystem</td><td>Planning ID</td><td>Planning Alias</td><td>Parent ID</td><td>Original Parent ID</td><td>Begin Post Date</td><td>End Post Date</td><td>dw_date_created</td></tr>' ||\n                 :TABLE_ROWS ||\n                 '</table></body></html>';\n  ELSE\n    SUBJECT_TEXT := 'No Planning Cloud Dimension Changes To Report (EOM)';\n    TABLEHTML := '<html><body><h1>No Planning Cloud Dimension Changes To Report (EOM)</h1></body></html>';\n  END IF;\n\n  SUBJECT := :ENVIRONMENT || ': ' || :MACHINE || ': ' || :SUBJECT_TEXT;\n\n  -- PREPARE RECIPIENTS FOR SNOWFLAKE SYSTEM$SEND_EMAIL FUNCTION\n  LET RECIPIENTS_ARRAY ARRAY := [];\n  IF (:TO_RECIPIENT IS NOT NULL AND :TO_RECIPIENT != '') THEN\n\
+      \      RECIPIENTS_ARRAY := ARRAY_CAT(RECIPIENTS_ARRAY, SPLIT(:TO_RECIPIENT, ';'));\n  END IF;\n  IF (:COPY_RECIPIENT IS NOT NULL AND :COPY_RECIPIENT != '') THEN\n      RECIPIENTS_ARRAY := ARRAY_CAT(RECIPIENTS_ARRAY, SPLIT(:COPY_RECIPIENT, ';'));\n  END IF;\n\n  -- SEND EMAIL IF THERE ARE RECIPIENTS, USING A PRE-CONFIGURED EMAIL INTEGRATION\n  IF (ARRAY_SIZE(RECIPIENTS_ARRAY) > 0) THEN\n      CALL SYSTEM$SEND_EMAIL(\n          'COALESCE_EMAIL_INTEGRATION', -- ASSUMES AN INTEGRATION NAMED THIS EXISTS\n          RECIPIENTS_ARRAY,\n          :SUBJECT,\n          :TABLEHTML,\n          'text/html'\n      );\n  END IF;\nEND;"
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: REFINED-PLANNING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f9c2a843-1e5b-4861-9c7b-3d6a45b9e812
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CHANGE_TYPE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 85dae921-bcf3-4c90-ae2f-9cbde23179af
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.CHANGE_TYPE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b1e84c97-6a52-4b3f-917d-8c2a5e7349f6
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: DIMENSION_TYPE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 37f59d48-cbdf-4a92-be20-13654d20ae5d
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.DIMENSION_TYPE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c4d9a8b1-3e52-416b-9c7f-8d2a6b5e1397
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ORIGINAL_PLANNING_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: a9eb9c84-2fd9-43af-8d6c-2f3b9c7198a2
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.ORIGINAL_PLANNING_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e1f8a9c4-2b6d-4751-839c-5b2a6f7941d3
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ORIGINAL_PLANNING_ALIAS
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 9f63ab84-48f5-4e01-92b1-5d9c2417c8ae
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.ORIGINAL_PLANNING_ALIAS
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9a8c1f3b-7e62-41d5-894c-2b5e7d6a3194
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SOURCE_SYSTEM
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c29a8f49-1be8-468a-b852-6d2b3c79a401
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.SOURCE_SYSTEM
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 4c9a8b21-6e3f-457b-918d-2a5c7f6b439e
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PLANNING_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: f1b2c459-7e83-42e1-893c-2468a139be65
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.PLANNING_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d7a6b9c4-1e82-4f31-8c9b-5a2e6f4d3189
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PLANNING_ALIAS
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 475b1c90-e8b2-4d7a-8f3b-6d1a2938c47e
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.PLANNING_ALIAS
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6b9c1a4e-8f53-427d-9b1c-3a5e7d8f4216
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PARENT_PLANNING_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 2b3d9c84-17a6-45ef-936c-827a5b39e140
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.PARENT_PLANNING_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8f1c4a9e-2b63-45d1-9c7b-5a3e8d6f2194
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ORIGINAL_PARENT_PLANNING_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: b9e82c41-76a3-4b5c-918d-6c2a4f57398e
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.ORIGINAL_PARENT_PLANNING_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2a5b6c91-8e74-41d3-9f8c-4e7b1a5d6392
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: BEGIN_POST_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 14c9d78e-6b52-4f31-89e4-b7c2a5df6381
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: TO_VARCHAR(S.BEGIN_POST_DATE)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 3c8a9b14-6f52-47e1-892d-5b7c1a6e43f9
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: END_POST_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 7f6b89c4-a213-4de7-925c-8b14a63df902
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: TO_VARCHAR(S.END_POST_DATE)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5d7a6c92-1b84-4e3f-92c1-6b8a4d7e5f31
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: VARCHAR(20)
+      description: ''
+      name: DW_DATE_CREATED_FORMATTED
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d8c7b941-2365-4ae8-8791-c52dfa3e91b6
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: TO_VARCHAR(S.DW_DATE_CREATED, 'YYYY-MM-DD HH24:MI:SS')
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d
+        stepCounter: a6b1c4e9-983f-42a1-b68c-7f53a91e4b82
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: DW_DATE_CREATED_RAW
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d8c7b941-2365-4ae8-8791-c52dfa3e91b6
+          stepCounter: 7cc3b9af-562a-436f-8012-6ebcf6216a98
+        transform: S.DW_DATE_CREATED
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        S: S
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: SRC-ADF_TMP
+        nodeName: PLANNING_FCCS_BROKER_CLIENT_CHANGES
+      join:
+        joinCondition: 'FROM {{ ref(''SRC-ADF_TMP'', ''PLANNING_FCCS_BROKER_CLIENT_CHANGES'') }} AS S
+
+          WHERE S.DW_DATE_CREATED >= {{ parameters.PACKAGE_RUN_DATE }}'
+      name: STG_PLANNING_FCCS_BROKER_CLIENT_CHANGES_REPORT
+      noLinkRefs: []
+  overrideSQL: false
+  schema: PLANNING
+  sqlType: Stage
+  version: 1
