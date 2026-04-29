@@ -1,0 +1,127 @@
+fileVersion: 1
+id: f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+name: TMPROWRANK
+type: Node
+operation:
+  name: TMPROWRANK
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: "BEGIN\nUSE DATABASE ALLIANT_ONE;\nUPDATE ALLIANT_ONE.STG.AO_CLAIM_STAGING AS s\nSET \n    sf_account_id = source.sf_account_id,\n    rowrank = source.rowRank,\n    sf_account_owner_id = source.sf_account_owner_id\nFROM (\n    SELECT \n        s_from.guid,\n        s_from.RecordHashByte,\n        s_from.claimnumber,\n        s_from.claimnumbersuffix,\n        r.sf_account_id, \n        t.rowRank, \n        r.sf_account_owner_id\n    FROM ALLIANT_ONE.STG.AO_CLAIM_STAGING AS s_from\n    LEFT JOIN (\n        SELECT epic_client_lookup_code, sf_account_id, sf_account_owner_id\n        FROM ALLIANT_ONE.DBO.AO_RESPONSE_FEED\n        WHERE sf_account_id IS NOT NULL\n        GROUP BY 1, 2, 3\n    ) AS r ON s_from.epiclookupcode = r.epic_client_lookup_code\n    LEFT JOIN {{ ref_no_link('ALLIANT_ONE_STG', 'TMPROWRANK') }} AS t \n        ON s_from.guid = t.guid\n        AND s_from.RecordHashByte = t.RecordHashByte\n        AND s_from.claimnumber = t.claimnumber\n        AND COALESCE(s_from.claimnumbersuffix,\
+      \ 'xx') = COALESCE(t.claimnumbersuffix, 'xx')\n) AS source\nWHERE \n    s.guid = source.guid AND\n    s.RecordHashByte = source.RecordHashByte AND\n    s.claimnumber = source.claimnumber AND\n    COALESCE(s.claimnumbersuffix, 'xx') = COALESCE(source.claimnumbersuffix, 'xx');\nEND;"
+    preSQL: "BEGIN\nUSE DATABASE ALLIANT_ONE;\nUPDATE ALLIANT_ONE.STG.AO_CLAIM_STAGING\nSET RecordHashByte = SHA1_BINARY(\n    COALESCE(carriername, '-x') || ' | ' ||\n    COALESCE(claimnumber, '-x') || ' | ' ||\n    COALESCE(claimnumbersuffix, '-x') || ' | ' ||\n    COALESCE(claimreporteddate, '-x') || ' | ' ||\n    COALESCE(clientname, '-x') || ' | ' ||\n    COALESCE(policynumber, '-x') || ' | ' ||\n    COALESCE(epiclookupcode, '-x') || ' | ' ||\n    COALESCE(epicpolicynumber, '-x') || ' | ' ||\n    COALESCE(policycustomername, '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(policyyear), '-x') || ' | ' ||\n    COALESCE(policyeffectivedate, '-x') || ' | ' ||\n    COALESCE(policyexpirationdate, '-x') || ' | ' ||\n    COALESCE(policycoveragetype, '-x') || ' | ' ||\n    COALESCE(policycoveragekind, '-x') || ' | ' ||\n    COALESCE(claimantnamefull, '-x') || ' | ' ||\n    COALESCE(claimstatus, '-x') || ' | ' ||\n    COALESCE(claimantage, '-x') || ' | ' ||\n    COALESCE(claimcloseddate, '-x') || '\
+      \ | ' ||\n    COALESCE(claimmajorclasscode, '-x') || ' | ' ||\n    COALESCE(lossdatetime, '-x') || ' | ' ||\n    COALESCE(losstype, '-x') || ' | ' ||\n    COALESCE(lossstate, '-x') || ' | ' ||\n    COALESCE(lossaccidentdescription, '-x') || ' | ' ||\n    COALESCE(valuationdate, '-x') || ' | ' ||\n    COALESCE(currencytype, '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(indemnityincurred), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(paidindemnitypaid), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(reserveindemnity), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(medicalincurred), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(reservemedical), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(medicalpaid), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(expensesincurred), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(reservesexpense), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(expensepaid), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(propertyincurred), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(propertyreserve), '-x')\
+      \ || ' | ' ||\n    COALESCE(TO_VARCHAR(propertydamagepaid), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(totalrecoveries), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(paidlegal), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(paidbodilyinjury), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(reservetotal), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(totalpaid), '-x') || ' | ' ||\n    COALESCE(TO_VARCHAR(totalincurred), '-x') || ' | ' ||\n    COALESCE(source_company, '-x') || ' | ' \n),\nHashSum = \n    indemnityincurred +\n    paidindemnitypaid +\n    reserveindemnity +\n    medicalincurred +\n    medicalpaid +\n    reservemedical +\n    expensesincurred +\n    expensepaid +\n    reservesexpense +\n    propertyincurred +\n    propertydamagepaid +\n    propertyreserve +\n    paidlegal +\n    paidbodilyinjury +\n    reservetotal +\n    totalpaid +\n    totalincurred +\n    totalrecoveries;\nEND;"
+    testsEnabled: true
+    truncateBefore: true
+  database: DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6b7c8d9e-0f1a-2b3c-4d5e-6f7a8b9c0d1e
+        stepCounter: f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+      config: {}
+      dataType: VARCHAR(36)
+      description: ''
+      name: GUID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0ae8094f-e53c-41c6-a603-1f9d0e8e9e74
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.GUID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f
+        stepCounter: f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLAIMNUMBER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 5b94e645-4896-4901-b0a2-36a9f8f53681
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.CLAIMNUMBER
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a
+        stepCounter: f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLAIMNUMBERSUFFIX
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 2d7ae59f-b708-42af-8579-1fa058746a12
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.CLAIMNUMBERSUFFIX
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b
+        stepCounter: f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: HASHSUM
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d473476d-f4cc-44c8-84e3-2ba95f3e24e4
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.HASHSUM
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c
+        stepCounter: f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+      config: {}
+      dataType: BINARY(20)
+      description: ''
+      name: RECORDHASHBYTE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 825eafcc-baf7-4fa4-95ef-0d651abab92e
+          stepCounter: 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+        transform: S.RECORDHASHBYTE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+        stepCounter: f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+      config: {}
+      dataType: NUMBER(19,0)
+      description: ''
+      name: ROWRANK
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ROW_NUMBER() OVER (PARTITION BY S.GUID ORDER BY S.HASHSUM DESC)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        S: S
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: SRC-CLAIMS
+        nodeName: AO_CLAIM_STAGING
+      join:
+        joinCondition: 'FROM {{ ref(''SRC-CLAIMS'', ''AO_CLAIM_STAGING'') }} AS S
+
+          GROUP BY S.GUID, S.CLAIMNUMBER, S.CLAIMNUMBERSUFFIX, S.HASHSUM, S.RECORDHASHBYTE'
+      name: TMPROWRANK
+      noLinkRefs: []
+  overrideSQL: false
+  schema: CLAIMS
+  sqlType: Stage
+  version: 1

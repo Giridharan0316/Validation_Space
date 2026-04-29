@@ -1,0 +1,51 @@
+fileVersion: 1
+id: 5b4e3c92-7f8d-4a1b-9e2c-3d6f1a8b5c4e
+name: SPAO_ENABLE_DISABLE_TEMPORAL_TABLE
+type: Node
+operation:
+  name: SPAO_ENABLE_DISABLE_TEMPORAL_TABLE
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: "BEGIN\n    LET ds_table_name VARCHAR := '{{ parameters.DS_TABLE_NAME }}';\n    LET action VARCHAR := '{{ parameters.ACTION }}';\n    LET sql_statement VARCHAR := '';\n\n    -- This procedure translates the intent of managing table history from SQL Server's Temporal Tables\n    -- to Snowflake's Time Travel feature, which is controlled by DATA_RETENTION_TIME_IN_DAYS.\n    -- The SQL Server parameter for a separate history table (@ds_table_name_history) is not applicable in Snowflake.\n\n    IF (UPPER(:action) = 'ENABLE') THEN\n        -- Enabling history in Snowflake is done by setting data retention for Time Travel.\n        -- A value > 1 enables it beyond the default. 90 days is a common setting for history.\n        sql_statement := 'ALTER TABLE IDENTIFIER(''' || :ds_table_name || ''') SET DATA_RETENTION_TIME_IN_DAYS = 90;';\n    END IF;\n\n    IF (UPPER(:action) = 'DISABLE') THEN\n        -- Disabling extended history is done by setting data retention back to the default\
+      \ (1 day).\n        sql_statement := 'ALTER TABLE IDENTIFIER(''' || :ds_table_name || ''') SET DATA_RETENTION_TIME_IN_DAYS = 1;';\n    END IF;\n    \n    IF (sql_statement != '') THEN\n        EXECUTE IMMEDIATE :sql_statement;\n    END IF;\nEND;"
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b1a2c3d4-e5f6-47a8-b9c0-1d2e3f4a5b6c
+        stepCounter: 5b4e3c92-7f8d-4a1b-9e2c-3d6f1a8b5c4e
+      config: {}
+      dataType: NUMBER(1,0)
+      defaultValue: ''
+      description: ''
+      name: DUMMY_COLUMN
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: '1'
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases: {}
+      customSQL:
+        customSQL: ''
+      dependencies: []
+      join:
+        joinCondition: ''
+      name: SPAO_ENABLE_DISABLE_TEMPORAL_TABLE
+      noLinkRefs: []
+  overrideSQL: false
+  schema: CLAIMS
+  sqlType: Stage
+  version: 1

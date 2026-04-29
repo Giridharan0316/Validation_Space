@@ -1,0 +1,120 @@
+fileVersion: 1
+id: 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+name: PSTG_SPAO_AO_CLAIM_UPDATE
+type: Node
+operation:
+  name: PSTG_SPAO_AO_CLAIM_UPDATE
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: "BEGIN\n  CALL ALLIANT_ONE.DBO.SPAO_ENABLE_DISABLE_TEMPORAL_TABLE('ALLIANT_ONE.DBO.AO_CLAIM', 'ALLIANT_ONE.DBO.AO_CLAIM_HISTORY', 'Disable');\n  UPDATE ALLIANT_ONE.DBO.AO_CLAIM\n  SET LOAD_TO_SF_FLAG = 'N'\n  WHERE LOAD_TO_SF_FLAG IN ('I', 'U');\n  CALL ALLIANT_ONE.DBO.SPAO_ENABLE_DISABLE_TEMPORAL_TABLE('ALLIANT_ONE.DBO.AO_CLAIM', 'ALLIANT_ONE.DBO.AO_CLAIM_HISTORY', 'Enable');\nEND;"
+    testsEnabled: true
+    truncateBefore: false
+  database: DEV_REFINED
+  deployEnabled: true
+  description: UPDATE-only conversion of spao_ao_claim_update
+  isMultisource: false
+  locationName: REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2f741d48-3560-4963-8a3d-4c3dbfa31cd8
+        stepCounter: 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+      config: {}
+      dataType: BINARY(16)
+      description: ''
+      name: AO_CLAIM_KEY
+      nullable: true
+      primaryKey: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5cdfa8c3-dc12-4c28-971c-43f1cb81d6f2
+        stepCounter: 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+      config: {}
+      dataType: NUMBER(10,0)
+      description: ''
+      name: SYSTEM_VERSION
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: '1'
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 71b3dc92-80da-4a57-b08e-8ecf2553a1a6
+        stepCounter: 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+      config: {}
+      dataType: BOOLEAN
+      description: ''
+      name: SYSTEM_CURRENT_FLAG
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: 'TRUE'
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e32ab3e1-cfdf-4796-9fcf-b6a504b2a265
+        stepCounter: 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: SYSTEM_START_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 4bc3970b-60cf-46db-bb8e-1718db820461
+        stepCounter: 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: SYSTEM_END_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: TO_TIMESTAMP('9999-12-31 23:59:59.999')
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b1e59273-0309-43c3-b45d-79ac45c11bc3
+        stepCounter: 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: SYSTEM_CREATE_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a7cf3c95-46eb-4581-baac-3c8ed31d3658
+        stepCounter: 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+      config: {}
+      dataType: TIMESTAMP_NTZ
+      description: ''
+      name: SYSTEM_UPDATE_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: ''
+      transform: CURRENT_TIMESTAMP()
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  overrideSQL: false
+  schema: CLAIMS
+  sqlType: persistentStage
+  version: 1
