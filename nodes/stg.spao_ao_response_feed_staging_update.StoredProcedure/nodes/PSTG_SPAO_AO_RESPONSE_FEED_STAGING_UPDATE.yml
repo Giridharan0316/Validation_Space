@@ -1,0 +1,114 @@
+fileVersion: 1
+id: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+name: PSTG_SPAO_AO_RESPONSE_FEED_STAGING_UPDATE
+type: Node
+operation:
+  name: PSTG_SPAO_AO_RESPONSE_FEED_STAGING_UPDATE
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: "BEGIN\n    USE DATABASE ALLIANT_ONE;\n    UPDATE ALLIANT_ONE.STG.AO_RESPONSE_FEED_STAGING AS s\n    SET\n        dw_client_id = source.new_dw_client_id,\n        dw_policy_id = source.new_dw_policy_id,\n        sf_account_owner_id = source.new_sf_account_owner_id\n    FROM (\n        SELECT\n            s_inner.Epic_UniqPolicy,\n            s_inner.Epic_Client_Lookup_Code,\n            s_inner.SFAcctID,\n            COALESCE(cc.dw_client_id, -1) AS new_dw_client_id,\n            COALESCE(pc.dw_policy_id, -1) AS new_dw_policy_id,\n            sa.OwnerId AS new_sf_account_owner_id\n        FROM ALLIANT_ONE.STG.AO_RESPONSE_FEED_STAGING AS s_inner\n        LEFT JOIN ALLIANT_DW.DBO.DW_POLICY_CURRENT AS pc\n            ON TO_VARCHAR(s_inner.Epic_UniqPolicy ) = pc.source_system_policy_id\n            AND pc.source_system = 'EPIC'\n        LEFT JOIN ALLIANT_DW.DBO.DW_CLIENT_CURRENT AS cc\n            ON s_inner.Epic_Client_Lookup_Code = cc.lookup_code\n        LEFT JOIN ALLIANT_DW.REF.SALESFORCE_ACCOUNT\
+      \ AS sa\n            ON s_inner.SFAcctID = sa.Id\n    ) AS source\n    WHERE\n        EQUAL_NULL(s.Epic_UniqPolicy, source.Epic_UniqPolicy)\n        AND EQUAL_NULL(s.Epic_Client_Lookup_Code, source.Epic_Client_Lookup_Code)\n        AND EQUAL_NULL(s.SFAcctID, source.SFAcctID);\nEND;"
+    testsEnabled: true
+    truncateBefore: false
+  database: DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b13c4731-9a74-4b82-aaec-123456789012
+        stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+      config: {}
+      dataType: VARCHAR(64)
+      description: ''
+      name: PSTG_SPAO_AO_RESPONSE_FEED_STAGING_UPDATE_KEY
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CAST(MD5(CAST(NULL AS VARCHAR)) AS VARCHAR(64))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c24d5842-ab85-5c93-bbdf-234567890123
+        stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+      config: {}
+      dataType: NUMBER(38,0)
+      description: ''
+      name: SYSTEM_VERSION
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CAST(1 AS NUMBER(38,0))
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d35e6953-bc96-6da4-cce0-345678901234
+        stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+      config: {}
+      dataType: BOOLEAN
+      description: ''
+      name: SYSTEM_CURRENT_FLAG
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CAST(TRUE AS BOOLEAN)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e46f7a64-cd07-7eb5-ddf1-456789012345
+        stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: SYSTEM_START_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f5708b75-de18-8fc6-ee02-567890123456
+        stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: SYSTEM_END_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CAST(NULL AS TIMESTAMP)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 06819c86-ef29-90d7-ff13-678901234567
+        stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: SYSTEM_CREATE_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 1792ad97-f03a-a1e8-0024-789012345678
+        stepCounter: 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: SYSTEM_UPDATE_DATE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping: []
+  overrideSQL: false
+  schema: CLAIMS
+  sqlType: persistentStage
+  version: 1
