@@ -1,0 +1,11 @@
+fileVersion: 1
+id: 0c9cc328-fb7b-4755-9e2d-a66444568201
+name: dbo.sppa_planning_fccs_broker_client_changes_insert.proc
+steps:
+  - 7ddb49f2-dbc9-4354-986f-475bbb45c806
+  - a0c5c2d3-9f1c-4f6e-ac3c-5e7d0d8c4da0
+  - b1d6d3e4-0a2d-4f7f-bd4d-6f8e1e9d5eb1
+  - c24c0e9f-8fcd-4f16-a668-5b49ffeeaa0e
+  - c2e7e4f5-1b3e-4f80-ce5e-7a9f2f0e6fc2
+  - d3f8f5g6-2c4f-4f91-df6f-8ba03a1f7ad3
+type: Subgraph

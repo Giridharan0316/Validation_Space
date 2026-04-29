@@ -1,0 +1,224 @@
+fileVersion: 1
+id: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+name: VPLANNINGTHRESHOLDCLIENTHIERARCHY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: PRESENTATION-PLANNING
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PARENTPLANNINGID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c8d0154-1f53-42bb-adeb-6af547e478a7
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.PARENT_PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNINGID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 06279283-cffd-426c-bcff-a588acf2d963
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c4d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6e7f
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENTNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da36bfa1-4135-4f7e-84f9-3921517eec27
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.CLIENT_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d5e6f7a-8b9c-4d0e-1f2a-3b4c5d6e7f8a
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENTLOOKUPCODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8853e57b-6a4e-4bbf-9b5b-3df4fa8175c8
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e6f7a8b-9c0d-4e1f-2a3b-4c5d6e7f8a9b
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PLANNINGALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 50dd2c17-3c1e-44f3-a819-8feecd68f1a8
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.PLANNING_ALIAS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f7a8b9c-0d1e-4f2a-3b4c-5d6e7f8a9b0c
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCESYSTEMCLIENTLOOKUPCODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f16da91-2fbb-4b12-9b39-45a95f9e000d
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a8b9c0d-1e2f-4a3b-4c5d-6e7f8a9b0c1d
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENTMASTERID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 112990fd-fddf-460f-bf97-8695f04ac412
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.DW_CLIENT_MASTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b9c0d1e-2f3a-4b4c-5d6e-7f8a9b0c1d2e
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCESYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f201306-4b85-4a3a-8aa0-a75d55c72abe
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c0d1e2f-3a4b-4c5d-6e7f-8a9b0c1d2e3f
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENSTATUSINDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 285ee6c3-b0be-46dc-a534-ce1df828e395
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.CLIENT_STATUS_INDICATOR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d1e2f3a-4b5c-4d6e-7f8a-9b0c1d2e3f4a
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a59c6c3-32a9-4616-a3d4-d47c6379887b
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.DW_DATE_CREATED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e2f3a4b-5c6d-4e7f-8a9b-0c1d2e3f4a5b
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26703a3a-7c12-4945-a49b-6510d7928bb6
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.DW_CREATE_USER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f3a4b5c-6d7e-4f8a-9b0c-1d2e3f4a5b6c
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f5054ab-7cf7-4e53-96b6-acaa10784419
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.DW_DATE_UPDATED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a4b5c6d-7e8f-4a9b-0c1d-2e3f4a5b6c7d
+          stepCounter: 3c2a1b4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6741be4e-eeaf-4aff-9980-68e5ffa55b17
+                stepCounter: 765e91c7-9c2e-4f38-a400-047c737acb64
+            transform: PFC.DW_UPDATE_USER
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PLANNING_FCCS_CLIENT: PFC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ADF_TMP
+            nodeName: PLANNING_FCCS_CLIENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ADF_TMP', 'PLANNING_FCCS_CLIENT') }} "PFC"
+            WHERE PFC.CURRENT_FLAG = 'Y'
+        name: VPLANNINGTHRESHOLDCLIENTHIERARCHY
+        noLinkRefs: []
+  name: VPLANNINGTHRESHOLDCLIENTHIERARCHY
+  overrideSQL: false
+  schema: PLANNING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
