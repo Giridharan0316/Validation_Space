@@ -1,0 +1,177 @@
+fileVersion: 1
+id: 3c592963-c798-4424-940e-54d9c4de4238
+name: ACA_TRANSACTION_EXCESS_STAGING_DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+      USE DATABASE AUS_DEV_RAW;
+      UPDATE PUBLIC.ACA_TRANSACTION_EXCESS_STAGING
+      SET
+          UNIQUE_CLAIM_ID = CLIENT_NUMBER || '-' || ACCIDENT_NUMBER || '-' || CLAIM_COVERAGE_CODE || '-' || CLAIM_SEQUENCE_NUMBER,
+          EXCESS_TRANSACTION_DATE = DATEFROMPARTS(TRANSACTION_YEAR, TRANSACTION_MONTH, TRANSACTION_DAY),
+          ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          ACA_UPDATE_USER = 'spaca_aca_transaction_excess_staging_update';
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: DBSHIFT_DB
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_transaction_excess_staging_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16d564f3-ac5e-4c7b-b384-0a3754966606
+          stepCounter: 3c592963-c798-4424-940e-54d9c4de4238
+        config: {}
+        dataType: STRING
+        defaultValue: ""
+        description: ""
+        name: DBSHIFT_PSTG_NODE_KEY
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "1"
+        transform: SHA1(TO_VARCHAR('DUMMY'))
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2c4187-578f-4ed1-8557-07409c916d8a
+          stepCounter: 3c592963-c798-4424-940e-54d9c4de4238
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "1"
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e0037a5-9bb7-4a0b-93ca-a309990e793e
+          stepCounter: 3c592963-c798-4424-940e-54d9c4de4238
+        config: {}
+        dataType: STRING
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "'Y'"
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d152a51-f76e-4e89-a311-5369527f8d68
+          stepCounter: 3c592963-c798-4424-940e-54d9c4de4238
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP_NTZ)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc7d8787-0b1a-41f8-9a67-68b201a0808a
+          stepCounter: 3c592963-c798-4424-940e-54d9c4de4238
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(NULL AS TIMESTAMP_NTZ)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f32c7e19-0355-46f9-aa36-9b1681ab81d9
+          stepCounter: 3c592963-c798-4424-940e-54d9c4de4238
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP_NTZ)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37a505b8-5b4d-4ac4-b78f-ef16335ec443
+          stepCounter: 3c592963-c798-4424-940e-54d9c4de4238
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP_NTZ)
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: ACA_TRANSACTION_EXCESS_STAGING_DBSHIFT_PSTG_NODE
+        noLinkRefs: []
+  name: ACA_TRANSACTION_EXCESS_STAGING_DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBSHIFT
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

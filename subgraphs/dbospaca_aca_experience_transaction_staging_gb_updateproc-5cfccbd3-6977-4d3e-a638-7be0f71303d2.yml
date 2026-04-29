@@ -1,0 +1,6 @@
+fileVersion: 1
+id: 5cfccbd3-6977-4d3e-a638-7be0f71303d2
+name: dbo.spaca_aca_experience_transaction_staging_gb_update.proc
+steps:
+  - 59385d30-b3b3-4f9e-a0e2-63b5e40e2b4d
+type: Subgraph

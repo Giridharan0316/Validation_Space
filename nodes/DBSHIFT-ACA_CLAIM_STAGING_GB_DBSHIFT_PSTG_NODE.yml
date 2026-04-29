@@ -1,0 +1,190 @@
+fileVersion: 1
+id: 59a1e0d3-3b4c-4a1e-8f2a-6b8c9d0e1f2a
+name: ACA_CLAIM_STAGING_GB_DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          UPDATE {{ ref('SRC-ASTRUS', 'ACA_CLAIM_STAGING_GB') }}
+          SET 
+              ACA_DATE_ID_CLAIM_DATE = COALESCE(TRY_TO_NUMBER(TO_CHAR(G.CLAIM_DATE, 'YYYYMMDD')), -1),
+              ACA_DATE_ID_ORIGINAL_OPEN_DATE = COALESCE(TRY_TO_NUMBER(TO_CHAR(G.ORIGINAL_OPEN_DATE, 'YYYYMMDD')), -1),
+              ACA_ACCOUNT_STRUCTURE_ID = COALESCE(AC.ACA_ACCOUNT_STRUCTURE_ID, -1),
+              EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED = COALESCE(G.EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED, ENCRYPT(G.EMPLOYEE_IDENTIFICATION_NUMBER, 'encryption_key')),
+              EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED = COALESCE(G.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED, ENCRYPT(G.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER, 'encryption_key')),
+              DEATH_DATE_ENCRYPTED = COALESCE(G.DEATH_DATE_ENCRYPTED, ENCRYPT(TO_VARCHAR(G.DEATH_DATE), 'encryption_key')),
+              
+              -- NULL decrypted columns
+              EMPLOYEE_IDENTIFICATION_NUMBER = NULL,
+              EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER = NULL,
+              DEATH_DATE = NULL,
+              
+              ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+              ACA_UPDATE_USER = 'dbo.spaca_aca_claim_staging_gb_update'
+          FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM_STAGING_GB') }} G
+          LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_ACCOUNT_STRUCTURE') }} AC 
+              ON G.SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID = AC.SOURCE_SYSTEM_ACCOUNT_STRUCTURE_ID
+              AND AC.ACA_SOURCE_SYSTEM_ID = G.ACA_SOURCE_SYSTEM_ID;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_claim_staging_gb_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          stepCounter: 59a1e0d3-3b4c-4a1e-8f2a-6b8c9d0e1f2a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: ACA_CLAIM_STAGING_GB_KEY
+        nullable: true
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+          stepCounter: 59a1e0d3-3b4c-4a1e-8f2a-6b8c9d0e1f2a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+          stepCounter: 59a1e0d3-3b4c-4a1e-8f2a-6b8c9d0e1f2a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
+          stepCounter: 59a1e0d3-3b4c-4a1e-8f2a-6b8c9d0e1f2a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
+          stepCounter: 59a1e0d3-3b4c-4a1e-8f2a-6b8c9d0e1f2a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(NULL AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
+          stepCounter: 59a1e0d3-3b4c-4a1e-8f2a-6b8c9d0e1f2a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+          stepCounter: 59a1e0d3-3b4c-4a1e-8f2a-6b8c9d0e1f2a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        uniqueKey: false
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: ACA_CLAIM_STAGING_GB_DBSHIFT_PSTG_NODE
+        noLinkRefs: []
+  name: ACA_CLAIM_STAGING_GB_DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBO
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

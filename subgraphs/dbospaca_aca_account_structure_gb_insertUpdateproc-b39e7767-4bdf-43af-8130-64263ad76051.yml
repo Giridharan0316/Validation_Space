@@ -1,0 +1,8 @@
+fileVersion: 1
+id: b39e7767-4bdf-43af-8130-64263ad76051
+name: dbo.spaca_aca_account_structure_gb_insertUpdate.proc
+steps:
+  - 430f9622-c9eb-44b2-bf7f-0cab97c59a9b
+  - 5693021f-50b5-4a6c-a459-7f7cd426d0df
+  - 59eb09a3-5c26-4074-a5e2-04e4776100cd
+type: Subgraph
