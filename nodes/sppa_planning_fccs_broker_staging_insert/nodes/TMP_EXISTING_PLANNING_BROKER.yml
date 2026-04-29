@@ -1,0 +1,126 @@
+fileVersion: 1
+id: 1a2b3c4d-5e6f-47a8-9b0c-1d2e3f4a5b6c
+name: TMP_EXISTING_PLANNING_BROKER
+type: Node
+operation:
+  name: TMP_EXISTING_PLANNING_BROKER
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: REFINED-PLANNING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2b3c4d5e-6f7a-48b9-0c1d-2e3f4a5b6c7d
+        stepCounter: 1a2b3c4d-5e6f-47a8-9b0c-1d2e3f4a5b6c
+      config: {}
+      dataType: VARCHAR(100)
+      description: ''
+      name: PLANNING_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 94546e6d-ae0a-4841-9095-60a549a2ef79
+          stepCounter: 98d4e35b-ef92-4c2a-8acb-b07fa9e3a689
+        transform: B.PLANNING_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 3c4d5e6f-7a8b-49c0-1d2e-3f4a5b6c7d8e
+        stepCounter: 1a2b3c4d-5e6f-47a8-9b0c-1d2e3f4a5b6c
+      config: {}
+      dataType: VARCHAR(100)
+      description: ''
+      name: BROKER_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 6eb494b8-c085-42f4-bdd4-33cd96153e8b
+          stepCounter: 98d4e35b-ef92-4c2a-8acb-b07fa9e3a689
+        transform: B.BROKER_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 4d5e6f7a-8b9c-40d1-2e3f-4a5b6c7d8e9f
+        stepCounter: 1a2b3c4d-5e6f-47a8-9b0c-1d2e3f4a5b6c
+      config: {}
+      dataType: VARCHAR(50)
+      description: ''
+      name: SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: ff8f458f-ddac-4e0f-a4ed-63f5424dcf7c
+          stepCounter: 98d4e35b-ef92-4c2a-8acb-b07fa9e3a689
+        transform: B.SOURCE_SYSTEM_BROKER_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5e6f7a8b-9c0d-41e2-3f4a-5b6c7d8e9f0a
+        stepCounter: 1a2b3c4d-5e6f-47a8-9b0c-1d2e3f4a5b6c
+      config: {}
+      dataType: VARCHAR(100)
+      description: ''
+      name: SOURCE_SYSTEM
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 93095c59-7489-42e6-b851-f64091459dbd
+          stepCounter: 98d4e35b-ef92-4c2a-8acb-b07fa9e3a689
+        transform: B.SOURCE_SYSTEM
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6f7a8b9c-0d1e-42f3-4a5b-6c7d8e9f0a1b
+        stepCounter: 1a2b3c4d-5e6f-47a8-9b0c-1d2e3f4a5b6c
+      config: {}
+      dataType: VARCHAR(72)
+      description: ''
+      name: PLANNING_ALIAS
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d7e51244-5d39-4db9-b019-3249639f4ef5
+          stepCounter: 98d4e35b-ef92-4c2a-8acb-b07fa9e3a689
+        transform: B.PLANNING_ALIAS
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7a8b9c0d-1e2f-43a4-5b6c-7d8e9f0a1b2c
+        stepCounter: 1a2b3c4d-5e6f-47a8-9b0c-1d2e3f4a5b6c
+      config: {}
+      dataType: NUMBER(10,0)
+      description: ''
+      name: DW_BROKER_MASTER_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 62cb2c74-8c93-48a8-9073-7375d78df4e5
+          stepCounter: 98d4e35b-ef92-4c2a-8acb-b07fa9e3a689
+        transform: B.DW_BROKER_MASTER_ID
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        B: B
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: SRC-ADF_TMP
+        nodeName: PLANNING_FCCS_BROKER
+      join:
+        joinCondition: 'FROM {{ ref(''SRC-ADF_TMP'', ''PLANNING_FCCS_BROKER'') }} B
+
+          GROUP BY B.PLANNING_ID, B.BROKER_LOOKUP_CODE, B.SOURCE_SYSTEM_BROKER_LOOKUP_CODE, B.SOURCE_SYSTEM, B.PLANNING_ALIAS, B.DW_BROKER_MASTER_ID'
+      name: TMP_EXISTING_PLANNING_BROKER
+      noLinkRefs: []
+  overrideSQL: false
+  schema: PLANNING
+  sqlType: Stage
+  version: 1
