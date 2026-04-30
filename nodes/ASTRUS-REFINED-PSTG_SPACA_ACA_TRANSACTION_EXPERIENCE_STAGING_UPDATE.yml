@@ -1,0 +1,180 @@
+fileVersion: 1
+id: 61e12a45-662f-410a-81a1-ccaa0e2b467f
+name: PSTG_SPACA_ACA_TRANSACTION_EXPERIENCE_STAGING_UPDATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      UPDATE {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_EXPERIENCE_STAGING') }} TCS
+      SET    
+           UNIQUE_CLAIM_ID                              = CONCAT(CLIENT_NUMBER, '-', ACCIDENT_NUMBER, '-', CLAIM_COVERAGE_CODE, '-', CLAIM_SEQUENCE_NUMBER)
+
+          ,EXPERIENCE_AMOUNT1                           = CASE WHEN EXPERIENCE_AMOUNT1 LIKE '%-%' 
+                                                               THEN CAST(ABS(TCS.EXPERIENCE_AMOUNT1) / 100 AS NUMBER(16, 2)) * -1
+                                                               ELSE CAST(ABS(EXPERIENCE_AMOUNT1) / 100 AS NUMBER(16, 2))
+                                                          END
+
+          ,EXPERIENCE_AMOUNT2                           = CASE WHEN EXPERIENCE_AMOUNT2 LIKE '%-%' 
+                                                               THEN CAST(ABS(TCS.EXPERIENCE_AMOUNT2) / 100 AS NUMBER(16, 2)) * -1
+                                                               ELSE CAST(ABS(EXPERIENCE_AMOUNT2) / 100 AS NUMBER(16, 2))
+                                                          END
+
+          ,EXPERIENCE_AMOUNT3                           = CASE WHEN EXPERIENCE_AMOUNT3 LIKE '%-%' 
+                                                               THEN CAST(ABS(TCS.EXPERIENCE_AMOUNT3) / 100 AS NUMBER(16, 2)) * -1
+                                                               ELSE CAST(ABS(EXPERIENCE_AMOUNT3) / 100 AS NUMBER(16, 2))
+                                                          END
+
+          ,EXPERIENCE_AMOUNT4                           = CASE WHEN EXPERIENCE_AMOUNT4 LIKE '%-%' 
+                                                               THEN CAST(ABS(TCS.EXPERIENCE_AMOUNT4) / 100 AS NUMBER(16, 2)) * -1
+                                                               ELSE CAST(ABS(EXPERIENCE_AMOUNT4) / 100 AS NUMBER(16, 2))
+                                                          END
+
+          ,EXPERIENCE_AMOUNT5                           = CASE WHEN EXPERIENCE_AMOUNT5 LIKE '%-%' 
+                                                               THEN CAST(ABS(TCS.EXPERIENCE_AMOUNT5) / 100 AS NUMBER(16, 2)) * -1
+                                                               ELSE CAST(ABS(EXPERIENCE_AMOUNT5) / 100 AS NUMBER(16, 2))
+                                                          END
+
+          ,EXPERIENCE_AMOUNT6                           = CASE WHEN EXPERIENCE_AMOUNT6 LIKE '%-%' 
+                                                               THEN CAST(ABS(TCS.EXPERIENCE_AMOUNT6) / 100 AS NUMBER(16, 2)) * -1
+                                                               ELSE CAST(ABS(EXPERIENCE_AMOUNT6) / 100 AS NUMBER(16, 2))
+                                                          END
+
+          ,TOTAL_EXPERIENCE_AMOUNT_ALL_RESERVE_TYPES    = CASE WHEN TOTAL_EXPERIENCE_AMOUNT_ALL_RESERVE_TYPES LIKE '%-%' 
+                                                               THEN CAST(ABS(TCS.TOTAL_EXPERIENCE_AMOUNT_ALL_RESERVE_TYPES) / 100 AS NUMBER(16, 2)) * -1
+                                                               ELSE CAST(ABS(TCS.TOTAL_EXPERIENCE_AMOUNT_ALL_RESERVE_TYPES) / 100 AS NUMBER(16, 2))
+                                                          END
+
+          ,EXPERIENCE_CHANGE_AMOUNT1                    = CAST(ABS(TCS.EXPERIENCE_CHANGE_AMOUNT1) / 100 AS NUMBER(16, 2))
+          ,EXPERIENCE_CHANGE_AMOUNT2                    = CAST(ABS(TCS.EXPERIENCE_CHANGE_AMOUNT2) / 100 AS NUMBER(16, 2))
+          ,EXPERIENCE_CHANGE_AMOUNT3                    = CAST(ABS(TCS.EXPERIENCE_CHANGE_AMOUNT3) / 100 AS NUMBER(16, 2))
+          ,EXPERIENCE_CHANGE_AMOUNT4                    = CAST(ABS(TCS.EXPERIENCE_CHANGE_AMOUNT4) / 100 AS NUMBER(16, 2))
+          ,EXPERIENCE_CHANGE_AMOUNT5                    = CAST(ABS(TCS.EXPERIENCE_CHANGE_AMOUNT5) / 100 AS NUMBER(16, 2))
+          ,EXPERIENCE_CHANGE_AMOUNT6                    = CAST(ABS(TCS.EXPERIENCE_CHANGE_AMOUNT6) / 100 AS NUMBER(16, 2))
+
+          ,TOTAL_EXPERIENCE_CHANGE_AMOUNT_ALL_RESERVE_TYPES = CAST(ABS(TCS.TOTAL_EXPERIENCE_CHANGE_AMOUNT_ALL_RESERVE_TYPES) / 100 AS NUMBER(16, 2))
+
+          ,EXPERIENCE_TRANSACTION_DATE                  = DATE_FROM_PARTS(TCS.TRANSACTION_YEAR, TCS.TRANSACTION_MONTH, TCS.TRANSACTION_DAY)
+
+          ,POLICY_EFFECTIVE_DATE                        = CASE WHEN TCS.POLICY_EFFECTIVE_YEAR = '0000' THEN NULL
+                                                               ELSE DATE_FROM_PARTS(TCS.POLICY_EFFECTIVE_YEAR, TCS.POLICY_EFFECTIVE_MONTH, TCS.POLICY_EFFECTIVE_DAY)
+                                                          END
+
+          ,POLICY_EXPIRATION_DATE                       = CASE WHEN TCS.POLICY_EXPIRATION_YEAR = '0000' THEN NULL
+                                                               ELSE DATE_FROM_PARTS(TCS.POLICY_EXPIRATION_YEAR, TCS.POLICY_EXPIRATION_MONTH, TCS.POLICY_EXPIRATION_DAY)
+                                                          END
+
+          ,ACA_DATE_UPDATED                             = CURRENT_TIMESTAMP()
+          ,ACA_UPDATE_USER                              = 'spaca_aca_transaction_experience_staging_update';
+    testsEnabled: true
+    truncateBefore: false
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_transaction_experience_staging_update
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c09cbe7-ba48-4e8d-8a25-c6db8a101292
+          stepCounter: 61e12a45-662f-410a-81a1-ccaa0e2b467f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACA_TRANSACTION_EXPERIENCE_STAGING_KEY
+        nullable: true
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3baeb6fb-9b2b-47e1-ae62-811c750b691b
+          stepCounter: 61e12a45-662f-410a-81a1-ccaa0e2b467f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "1"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4dc372f5-46aa-4a4b-97e3-057410cd044b
+          stepCounter: 61e12a45-662f-410a-81a1-ccaa0e2b467f
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "TRUE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a5e11ad-d621-4d32-aa74-b5f7b0f02e60
+          stepCounter: 61e12a45-662f-410a-81a1-ccaa0e2b467f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd959040-5e58-45ad-bc0b-d2427a71f00a
+          stepCounter: 61e12a45-662f-410a-81a1-ccaa0e2b467f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP('9999-12-31 23:59:59.999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63b8852-c36e-4444-a035-af5a58d601b3
+          stepCounter: 61e12a45-662f-410a-81a1-ccaa0e2b467f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5723eb7-a5ec-4581-8b38-202353fc4267
+          stepCounter: 61e12a45-662f-410a-81a1-ccaa0e2b467f
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP() AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: PSTG_SPACA_ACA_TRANSACTION_EXPERIENCE_STAGING_UPDATE
+        noLinkRefs: []
+  name: PSTG_SPACA_ACA_TRANSACTION_EXPERIENCE_STAGING_UPDATE
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node
