@@ -1,0 +1,107 @@
+fileVersion: 1
+id: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+name: TMPCLIENTHIERARCHY
+type: Node
+operation:
+  name: TMPCLIENTHIERARCHY
+  type: sql
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: REFINED-PLANNING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+        stepCounter: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+      config: {}
+      dataType: VARCHAR(100)
+      description: ''
+      name: PARENT
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        transform: UNION_SRC.PARENT
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d3e4f5a6-b7c8-d9e0-f1a2-b3c4d5e6f7a8
+        stepCounter: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+      config: {}
+      dataType: VARCHAR(100)
+      description: ''
+      name: MEMBER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        transform: UNION_SRC.MEMBER
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e4f5a6b7-c8d9-e0f1-a2b3-c4d5e6f7a8b9
+        stepCounter: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+      config: {}
+      dataType: NUMBER(38,0)
+      description: ''
+      name: GROUP_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        transform: UNION_SRC.GROUP_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f5a6b7c8-d9e0-f1a2-b3c4-d5e6f7a8b9c0
+        stepCounter: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+      config: {}
+      dataType: NUMBER(38,0)
+      description: ''
+      name: SORT_ORDER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: UNION_SRC.SORT_ORDER
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+        stepCounter: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+      config: {}
+      dataType: NUMBER(38,0)
+      description: ''
+      name: ROW_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        transform: UNION_SRC.ROW_ID
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases: {}
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: REFINED-PLANNING
+        nodeName: TMP_NEW_PLANNING_CLIENT
+      join:
+        joinCondition: "FROM (\n    SELECT DISTINCT 'Total_Existing_and_General_Clients' AS PARENT, GROUP_NAME AS MEMBER, ABS(GROUP_ID) AS GROUP_ID, 3 AS SORT_ORDER, -1 as ROW_ID FROM {{ ref('REFINED-PLANNING', 'TMP_NEW_PLANNING_CLIENT') }}\n    UNION\n    SELECT GROUP_NAME AS PARENT, PLANNING_ID AS MEMBER, ABS(GROUP_ID) AS GROUP_ID, 4 AS SORT_ORDER, ROW_ID FROM {{ ref('REFINED-PLANNING', 'TMP_NEW_PLANNING_CLIENT') }}\n) AS UNION_SRC"
+      name: TMPCLIENTHIERARCHY
+      noLinkRefs: []
+  overrideSQL: false
+  schema: PLANNING
+  sqlType: Stage
+  version: 1
