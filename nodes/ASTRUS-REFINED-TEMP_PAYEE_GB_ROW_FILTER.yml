@@ -1,0 +1,76 @@
+fileVersion: 1
+id: f5c9a4e3-7182-4c6b-9d43-528f10a56e1b
+name: TEMP_PAYEE_GB_ROW_FILTER
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11223344-5566-4778-899a-abbccddeeff0
+          stepCounter: f5c9a4e3-7182-4c6b-9d43-528f10a56e1b
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_TRANSACTION_PAYMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8899aabb-ccdd-4eef-f001-122334455667
+                stepCounter: e8c621fa-d3a9-450f-a7f4-29c8b3a75914
+            transform: H.ACA_TRANSACTION_PAYMENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22334455-6677-4889-9aab-bccddeeff001
+          stepCounter: f5c9a4e3-7182-4c6b-9d43-528f10a56e1b
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ""
+        name: ROW_SEQUENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ccddeeff-0011-4223-3445-566778899aab
+                stepCounter: e8c621fa-d3a9-450f-a7f4-29c8b3a75914
+              - columnCounter: ddeeff00-1122-4334-4556-6778899aabbc
+                stepCounter: e8c621fa-d3a9-450f-a7f4-29c8b3a75914
+              - columnCounter: eeff0011-2233-4445-5667-78899aabbccd
+                stepCounter: e8c621fa-d3a9-450f-a7f4-29c8b3a75914
+              - columnCounter: 00112233-4455-4667-7889-9aabbccddeef
+                stepCounter: e8c621fa-d3a9-450f-a7f4-29c8b3a75914
+            transform: ROW_NUMBER() OVER (PARTITION BY H.SOURCE_SYSTEM_PAYEE_ID ORDER BY H.PAYMENT_TRANSACTION_DATE DESC, H.PAYMENT_SEQUENCE_NUMBER DESC, H.ACA_DATE_UPDATED DESC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          H: H
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_PAYEE_GB_HASH
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'TEMP_PAYEE_GB_HASH') }} AS H
+            WHERE H.SOURCE_SYSTEM_PAYEE_ID IS NOT NULL
+        name: TEMP_PAYEE_GB_ROW_FILTER
+        noLinkRefs: []
+  name: TEMP_PAYEE_GB_ROW_FILTER
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

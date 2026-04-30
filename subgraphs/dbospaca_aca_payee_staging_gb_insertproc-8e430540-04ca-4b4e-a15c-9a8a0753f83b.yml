@@ -1,0 +1,9 @@
+fileVersion: 1
+id: 8e430540-04ca-4b4e-a15c-9a8a0753f83b
+name: dbo.spaca_aca_payee_staging_gb_insert.proc
+steps:
+  - 6b6daddd-32dc-4870-a173-a1a7f21f404b
+  - b29263e4-f79f-4448-b452-bcf92550b0bc
+  - d3a9e4b6-7f1c-48d2-a5e9-1b6c8f4d2a7e
+  - f64cfee0-5770-40a6-bb66-55d846ba3b53
+type: Subgraph

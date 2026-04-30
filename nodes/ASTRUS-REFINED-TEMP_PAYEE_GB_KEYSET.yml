@@ -1,0 +1,180 @@
+fileVersion: 1
+id: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+name: TEMP_PAYEE_GB_KEYSET
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00112233-4455-4667-8899-aabbccddeeff
+          stepCounter: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_TRANSACTION_PAYMENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b33a16f0-ce50-49bd-9cf4-1fd681065f7e
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: ATP.ACA_TRANSACTION_PAYMENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11223344-5566-4778-99aa-bbccddeeff00
+          stepCounter: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        name: PAYEE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d5c5740-04eb-4f8f-b9fb-59db0ea93f5b
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: CASE ATP.PAYEE_NAME_FORMAT WHEN 'I' THEN 'INDIVIDUAL' WHEN 'O' THEN 'ORGANIZATION' ELSE NULL END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22334455-6677-4889-aabb-ccddeeff0011
+          stepCounter: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: PAYEE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d5c5740-04eb-4f8f-b9fb-59db0ea93f5b
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+              - columnCounter: 0be9d8a1-1e11-4f3f-922e-6a2c21250886
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+              - columnCounter: 5c24e268-e9f7-4822-9311-b3c72efbf399
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+              - columnCounter: 4d7e5cf2-6ed9-460e-8442-de72070c1b25
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: CASE ATP.PAYEE_NAME_FORMAT WHEN 'I' THEN NULLIF(TRIM(CONCAT(ATP.PAYEE_FIRSTNAME, ' ', CAST(SNOWFLAKE_DECRYPT(ATP.PAYEE_LASTNAME_ENCRYPTED) AS VARCHAR(512)))), '') WHEN 'O' THEN CAST(SNOWFLAKE_DECRYPT(ATP.PAYEE_ORGANIZATION_NAME_ENCRYPTED) AS VARCHAR(512)) ELSE NULL END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33445566-7788-499a-bbcc-ddeeff001122
+          stepCounter: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+        config: {}
+        dataType: VARCHAR(16)
+        description: ""
+        name: IRS_TAX_IDENTIFICATION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5ff37fc4-5406-4f6c-96a9-28774d6f39ff
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: CAST(SNOWFLAKE_DECRYPT(ATP.PAYEE_IRS_TAX_IDENTIFICATION_NUMBER_ENCRYPTED) AS VARCHAR(512))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44556677-8899-4aab-bccd-deeff0011223
+          stepCounter: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+        config: {}
+        dataType: DATE
+        description: ""
+        name: PAYMENT_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11e86620-1bfb-4f41-85ff-de1fa231d9d7
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: ATP.PAYMENT_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55667788-99aa-4bbc-cdde-eff001122334
+          stepCounter: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+        config: {}
+        dataType: NUMBER(5,0)
+        description: ""
+        name: PAYMENT_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cece3fc3-7b27-404f-950c-f42dfd503fe8
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: CAST(ATP.PAYMENT_SEQUENCE_NUMBER AS NUMBER(5,0))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66778899-aabb-4ccd-deef-f00112233445
+          stepCounter: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13dafdd1-205f-485f-bad5-998ce201f935
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: ATP.ACA_DATE_UPDATED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 778899aa-bbcc-4dde-eff0-011223344556
+          stepCounter: b19e73d4-82a5-4f3b-b9d1-c752c4a96410
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: MAIL_TO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d67ab80c-4e9f-4a77-bfb6-2f13af884f8f
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+              - columnCounter: 54f1caa3-266a-4ad3-9772-32e427be5616
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+              - columnCounter: 67966e42-951a-4020-8aa5-dd19f297eb9f
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+              - columnCounter: 358d2cae-4b8d-4b67-878f-5f7b4bb16c75
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: CASE ATP.MAIL_TO_NAMEFORMAT WHEN 'I' THEN NULLIF(TRIM(CONCAT(ATP.MAIL_TO_FIRSTNAME, ' ', CAST(SNOWFLAKE_DECRYPT(ATP.MAIL_TO_LASTNAME_ENCRYPTED) AS VARCHAR(512)))), '') WHEN 'O' THEN CAST(SNOWFLAKE_DECRYPT(ATP.MAIL_TO_ORGANIZATIONNAME_ENCRYPTED) AS VARCHAR(512)) ELSE NULL END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ATP: ATP
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_PAYMENT
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_PAYEE_GB
+          - locationName: SRC-ASTRUS
+            nodeName: V_ACA_TRANSACTION_DATE_CURRENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_PAYMENT') }} AS ATP
+            CROSS JOIN (
+                SELECT COALESCE(MAX(ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) AS LAST_LOAD_DATE
+                FROM {{ ref('SRC-ASTRUS', 'ACA_PAYEE_GB') }}
+                WHERE ACA_PAYEE_GB_ID <> -1
+            ) AS LLD
+            CROSS JOIN (
+                SELECT TRANSACTION_DATE AS TRANSACTION_DATE_CURRENT
+                FROM {{ ref('SRC-ASTRUS', 'V_ACA_TRANSACTION_DATE_CURRENT') }}
+                WHERE SOURCE_SYSTEM = 'GB'
+            ) AS TDC
+            WHERE ATP.ACA_DATE_UPDATED > LLD.LAST_LOAD_DATE AND ATP.PAYMENT_TRANSACTION_DATE > TDC.TRANSACTION_DATE_CURRENT
+        name: TEMP_PAYEE_GB_KEYSET
+        noLinkRefs: []
+  name: TEMP_PAYEE_GB_KEYSET
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

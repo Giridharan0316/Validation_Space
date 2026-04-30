@@ -1,5 +1,10 @@
 defaultStorageMapping: SRC
 fileVersion: 1
 locations:
+  - ASTRUS-CURATED
+  - ASTRUS-PRESENTATION
+  - ASTRUS-REFINED
+  - DBSHIFT
   - SRC
+  - SRC-ASTRUS
   - TARGET
