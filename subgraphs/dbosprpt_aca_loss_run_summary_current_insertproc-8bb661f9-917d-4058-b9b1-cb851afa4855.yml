@@ -1,0 +1,33 @@
+fileVersion: 1
+id: 8bb661f9-917d-4058-b9b1-cb851afa4855
+name: dbo.sprpt_aca_loss_run_summary_current_insert.proc
+steps:
+  - 0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e
+  - 0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+  - 1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+  - 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+  - 1ead0646-cf68-4883-997b-8c0cf62502d6
+  - 2435ba06-7b12-47f7-96b6-8215e65b212a
+  - 2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a
+  - 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+  - 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+  - 4ab7909b-2594-46a7-a542-173a7bfb58dc
+  - 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+  - 4d0620f6-0da0-4b9a-9766-5aa0b6e37e1a
+  - 54a8f1cc-8d6a-43d3-a5a4-2d6b71875a2b
+  - 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+  - 6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a
+  - 7c322f86-33fa-49a8-884b-9072cb0b66a2
+  - 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+  - 7f5d09f4-c6de-4ad0-81bd-e2508ee8d669
+  - 7f8a9b0c-1d2e-4f3a-4b5c-6d7e8f9a0b1c
+  - 8af2f9a9-1e1b-4b12-88e7-bf5c38469654
+  - 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
+  - 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+  - 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+  - 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+  - a02db04c-8d48-4edc-83a3-cd7f3460574a
+  - b293bb9b-831d-4924-bc38-f96b8203914d
+  - c4f926f1-c46a-4edd-959f-3a12297ff352
+  - e971aded-3ce0-4ffe-ab35-fc384c02170a
+type: Subgraph

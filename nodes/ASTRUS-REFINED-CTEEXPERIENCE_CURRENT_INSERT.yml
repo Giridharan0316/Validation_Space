@@ -1,0 +1,195 @@
+fileVersion: 1
+id: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+name: CTEEXPERIENCE_CURRENT_INSERT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0a1b2c3-d4e5-4f6a-7b8c-9d0e1f2a3b4c
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_TRANSACTION_EXPERIENCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eec93916-b71f-4576-a2de-a2a93ffc48b8
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.ACA_TRANSACTION_EXPERIENCE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e740036-4de4-48f7-a51f-1333cf3f0c19
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6fae80ae-9e87-4352-96c8-76d135618132
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.CLAIM_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92608bb4-bcd1-42a2-8caf-c9151d1f137c
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.EXPERIENCE_AMOUNT1
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 42de23e4-1ef9-4bfa-bf2f-95cb54192f15
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.EXPERIENCE_AMOUNT2
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 702cd528-96c0-467b-81d6-58d0f2baf474
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.EXPERIENCE_AMOUNT3
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a52e3b8a-ace0-48e4-a5b8-bb80699ecbe1
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.EXPERIENCE_AMOUNT4
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e2df82a-a090-4066-90ce-a7eddb879093
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.EXPERIENCE_AMOUNT5
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2e
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT6
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20685501-5604-45bb-b75f-ae215bb5a34a
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.EXPERIENCE_AMOUNT6
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3f
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: TOTAL_EXPERIENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2655fbdd-a8fd-4f28-8a69-90dcb9cca503
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: SRC.TOTAL_EXPERIENCE_AMOUNT_ALL_RESERVE_TYPES
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f4a
+          stepCounter: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ""
+        name: ROW_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e740036-4de4-48f7-a51f-1333cf3f0c19
+                stepCounter: 4ab7909b-2594-46a7-a542-173a7bfb58dc
+            transform: ROW_NUMBER() OVER (PARTITION BY SRC.UNIQUE_CLAIM_ID ORDER BY SRC.EXPERIENCE_TRANSACTION_DATE DESC, SRC.TRANSACTION_SEQUENCE_NUMBER ASC)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SRC: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_EXPERIENCE
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_EXPERIENCE') }} AS SRC
+        name: CTEEXPERIENCE_CURRENT_INSERT
+        noLinkRefs: []
+  name: CTEEXPERIENCE_CURRENT_INSERT
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,99 @@
+fileVersion: 1
+id: cef9fb3b-12d2-43d3-a335-516e9107ee0f
+name: TEMP_TRANSACTION_4
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Aggregated incurred transactions by claim
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd41-60aa-74aa-a5fd-7e7dec604bbf
+          stepCounter: cef9fb3b-12d2-43d3-a335-516e9107ee0f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f02170f-c38a-4933-911e-089a80371ef3
+                stepCounter: 79f7d08f-e14b-4874-915f-d2e8509b532d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd41-60aa-74aa-a5fd-83e6ea3d67af
+          stepCounter: cef9fb3b-12d2-43d3-a335-516e9107ee0f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TRANSACTION_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "4"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd41-60aa-74aa-a5fd-84a5b91b25ec
+          stepCounter: cef9fb3b-12d2-43d3-a335-516e9107ee0f
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f791a8e1-5121-4217-a9a3-5c8c67924c7f
+                stepCounter: 79f7d08f-e14b-4874-915f-d2e8509b532d
+            transform: MAX(ASTRUSMODELINCURREDTRANSACTION.EXPERIENCE_TRANSACTION_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd41-60aa-74aa-a5fd-8a18596703ac
+          stepCounter: cef9fb3b-12d2-43d3-a335-516e9107ee0f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 671e2270-36e2-45e0-aa31-e1293c6be4a0
+                stepCounter: 79f7d08f-e14b-4874-915f-d2e8509b532d
+            transform: SUM(ASTRUSMODELINCURREDTRANSACTION.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELINCURREDTRANSACTION: 79f7d08f-e14b-4874-915f-d2e8509b532d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ASTRUSMODELINCURREDTRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ASTRUSMODELINCURREDTRANSACTION') }} ASTRUSMODELINCURREDTRANSACTION
+            GROUP BY ACA_CLAIM_ID
+        name: TEMP_TRANSACTION_4
+        noLinkRefs: []
+  name: TEMP_TRANSACTION_4
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

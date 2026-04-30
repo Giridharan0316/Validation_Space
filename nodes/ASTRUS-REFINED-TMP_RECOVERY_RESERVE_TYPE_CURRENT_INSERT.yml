@@ -1,0 +1,87 @@
+fileVersion: 1
+id: 0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e
+name: TMP_RECOVERY_RESERVE_TYPE_CURRENT_INSERT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2e3f4a5-b6c7-4d8e-9f0a-1b2c3d4e5f6a
+          stepCounter: 0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e7f8a9b0-c1d2-4e3f-4a5b-6c7d8e9f0a1b
+                stepCounter: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+            transform: T1.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3f4a5b6-c7d8-4e9f-0a1b-2c3d4e5f6a7b
+          stepCounter: 0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2e763a9-2155-4c95-905e-2b2b54e1d4c0
+                stepCounter: 4d0620f6-0da0-4b9a-9766-5aa0b6e37e1a
+            transform: RT.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4a5b6c7-d8e9-4f0a-1b2c-3d4e5f6a7b8c
+          stepCounter: 0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: RECOVERY_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8a9b0c1-d2e3-4f4a-5b6c-7d8e9f0a1b2c
+                stepCounter: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+            transform: T1.RECOVERY_AMOUNT
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          RT: 4d0620f6-0da0-4b9a-9766-5aa0b6e37e1a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TMP_RECOVERY_PIVOT_CURRENT_INSERT
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_RESERVE_TYPE_GB
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'TMP_RECOVERY_PIVOT_CURRENT_INSERT') }} AS T1
+            INNER JOIN {{ ref('SRC-ASTRUS', 'ACA_RESERVE_TYPE_GB') }} AS RT ON T1.CLASS = RT.CLASS_CODE AND T1.RESERVE_TYPE_COLUMN_NUMBER = RT.RESERVE_TYPE_COLUMN_NUMBER
+        name: TMP_RECOVERY_RESERVE_TYPE_CURRENT_INSERT
+        noLinkRefs: []
+  name: TMP_RECOVERY_RESERVE_TYPE_CURRENT_INSERT
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

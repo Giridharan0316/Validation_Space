@@ -1,0 +1,88 @@
+fileVersion: 1
+id: 0d5ce574-63f2-4471-8934-da92e69742f2
+name: TEMP_RESERVE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Reserve transactions by claim and reserve type, excluding recovery
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd45-efbb-72a9-a51b-f486c29bd5ba
+          stepCounter: 0d5ce574-63f2-4471-8934-da92e69742f2
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 934e8d35-f12a-43c3-b4e1-255d658c8a14
+                stepCounter: 28c40b8a-1317-48f0-af96-a8d626354673
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd45-efbb-72a9-a51b-fbe245c63395
+          stepCounter: 0d5ce574-63f2-4471-8934-da92e69742f2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a8b082d-11d7-402a-a9e9-798e20253f93
+                stepCounter: 28c40b8a-1317-48f0-af96-a8d626354673
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd45-efbb-72a9-a51b-fe7a1ab198a1
+          stepCounter: 0d5ce574-63f2-4471-8934-da92e69742f2
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7f0691e-3511-4475-ac9d-92d3b2a59a72
+                stepCounter: 28c40b8a-1317-48f0-af96-a8d626354673
+            transform: SUM(ASTRUSMODELRESERVETRANSACTION.RESERVE_AMOUNT)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELRESERVETRANSACTION: 28c40b8a-1317-48f0-af96-a8d626354673
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ASTRUSMODELRESERVETRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ASTRUSMODELRESERVETRANSACTION') }} ASTRUSMODELRESERVETRANSACTION
+            WHERE RESERVE_TYPE <> 'RECOVERY'
+            GROUP BY ACA_CLAIM_ID, RESERVE_TYPE
+        name: TEMP_RESERVE
+        noLinkRefs: []
+  name: TEMP_RESERVE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

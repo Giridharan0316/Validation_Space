@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 07374cf4-e1c8-4608-b39a-eaf8eba57635
+name: TEMP_RESERVE_REMAINING
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Reserve remaining after payments by claim
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd48-8a21-754b-8848-a3f5ae76ea68
+          stepCounter: 07374cf4-e1c8-4608-b39a-eaf8eba57635
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: R.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd48-8a21-754b-8848-a4b2ba8f6c98
+          stepCounter: 07374cf4-e1c8-4608-b39a-eaf8eba57635
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SUM(CASE WHEN (R.TRANSACTION_AMOUNT - COALESCE(P.TRANSACTION_AMOUNT, 0)) <= 0 THEN 0 ELSE R.TRANSACTION_AMOUNT - COALESCE(P.TRANSACTION_AMOUNT, 0) END)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_PAYMENT
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_RESERVE
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'TEMP_RESERVE') }} R
+            LEFT JOIN {{ ref('ASTRUS-REFINED', 'TEMP_PAYMENT') }} P
+              ON P.ACA_CLAIM_ID = R.ACA_CLAIM_ID
+              AND P.RESERVE_TYPE = R.RESERVE_TYPE
+            GROUP BY R.ACA_CLAIM_ID
+        name: TEMP_RESERVE_REMAINING
+        noLinkRefs: []
+  name: TEMP_RESERVE_REMAINING
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

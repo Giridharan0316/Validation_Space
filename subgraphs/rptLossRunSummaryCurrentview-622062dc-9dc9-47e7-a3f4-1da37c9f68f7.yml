@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 622062dc-9dc9-47e7-a3f4-1da37c9f68f7
+name: rpt.LossRunSummaryCurrent.view
+steps:
+  - b285ae43-dd74-4123-8fc0-9a5c4e61f355
+  - e2b67f18-62d4-4bb6-8c44-b0a6cf641872
+type: Subgraph
