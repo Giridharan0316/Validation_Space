@@ -1,0 +1,81 @@
+fileVersion: 1
+id: e4f1a9b2-3c5d-4a80-9b6e-c2d1f5a8b7c4
+name: L_SUBQUERY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f1a2b3c4-d5e6-42a8-c7d8-e9f0a1b2c3d4
+        stepCounter: e4f1a9b2-3c5d-4a80-9b6e-c2d1f5a8b7c4
+      config: {}
+      dataType: VARCHAR(16777216)
+      description: ''
+      name: CLIENT
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d78f8bd7-9250-4e56-8604-7b2b7e411035
+          stepCounter: c4f926f1-c46a-4edd-959f-3a12297ff352
+        transform: CLIENT
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a2b3c4d5-e6f7-42a8-c7d8-a1b2c3d4e5f6
+        stepCounter: e4f1a9b2-3c5d-4a80-9b6e-c2d1f5a8b7c4
+      config: {}
+      dataType: VARCHAR(16777216)
+      description: ''
+      name: UNIT_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: b36b7f3c-c260-48c7-8f01-f34d89672a3d
+          stepCounter: c4f926f1-c46a-4edd-959f-3a12297ff352
+        transform: UNIT_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c4d5e6f7-a8b9-42a8-c7d8-e9f0a1b2c3d4
+        stepCounter: e4f1a9b2-3c5d-4a80-9b6e-c2d1f5a8b7c4
+      config: {}
+      dataType: VARCHAR(16777216)
+      description: ''
+      name: LEVEL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 25a23c77-23dc-4ccc-9ec3-53e2d174ff58
+          stepCounter: c4f926f1-c46a-4edd-959f-3a12297ff352
+        transform: MAX(LEVEL)
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases: {}
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: SRC-ASTRUS
+        nodeName: ACA_PYRAMID
+      join:
+        joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_PYRAMID') }} GROUP BY CLIENT, UNIT_ID
+      name: L_SUBQUERY
+      noLinkRefs: []
+  name: L_SUBQUERY
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
