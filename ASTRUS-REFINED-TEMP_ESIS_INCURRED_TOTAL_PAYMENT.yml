@@ -1,0 +1,135 @@
+fileVersion: 1
+id: 60d794b3-f2cf-53be-81d4-7f90e6c3b4ac
+name: TEMP_ESIS_INCURRED_TOTAL_PAYMENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1a2a3a4-b1b2-c1c2-d1d2-e1e2e3e4e5e6
+          stepCounter: 60d794b3-f2cf-53be-81d4-7f90e6c3b4ac
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12c3e07f-4ea2-4750-9c1f-61537f1a245e
+                stepCounter: 8ad360da-ac1d-4359-9ded-c07eb20a9ed1
+            transform: U.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1f2f3f4-g1g2-h1h2-i1i2-j1j2j3j4j5j6
+          stepCounter: 60d794b3-f2cf-53be-81d4-7f90e6c3b4ac
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc85f5c4-d8cc-4550-a081-ca29b1b617e5
+                stepCounter: 8ad360da-ac1d-4359-9ded-c07eb20a9ed1
+            transform: U.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: k1k2k3k4-l1l2-m1m2-n1n2-o1o2o3o4o5o6
+          stepCounter: 60d794b3-f2cf-53be-81d4-7f90e6c3b4ac
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a4b4c4d-4e4f-4a4b-4c4d-4e4f4a4b4c4d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: U.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: p1p2p3p4-q1q2-r1r2-s1s2-t1t2t3t4t5t6
+          stepCounter: 60d794b3-f2cf-53be-81d4-7f90e6c3b4ac
+        config: {}
+        dataType: CHAR(2)
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0049e442-d4fc-4080-8b29-23019795ff4c
+                stepCounter: 8ad360da-ac1d-4359-9ded-c07eb20a9ed1
+            transform: U.COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: u1u2u3u4-v1v2-w1w2-x1x2-y1y2y3y4y5y6
+          stepCounter: 60d794b3-f2cf-53be-81d4-7f90e6c3b4ac
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dc48f982-e7d8-4d3d-8342-e637e0eb5113
+                stepCounter: 8ad360da-ac1d-4359-9ded-c07eb20a9ed1
+            transform: U.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: z1z2z3z4-a1a2-b1b2-c1c2-d1d2d3d4d5d6
+          stepCounter: 60d794b3-f2cf-53be-81d4-7f90e6c3b4ac
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: PAYMENT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2bc01e73-bfd3-4de6-9b49-06a257dfc1cb
+                stepCounter: 8ad360da-ac1d-4359-9ded-c07eb20a9ed1
+            transform: U.PAYMENT_AMOUNT
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          U: U
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_PAYMENT_TRANSACTION
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT PMT.SOURCE_SYSTEM_CLAIM_ID, PMT.ACA_RESERVE_TYPE_ID, C.TRANSACTION_DATE, MAX(PMT.COVERAGE_GROUP_CODE) AS COVERAGE_GROUP_CODE, MAX(PMT.RESERVE_TYPE) AS RESERVE_TYPE, SUM(PMT.PAYMENT_AMOUNT_BY_RESERVE_TYPE) AS PAYMENT_AMOUNT
+              FROM {{ ref('SRC-ASTRUS', 'ACA_PAYMENT_TRANSACTION') }} AS PMT
+              INNER JOIN {{ ref('ASTRUS-REFINED', 'TEMP_ESIS_INCURRED_NEW_TRANSACTION') }} AS C ON C.SOURCE_SYSTEM_CLAIM_ID = PMT.SOURCE_SYSTEM_CLAIM_ID AND C.ACA_RESERVE_TYPE_ID = PMT.ACA_RESERVE_TYPE_ID
+              WHERE PMT.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS') AND PMT.TRANSACTION_DATE <= C.TRANSACTION_DATE
+              GROUP BY PMT.SOURCE_SYSTEM_CLAIM_ID, PMT.ACA_RESERVE_TYPE_ID, C.TRANSACTION_DATE
+            ) AS U
+        name: TEMP_ESIS_INCURRED_TOTAL_PAYMENT
+        noLinkRefs: []
+  name: TEMP_ESIS_INCURRED_TOTAL_PAYMENT
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
