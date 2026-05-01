@@ -1,0 +1,135 @@
+fileVersion: 1
+id: aa4870be-685d-614c-3c6e-7e8148a830a9
+name: EXPERIENCE_TRANSACTION_BRANCH
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7g1y50ur-vl49-8rw3-vs8b-xz3w4x5a6z7y
+          stepCounter: aa4870be-685d-614c-3c6e-7e8148a830a9
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bafc527-5264-4414-9e27-6e87eb937196
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8h2z61vs-wm50-9sx4-wt9c-ya4x5y6b7a8z
+          stepCounter: aa4870be-685d-614c-3c6e-7e8148a830a9
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dd6a9a7-13ba-45b2-a449-255972926434
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9i3a72wt-xn61-0ty5-xu0d-zb5y6z7c8b9a
+          stepCounter: aa4870be-685d-614c-3c6e-7e8148a830a9
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 916fa211-398e-4339-9c71-09801cbeba62
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: EXPERIENCE_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0j4b83xu-yo72-1uz6-yv1e-ac6z7a8d9c0b
+          stepCounter: aa4870be-685d-614c-3c6e-7e8148a830a9
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 139404cb-9e33-4199-acc5-86620bede5cb
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1k5c94yv-zp83-2va7-zw2f-bd7a8b9e0d1c
+          stepCounter: aa4870be-685d-614c-3c6e-7e8148a830a9
+        config: {}
+        dataType: CHAR(2)
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 255e1237-2f61-4a66-988b-9742b3a4d1b0
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2l6d05zw-aq94-3wb8-ax3g-ce8b9c0f1e2d
+          stepCounter: aa4870be-685d-614c-3c6e-7e8148a830a9
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be9abbf1-3e4c-4c41-b54f-a92c8e164521
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: MAX(RESERVE_TYPE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_EXPERIENCE_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_SOURCE_SYSTEM
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_RESERVE_TRANSACTION
+        join:
+          joinCondition: |-
+            'FROM {{ ref(''SRC-ASTRUS'', ''ACA_EXPERIENCE_TRANSACTION'')}}
+             WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref(''SRC-ASTRUS'', ''ACA_SOURCE_SYSTEM'') }} WHERE SOURCE_SYSTEM = ''GB'')
+             AND ACA_DATE_UPDATED > IFF({{ parameters.IREPROCESSSTARTTRANSACTIONDATE
+             }} IS NULL, (SELECT IFNULL(MAX(ACA_DATE_UPDATED), ''1776-07-04 00:00:00.000''::TIMESTAMP_NTZ)
+             FROM {{ ref(''SRC-ASTRUS'', ''ACA_RESERVE_TRANSACTION'')
+             }} WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref(''ALLIANT_CLAIMS_ASTRUSref(''SRC-ASTRUS'', ''ACA_SOURCE_SYSTEM'')'GB'')), ''1900-01-01''::DATE)
+             AND EXPERIENCE_TRANSACTION_DATE >= IFNULL({{ parameters.IREPROCESSSTARTTRANSACTIONDATE
+             }}, ''1900-01-01''::DATE)'
+        name: EXPERIENCE_TRANSACTION_BRANCH
+        noLinkRefs: []
+  name: EXPERIENCE_TRANSACTION_BRANCH
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
