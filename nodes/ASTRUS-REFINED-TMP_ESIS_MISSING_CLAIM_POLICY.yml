@@ -1,63 +1,68 @@
 fileVersion: 1
-id: 5d6b4fc0-67c0-4357-8149-6f1ca5ed3895
+id: c93ad6db-b7f5-4652-9bc5-9c88be2fa0ab
 name: TMP_ESIS_MISSING_CLAIM_POLICY
 operation:
   config:
     insertStrategy: INSERT
     postSQL: |-
-      UPDATE {{ ref('SRC-ASTRUS', 'ACA_RECOVERY_TRANSACTION_STAGING_ESIS') }}
-      SET
-           -- Add Missing Claim Policy BK
-           SOURCE_SYSTEM_POLICY_ID                  = COALESCE(R.SOURCE_SYSTEM_POLICY_ID, MC.SOURCE_SYSTEM_POLICY_ID)
 
-           -- Add Dim FKs
-          ,ACA_CLAIM_ID                             = COALESCE(C.ACA_CLAIM_ID, -1)
-          ,ACA_RESERVE_TYPE_ID                      = COALESCE(RT.ACA_RESERVE_TYPE_ID, -1)
-          ,ACA_POLICY_ID                            = COALESCE(R.ACA_POLICY_ID, PO.ACA_POLICY_ID, MC.ACA_POLICY_ID, -1)
 
-           -- Add BK via MD5 Hash
-          ,SOURCE_SYSTEM_RECOVERY_TRANSACTION_ID    = MD5(
-                                                          R.SOURCE_SYSTEM_CLAIM_ID  || '|' ||
-                                                          CAST(R.RECOVERY_TRANSACTION_DATE AS VARCHAR) || '|' ||
-                                                          CAST(R.TRANSACTION_SEQUENCE_NUMBER AS VARCHAR) || '|' ||
-                                                          RT.TRANSACTION_GROUP
-                                                      )
+      -- Update BK, Dim FKs, Regular Columns and Audit Columns
+      UPDATE "AUS_DEV_RAW"."SNAPSHOT"."ACA_RESERVE_TRANSACTION_STAGING_ESIS" AS T
+      SET 
+        T.SOURCE_SYSTEM_RESERVE_TRANSACTION_ID = SOURCE.NEW_SOURCE_SYSTEM_RESERVE_TRANSACTION_ID,
+        T.ACA_CLAIM_ID = SOURCE.NEW_ACA_CLAIM_ID,
+        T.ACA_RESERVE_TYPE_ID = SOURCE.NEW_ACA_RESERVE_TYPE_ID,
+        T.ACA_POLICY_ID = SOURCE.NEW_ACA_POLICY_ID,
+        T.ACA_DATE_ID_TRANSACTION_DATE = SOURCE.NEW_ACA_DATE_ID_TRANSACTION_DATE,
+        T.POLICY_NUMBER = SOURCE.NEW_POLICY_NUMBER,
+        T.POLICY_EFFECTIVE_DATE = SOURCE.NEW_POLICY_EFFECTIVE_DATE,
+        T.COVERAGE_GROUP_CODE = SOURCE.NEW_COVERAGE_GROUP_CODE,
+        T.RESERVE_TYPE = SOURCE.NEW_RESERVE_TYPE,
+        T.ACA_SOURCE_SYSTEM_ID = SOURCE.NEW_ACA_SOURCE_SYSTEM_ID,
+        T.ACA_DATE_UPDATED = SOURCE.NEW_ACA_DATE_UPDATED,
+        T.ACA_UPDATE_USER = SOURCE.NEW_ACA_UPDATE_USER
+      FROM (
+        SELECT 
+          
+          MD5(CONCAT('<row unique_claim_id="', COALESCE(CAST(T_INNER.SOURCE_SYSTEM_CLAIM_ID AS VARCHAR), ''), '" transaction_date="', COALESCE(CAST(T_INNER.TRANSACTION_DATE AS VARCHAR), ''), '" transaction_sequence_number="', COALESCE(CAST(T_INNER.TRANSACTION_SEQUENCE_NUMBER AS VARCHAR), ''), '" reserve_type="', COALESCE(CAST(RT.TRANSACTION_GROUP AS VARCHAR), ''), '"/>'))::BINARY(16) AS NEW_SOURCE_SYSTEM_RESERVE_TRANSACTION_ID,
+          
+          COALESCE(C.ACA_CLAIM_ID, -1) AS NEW_ACA_CLAIM_ID,
+          COALESCE(RT.ACA_RESERVE_TYPE_ID, -1) AS NEW_ACA_RESERVE_TYPE_ID,
+          COALESCE(T_INNER.ACA_POLICY_ID, PO.ACA_POLICY_ID, MC.ACA_POLICY_ID, -1) AS NEW_ACA_POLICY_ID,
+          TRY_CAST(TO_CHAR(T_INNER.TRANSACTION_DATE, 'YYYYMMDD') AS NUMBER(10,0)) AS NEW_ACA_DATE_ID_TRANSACTION_DATE,
+          COALESCE(T_INNER.POLICY_NUMBER, MC.POLICY_NUMBER) AS NEW_POLICY_NUMBER,
+          COALESCE(T_INNER.POLICY_EFFECTIVE_DATE, MC.EFFECTIVE_DATE) AS NEW_POLICY_EFFECTIVE_DATE,
+          COALESCE(T_INNER.COVERAGE_GROUP_CODE, MC.CLAIM_COVERAGE_CODE) AS NEW_COVERAGE_GROUP_CODE,
+          RT.TRANSACTION_GROUP AS NEW_RESERVE_TYPE,
+          
+          (SELECT ACA_SOURCE_SYSTEM_ID FROM "AUS_DEV_RAW"."SNAPSHOT"."ACA_SOURCE_SYSTEM" WHERE SOURCE_SYSTEM = (SELECT MAX(SOURCE_SYSTEM) FROM "AUS_DEV_RAW"."SNAPSHOT"."ACA_RESERVE_TRANSACTION_STAGING_ESIS")) AS NEW_ACA_SOURCE_SYSTEM_ID,
+          CURRENT_TIMESTAMP() AS NEW_ACA_DATE_UPDATED,
+          'spaca_aca_reserve_transaction_staging_esis_update' AS NEW_ACA_UPDATE_USER
 
-           -- Update Regular Columns
-          ,COVERAGE_GROUP_CODE                      = COALESCE(R.COVERAGE_GROUP_CODE, MC.CLAIM_COVERAGE_CODE)
-          ,RESERVE_TYPE                             = RT.TRANSACTION_GROUP
-
-           -- Update Lineage/Audit
-          ,ACA_SOURCE_SYSTEM_ID                     = (
+        FROM "AUS_DEV_RAW"."SNAPSHOT"."ACA_RESERVE_TRANSACTION_STAGING_ESIS" AS T_INNER
+        LEFT JOIN "AUS_DEV_RAW"."SNAPSHOT"."ACA_CLAIM" AS C
+          ON C.SOURCE_SYSTEM_CLAIM_ID = T_INNER.SOURCE_SYSTEM_CLAIM_ID
+        LEFT JOIN "AUS_DEV_RAW"."SNAPSHOT"."ACA_POLICY" AS PO
+          ON PO.SOURCE_SYSTEM_POLICY_ID = T_INNER.SOURCE_SYSTEM_POLICY_ID
+        LEFT JOIN "AUS_DEV_REFINED"."PUBLIC"."TMP_ESIS_MISSING_CLAIM_POLICY" AS MC
+          ON MC.SOURCE_SYSTEM_CLAIM_ID = T_INNER.SOURCE_SYSTEM_CLAIM_ID
+        LEFT JOIN "AUS_DEV_RAW"."SNAPSHOT"."ACA_RESERVE_TYPE_MAPPING" AS RT
+          ON RT.PAYMENT_TYPE_CODE = T_INNER.PAYMENT_TYPE_CODE
+          AND RT.COVERAGE_GROUP_CODE = COALESCE(T_INNER.COVERAGE_GROUP_CODE, MC.CLAIM_COVERAGE_CODE)
+          AND RT.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM "AUS_DEV_RAW"."SNAPSHOT"."ACA_SOURCE_SYSTEM" WHERE SOURCE_SYSTEM = (SELECT MAX(SOURCE_SYSTEM) FROM "AUS_DEV_RAW"."SNAPSHOT"."ACA_RESERVE_TRANSACTION_STAGING_ESIS"))
+      ) AS SOURCE;
+    preSQL: |-
+      BEGIN
+        SET sourceSystemIdEsis = (
           SELECT ACA_SOURCE_SYSTEM_ID 
           FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }}
           WHERE SOURCE_SYSTEM = (
-              SELECT MAX(SOURCE_SYSTEM) 
-              FROM {{ ref('SRC-ASTRUS', 'ACA_RECOVERY_TRANSACTION_STAGING_ESIS') }}
+            SELECT MAX(SOURCE_SYSTEM) 
+            FROM {{ref('SRC-ASTRUS','ACA_RESERVE_TRANSACTION_STAGING_ESIS')}}
           )
-      )
-          ,ACA_DATE_UPDATED                         = CURRENT_TIMESTAMP()
-          ,ACA_UPDATE_USER                          = 'spaca_aca_recovery_transaction_staging_esis_update'
-
-      FROM {{ ref('SRC-ASTRUS', 'ACA_RECOVERY_TRANSACTION_STAGING_ESIS') }} AS R
-      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_CLAIM') }} AS C
-          ON C.SOURCE_SYSTEM_CLAIM_ID = R.SOURCE_SYSTEM_CLAIM_ID
-      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_POLICY') }} AS PO
-          ON PO.SOURCE_SYSTEM_POLICY_ID = R.SOURCE_SYSTEM_POLICY_ID
-      LEFT JOIN {{ ref('ASTRUS-REFINED', 'TMP_ESIS_MISSING_CLAIM_POLICY')}} AS MC
-          ON MC.SOURCE_SYSTEM_CLAIM_ID = R.SOURCE_SYSTEM_CLAIM_ID
-      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_RESERVE_TYPE_MAPPING') }} AS RT
-          ON RT.PAYMENT_TYPE_CODE = R.PAYMENT_TYPE_CODE
-          AND RT.COVERAGE_GROUP_CODE = COALESCE(R.COVERAGE_GROUP_CODE, MC.CLAIM_COVERAGE_CODE)
-          AND RT.ACA_SOURCE_SYSTEM_ID = (
-          SELECT ACA_SOURCE_SYSTEM_ID 
-          FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }}
-          WHERE SOURCE_SYSTEM = (
-              SELECT MAX(SOURCE_SYSTEM) 
-              FROM {{ ref('SRC-ASTRUS', 'ACA_RECOVERY_TRANSACTION_STAGING_ESIS') }}
-          )
-      );
-    preSQL: ""
+        );
+      END;
     testsEnabled: true
     truncateBefore: true
   database: AUS_DEV_REFINED
@@ -71,62 +76,105 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: e9c18d18-93d3-45ab-a70e-3cc52f6b8f15
-          stepCounter: 5d6b4fc0-67c0-4357-8149-6f1ca5ed3895
+          columnCounter: bd62dc05-7264-440d-b4f7-e4313b8602b4
+          stepCounter: c93ad6db-b7f5-4652-9bc5-9c88be2fa0ab
         config: {}
         dataType: VARCHAR(30)
         description: ""
         name: SOURCE_SYSTEM_CLAIM_ID
         nullable: true
+        primaryKey: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 5b266ae6-ac13-4670-add5-1275f1c4a882
                 stepCounter: ecaa3ee9-db18-4d86-82ae-22ed62f6fba0
             transform: C.SOURCE_SYSTEM_CLAIM_ID
+        transform: C.SOURCE_SYSTEM_CLAIM_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: e98c7674-d021-4d1d-9e67-d8c97ec6b8f7
-          stepCounter: 5d6b4fc0-67c0-4357-8149-6f1ca5ed3895
+          columnCounter: b1ca6a4b-6101-4903-b09a-f4efb1c1ba32
+          stepCounter: c93ad6db-b7f5-4652-9bc5-9c88be2fa0ab
         config: {}
         dataType: BINARY(16)
         description: ""
         name: SOURCE_SYSTEM_POLICY_ID
         nullable: true
+        primaryKey: false
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: f7eff8b0-9bca-4841-ae32-2c3b3719ba31
                 stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
             transform: P.SOURCE_SYSTEM_POLICY_ID
+        transform: P.SOURCE_SYSTEM_POLICY_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: f31cd851-bc44-48db-bb73-7ab1b2df9785
-          stepCounter: 5d6b4fc0-67c0-4357-8149-6f1ca5ed3895
+          columnCounter: b8102d5e-e470-4e3d-bac5-da5780521e1d
+          stepCounter: c93ad6db-b7f5-4652-9bc5-9c88be2fa0ab
         config: {}
         dataType: NUMBER(10,0)
         description: ""
         name: ACA_POLICY_ID
         nullable: true
+        primaryKey: false
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 873ab5be-b265-4a22-b82e-c356d2980c36
                 stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
             transform: P.ACA_POLICY_ID
+        transform: P.ACA_POLICY_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 0de0e74b-e67c-47bc-aecc-b4862dc96f5b
-          stepCounter: 5d6b4fc0-67c0-4357-8149-6f1ca5ed3895
+          columnCounter: 32a0c2cd-3e91-44eb-9a2c-fcdb9cf808ed
+          stepCounter: c93ad6db-b7f5-4652-9bc5-9c88be2fa0ab
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bb38a36-f848-49d1-865f-e9f7e604ccf7
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.POLICY_NUMBER
+        transform: P.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50462002-cdb2-4d51-87a3-e38166c30d37
+          stepCounter: c93ad6db-b7f5-4652-9bc5-9c88be2fa0ab
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EFFECTIVE_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23e00dd1-198b-4c6e-b249-66d19b0174b6
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.EFFECTIVE_DATE
+        transform: P.EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7debc70b-741a-4cce-aec9-601d361ceca7
+          stepCounter: c93ad6db-b7f5-4652-9bc5-9c88be2fa0ab
         config: {}
         dataType: CHAR(2)
         description: ""
         name: CLAIM_COVERAGE_CODE
         nullable: true
+        primaryKey: false
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: df6a68e4-a770-47f3-a5cf-be1abf2c55e8
                 stepCounter: ecaa3ee9-db18-4d86-82ae-22ed62f6fba0
             transform: C.CLAIM_COVERAGE_CODE
+        transform: C.CLAIM_COVERAGE_CODE
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           C: ecaa3ee9-db18-4d86-82ae-22ed62f6fba0
@@ -142,32 +190,32 @@ operation:
           - locationName: SRC-ASTRUS
             nodeName: ACA_POLICY
           - locationName: SRC-ASTRUS
-            nodeName: ACA_RECOVERY_TRANSACTION_STAGING_ESIS
+            nodeName: ACA_RESERVE_TRANSACTION_STAGING_ESIS
           - locationName: SRC-ASTRUS
             nodeName: ACA_SOURCE_SYSTEM
         join:
           joinCondition: |-
-            FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM') }} AS C
+            FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM')}} AS C
             INNER JOIN {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }} AS CT
-                ON CT.ACA_CLAIM_ID = C.ACA_CLAIM_ID
-            INNER JOIN {{ ref('SRC-ASTRUS', 'ACA_POLICY') }} AS P
-                ON P.ACA_POLICY_ID = CT.ACA_POLICY_ID
+              ON CT.ACA_CLAIM_ID = C.ACA_CLAIM_ID
+            INNER JOIN {{ ref('SRC-ASTRUS', 'ACA_POLICY')}} AS P
+              ON P.ACA_POLICY_ID = CT.ACA_POLICY_ID
             WHERE CT.ACA_SOURCE_SYSTEM_ID = (
-                    SELECT ACA_SOURCE_SYSTEM_ID 
-                    FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} 
-                    WHERE SOURCE_SYSTEM = (
-                        SELECT MAX(SOURCE_SYSTEM) 
-                        FROM {{ ref('SRC-ASTRUS', 'ACA_RECOVERY_TRANSACTION_STAGING_ESIS') }}
-                    )
-                )
+              SELECT ACA_SOURCE_SYSTEM_ID 
+              FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }}
+              WHERE SOURCE_SYSTEM = (
+                SELECT MAX(SOURCE_SYSTEM) 
+                FROM {{ ref('SRC-ASTRUS','ACA_RESERVE_TRANSACTION_STAGING_ESIS') }}
+              )
+            )
             AND CT.ACA_CURRENT_FLAG = 'Y'
             AND CT.ACA_POLICY_ID <> -1
             AND C.SOURCE_SYSTEM_CLAIM_ID IN (
-                SELECT DISTINCT SOURCE_SYSTEM_CLAIM_ID
-                FROM {{ ref('SRC-ASTRUS', 'ACA_RECOVERY_TRANSACTION_STAGING_ESIS') }}
-                WHERE SOURCE_SYSTEM_POLICY_ID IS NULL
-                OR COVERAGE_GROUP_CODE IS NULL
-            );
+              SELECT DISTINCT SOURCE_SYSTEM_CLAIM_ID
+              FROM {{ ref('SRC-ASTRUS','ACA_RESERVE_TRANSACTION_STAGING_ESIS') }}
+              WHERE SOURCE_SYSTEM_POLICY_ID IS NULL
+                 OR COVERAGE_GROUP_CODE IS NULL
+            )
         name: TMP_ESIS_MISSING_CLAIM_POLICY
         noLinkRefs: []
   name: TMP_ESIS_MISSING_CLAIM_POLICY
