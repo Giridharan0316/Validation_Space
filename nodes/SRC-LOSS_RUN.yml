@@ -1,0 +1,472 @@
+fileVersion: 1
+id: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+name: LOSS_RUN
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Comprehensive loss run report combining claim dimensions, status, incurred amounts, transactions, and reserves
+  isMultisource: false
+  locationName: SRC
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-d9a3bcf65158
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ACCIDENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CAST(D.ACA_DATE_ID_ACCIDENT_DATE AS CHAR(8)) AS DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-dd2b5926a234
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.ACCIDENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-e0a28c3b999d
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.ACCIDENT_STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-e5a1d643d029
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.CLAIM_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-e80552b3a966
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-ee26628fdaf6
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.CLIENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-f071ff24c80e
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DIVISION_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.DIVISION_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-f6418967740d
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MULTI_CLAIM_OCCUR_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.MULTI_CLAIM_OCCUR_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-fad9c3d543f5
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATE_CLAIM_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.STATE_CLAIM_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb7-fc4328bb7189
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TPA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-011eb7c31e42
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CS.CLAIM_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-05c59819b205
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_BI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.INCURRED_BI
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-08c8b8759278
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_COLLISION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.INCURRED_COLLISION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-0fb2e3b6d112
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_COMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.INCURRED_COMP
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-10375f20c176
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_EXPENSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.INCURRED_EXPENSE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-15ce1bb0c345
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_INDEMNITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.INCURRED_INDEMNITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-1b59bc9c732b
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_MEDICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.INCURRED_MEDICAL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-1e75564d93fa
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_PD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.PD_MEDICAL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-22af2213f1c9
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_REHAB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.REHAB_MEDICAL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-26392f8ee8b0
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INCD_TOTAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: I.INCURRED_TOTAL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-28ab3a288ad2
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CURRENT_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TD.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-2fcc3bdf1eb1
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DESCRIPTION_OF_LOSS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.DESCRIPTION_OF_LOSS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-3186ea867fa7
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CAUSE_OF_INJURY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.CAUSE_OF_INJURY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-37d1ef0f90ec
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CAUSE_OF_INJURY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.CAUSE_OF_INJURY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-389fa83a015d
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COVERAGE_GROUP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: RTRIM(D.COVERAGE_GROUP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0b9-772e-abb8-3f28dbc2d6d9
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0ba-736c-925e-070126d5e9fa
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PART_OF_BODY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.PART_OF_BODY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0ba-736c-925e-0949accca319
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: RTRIM(D.POLICY_NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0ba-736c-925e-0e43244e130b
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PMT_TOTAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TD.PAYMENT_AMOUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0ba-736c-925e-13c523f46a67
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: REC_TOTAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TD.RECOVERY_AMOUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0ba-736c-925e-1576be143f09
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: RES_TOTAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(RR.TRANSACTION_AMOUNT, 0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd49-e0ba-736c-925e-18c6c94f902a
+          stepCounter: 3e3b5d5e-7e18-492a-8256-58b2e646d0cf
+        config: {}
+        dataType: DATE
+        description: ""
+        name: STATUS_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CS.STATUS_DATE
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          CS: 9a38541c-3233-4fce-b2a3-2c1f964a2752
+          D: fe71765c-4235-46bb-866d-1bf9543e3d48
+          RR: 07374cf4-e1c8-4608-b39a-eaf8eba57635
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_CLAIM_STATUS
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_RESERVE_REMAINING
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ASTRUSMODELDIMENSION
+          - locationName: SRC-ASTRUS
+            nodeName: ASTRUSMODELINCURREDTRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ASTRUSMODELDIMENSION') }} D
+
+            LEFT JOIN {{ ref('ASTRUS-REFINED', 'TEMP_CLAIM_STATUS') }} CS
+              ON CS.ACA_CLAIM_ID = D.ACA_CLAIM_ID
+              AND CS.ROW_SEQ = 1
+
+            LEFT JOIN (
+              SELECT ACA_CLAIM_ID,
+                     SUM(IFF(RESERVE_TYPE = 'B. I.', EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0)) AS INCURRED_BI,
+                     SUM(IFF(RESERVE_TYPE = 'COLLISION', EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0)) AS INCURRED_COLLISION,
+                     SUM(IFF(RESERVE_TYPE = 'COMP', EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0)) AS INCURRED_COMP,
+                     SUM(IFF(RESERVE_TYPE = 'EXPENSE', EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0)) AS INCURRED_EXPENSE,
+                     SUM(IFF(RESERVE_TYPE = 'INDEMNITY', EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0)) AS INCURRED_INDEMNITY,
+                     SUM(IFF(RESERVE_TYPE = 'MEDICAL', EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0)) AS INCURRED_MEDICAL,
+                     SUM(IFF(RESERVE_TYPE = 'P. D.', EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0)) AS PD_MEDICAL,
+                     SUM(IFF(RESERVE_TYPE = 'REHAB', EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0)) AS REHAB_MEDICAL,
+                     SUM(EXPERIENCE_AMOUNT_BY_RESERVE_TYPE) AS INCURRED_TOTAL
+              FROM {{ ref('SRC-ASTRUS', 'ASTRUSMODELINCURREDTRANSACTION') }}
+              WHERE RESERVE_TYPE <> 'RECOVERY'
+              GROUP BY ACA_CLAIM_ID
+            ) I
+              ON I.ACA_CLAIM_ID = D.ACA_CLAIM_ID
+
+            LEFT JOIN (
+              SELECT ACA_CLAIM_ID,
+                     MAX(TRANSACTION_DATE) AS TRANSACTION_DATE,
+                     SUM(IFF(TRANSACTION_TYPE_CODE = 1, TRANSACTION_AMOUNT, 0)) AS PAYMENT_AMOUNT,
+                     SUM(IFF(TRANSACTION_TYPE_CODE = 3, TRANSACTION_AMOUNT, 0)) AS RECOVERY_AMOUNT
+              FROM {{ ref('ASTRUS-REFINED', 'TEMP_TRANSACTION') }}
+              GROUP BY ACA_CLAIM_ID
+            ) TD
+              ON TD.ACA_CLAIM_ID = D.ACA_CLAIM_ID
+
+            LEFT JOIN {{ ref('ASTRUS-REFINED', 'TEMP_RESERVE_REMAINING') }} RR
+              ON RR.ACA_CLAIM_ID = D.ACA_CLAIM_ID
+        name: LOSS_RUN
+        noLinkRefs: []
+  name: LOSS_RUN
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

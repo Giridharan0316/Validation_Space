@@ -1,0 +1,187 @@
+fileVersion: 1
+id: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+name: TMP_PAYMENT_CURRENT_INSERT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-918e9e5cc58e
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: PVT.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-950c82e14181
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: PMT_BI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT."B. I.", 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-98b477b74856
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: PMT_COLLISION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.COLLISION, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-9d16ee2d589e
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: PMT_COMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.COMP, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-a0e0bf0bc5b4
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: PMT_EXPENSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.EXPENSE, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-a748b85b6f08
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: PMT_INDEMNITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.INDEMNITY, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-a92aa9076ecd
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: PMT_MEDICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.MEDICAL, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-af0b5aadfe8c
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: PMT_PD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT."P. D.", 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda4f-ed6f-74db-9fae-b2f65306cae6
+          stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: PMT_REHAB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.REHAB, 0.00)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          T1: 6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TMP_PAYMENT_RESERVE_TYPE_CURRENT_INSERT
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'TMP_PAYMENT_RESERVE_TYPE_CURRENT_INSERT') }} T1
+            PIVOT (
+                SUM(PAYMENT_AMOUNT)
+                FOR RESERVE_TYPE IN (
+                     'B. I.'
+                    ,'BUILDING'
+                    ,'COLLISION'
+                    ,'COMP'
+                    ,'CONTENTS'
+                    ,'EXPENSE'
+                    ,'EXTD. COVG.'
+                    ,'INDEMNITY'
+                    ,'LOSS'
+                    ,'MEDICAL'
+                    ,'P. D.'
+                    ,'REHAB'
+                    ,'V & M.M.'
+                    ,'WAGE LOSS'
+                    ,'Zero (0)'
+                )
+            ) AS PVT (
+                 UNIQUE_CLAIM_ID
+                ,"B. I."
+                ,BUILDING
+                ,COLLISION
+                ,COMP
+                ,CONTENTS
+                ,EXPENSE
+                ,"EXTD. COVG."
+                ,INDEMNITY
+                ,LOSS
+                ,MEDICAL
+                ,"P. D."
+                ,REHAB
+                ,"V & M.M."
+                ,"WAGE LOSS"
+                ,"Zero (0)"
+            );
+        name: TMP_PAYMENT_CURRENT_INSERT
+        noLinkRefs: []
+  name: TMP_PAYMENT_CURRENT_INSERT
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,200 @@
+fileVersion: 1
+id: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+name: TMP_EXP_CURRENT_INSERT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-8d228139288d
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: PVT.UNIQUE_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-93ed4ee2cd4d
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: INCD_BI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT."B. I.", 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-94ec248bc268
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: INCD_COLLISION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.COLLISION, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-9ac53fd83247
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: INCD_COMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.COMP, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-9e68e9760b60
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: INCD_EXPENSE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.EXPENSE, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-a0a1218a5584
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: INCD_INDEMNITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.INDEMNITY, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-a41fc99b403f
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: INCD_MEDICAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.MEDICAL, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-a9275e05305d
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: INCD_PD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT."P. D.", 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-ae1f08ae1468
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: INCD_REHAB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(PVT.REHAB, 0.00)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dda3e-5dbc-73e5-a413-b114f9d992fc
+          stepCounter: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: TOTAL_EXPERIENCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: PVT.TOTAL_EXPERIENCE
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          T1: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TMP_EXP_RESERVE_TYPE_CURRENT_INSERT
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'TMP_EXP_RESERVE_TYPE_CURRENT_INSERT') }} T1
+            PIVOT (
+                SUM(EXPERIENCE_AMOUNT)
+                FOR RESERVE_TYPE IN (
+                     'B. I.'
+                    ,'BUILDING'
+                    ,'COLLISION'
+                    ,'COMP'
+                    ,'CONTENTS'
+                    ,'EXPENSE'
+                    ,'EXTD. COVG.'
+                    ,'INDEMNITY'
+                    ,'LOSS'
+                    ,'MEDICAL'
+                    ,'P. D.'
+                    ,'REHAB'
+                    ,'V & M.M.'
+                    ,'WAGE LOSS'
+                    ,'Zero (0)'
+                )
+            ) AS PVT (
+                 UNIQUE_CLAIM_ID
+                ,TOTAL_EXPERIENCE
+                ,"B. I."
+                ,BUILDING
+                ,COLLISION
+                ,COMP
+                ,CONTENTS
+                ,EXPENSE
+                ,"EXTD. COVG."
+                ,INDEMNITY
+                ,LOSS
+                ,MEDICAL
+                ,"P. D."
+                ,REHAB
+                ,"V & M.M."
+                ,"WAGE LOSS"
+                ,"Zero (0)"
+            );
+        name: TMP_EXP_CURRENT_INSERT
+        noLinkRefs: []
+  name: TMP_EXP_CURRENT_INSERT
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

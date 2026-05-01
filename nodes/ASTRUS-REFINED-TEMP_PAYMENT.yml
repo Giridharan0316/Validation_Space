@@ -1,0 +1,88 @@
+fileVersion: 1
+id: 894fb440-d884-4c60-b072-9d5c03e30170
+name: TEMP_PAYMENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Payment transactions by claim and reserve type, excluding recovery
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd44-a8a7-77fd-b1f1-aa60590697c9
+          stepCounter: 894fb440-d884-4c60-b072-9d5c03e30170
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91b48b11-925f-46df-9a25-2e557e62a8ab
+                stepCounter: 5747120a-43c2-48df-8cd5-f9f2526e0b73
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd44-a8a7-77fd-b1f1-aded525ee75c
+          stepCounter: 894fb440-d884-4c60-b072-9d5c03e30170
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4725c0e8-0726-448c-8461-12c8230f878b
+                stepCounter: 5747120a-43c2-48df-8cd5-f9f2526e0b73
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ddd44-a8a7-77fd-b1f1-b35e2ff294e9
+          stepCounter: 894fb440-d884-4c60-b072-9d5c03e30170
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TRANSACTION_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a61e8c9c-b17b-40d6-8b2b-0e5a6396e6d1
+                stepCounter: 5747120a-43c2-48df-8cd5-f9f2526e0b73
+            transform: SUM(ASTRUSMODELPAYMENTTRANSACTION.PAYMENT_AMOUNT_BY_RESERVE_TYPE)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          ASTRUSMODELPAYMENTTRANSACTION: 5747120a-43c2-48df-8cd5-f9f2526e0b73
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ASTRUSMODELPAYMENTTRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ASTRUSMODELPAYMENTTRANSACTION') }} ASTRUSMODELPAYMENTTRANSACTION
+            WHERE RESERVE_TYPE <> 'RECOVERY'
+            GROUP BY ACA_CLAIM_ID, RESERVE_TYPE
+        name: TEMP_PAYMENT
+        noLinkRefs: []
+  name: TEMP_PAYMENT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

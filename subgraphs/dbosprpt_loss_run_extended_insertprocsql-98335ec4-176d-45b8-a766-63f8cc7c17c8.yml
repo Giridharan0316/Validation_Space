@@ -1,0 +1,23 @@
+fileVersion: 1
+id: 98335ec4-176d-45b8-a766-63f8cc7c17c8
+name: dbo.sprpt_loss_run_extended_insert.proc.sql
+steps:
+  - 1f7b9e3d-2c8a-45b6-9d4a-a1b2c3d4e5f6
+  - 2f9d8a43-e617-485c-a1d2-09c3b8f147a2
+  - 3e7c8520-21a4-4f93-b6d8-11239ab7a4cf
+  - 4a9f3b1c-7e8d-425b-a6c3-d1f8e2a9b7c4
+  - 7a26f901-ec47-49d2-a0e1-48225e34f6ba
+  - 8d2c4e1f-a5b9-4367-b1d8-f3a7c92b4e5a
+  - 8d9ea3b1-4f2c-47a2-9b3e-1085c3b06e41
+  - 9a4d7b2c-e1f8-4359-a6c3-1d8e2f5b40c7
+  - a4f7d2b3-9e16-4c8d-b3f5-681c20e9a4f7
+  - b8f1342e-1c68-45a7-93e1-7dfa91b248cf
+  - c2e8d3b4-f1a7-4956-b8d2-3a91f7c04e25
+  - c91d5732-e0f4-41b9-a175-68d2b9cae438
+  - d3c41a99-b1d6-44ec-a26f-972cfdfb97f0
+  - d7e39a1c-84b2-4f61-a5d9-1c4b783e20f1
+  - e1a24d56-b8c7-43f1-94e8-2da713f6b9c4
+  - e5c9a2f1-b8d7-4634-a1b9-3f7d20e8c4a5
+  - f3b1a8d4-2e97-4c5b-9d6a-814e3b2f70c9
+  - f6b713ce-948a-49c5-84e0-3dc912a5108f
+type: Subgraph

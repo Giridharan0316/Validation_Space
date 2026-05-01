@@ -1,0 +1,13 @@
+fileVersion: 1
+id: bb0f7a3e-47c2-45fa-acf2-046a4e9410e5
+name: rpt.AstrusModelIncurredTransaction.view
+steps:
+  - 1a2b3c4d-e5f6-4a2b-8c7d-6e5f4a3b2c1d
+  - 1ea860aa-18f9-47e3-a699-b0e37b32d01a
+  - 3873c208-fccc-418e-9d6d-957be5dc1e15
+  - 3b2a1d4c-e5f6-471b-8d7c-6f5e4d3c2b1a
+  - 5e4d3c2b-1a0f-4b3b-8c7d-6e5f4a3b2c1d
+  - 7c6d5e4f-3b2a-491b-8c7d-6e5f4a3b2c1d
+  - 9b8c7d6e-5f4a-431b-8c7d-6e5f4a3b2c1d
+  - bf86c23f-4393-4958-9d93-64b20532f0ab
+type: Subgraph
