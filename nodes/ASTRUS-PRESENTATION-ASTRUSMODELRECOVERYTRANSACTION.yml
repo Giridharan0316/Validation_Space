@@ -11,7 +11,7 @@ operation:
   deployEnabled: true
   description: Union of actual recovery transactions and dummy bridge records with zero amounts
   isMultisource: false
-  locationName: SRC-ASTRUS
+  locationName: ASTRUS-PRESENTATION
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -293,15 +293,15 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: SRC-ASTRUS
+          - locationName: ASTRUS-PRESENTATION
             nodeName: STG_ACA_CLAIM_RECOVERY
-          - locationName: SRC-ASTRUS
+          - locationName: ASTRUS-PRESENTATION
             nodeName: STG_ACA_RECOVERY_TRANSACTION
         join:
           joinCondition: |-
-            FROM {{ ref('SRC-ASTRUS', 'STG_ACA_RECOVERY_TRANSACTION') }}
+            FROM {{ ref('ASTRUS-PRESENTATION', 'STG_ACA_RECOVERY_TRANSACTION') }}
             UNION ALL
-            SELECT * FROM {{ ref('SRC-ASTRUS', 'STG_ACA_CLAIM_RECOVERY') }}
+            SELECT * FROM {{ ref('ASTRUS-PRESENTATION', 'STG_ACA_CLAIM_RECOVERY') }}
         name: ASTRUSMODELRECOVERYTRANSACTION
         noLinkRefs: []
   name: ASTRUSMODELRECOVERYTRANSACTION
