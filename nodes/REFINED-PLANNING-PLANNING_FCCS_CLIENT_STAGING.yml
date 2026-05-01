@@ -1,0 +1,356 @@
+fileVersion: 1
+id: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+name: PLANNING_FCCS_CLIENT_STAGING
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: REFINED-PLANNING
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: PARENT_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2d3e4f5-a6b7-c8d9-e0f1-a2b3c4d5e6f7
+                stepCounter: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+            transform: H.PARENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3e4f5a6-b7c8-d9e0-f1a2-b3c4d5e6f7a8
+                stepCounter: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+            transform: H.MEMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: CLIENT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 112990fd-fddf-460f-bf97-8695f04ac412
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: COALESCE(C.CLIENT_NAME, H.MEMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: COALESCE(C.CLIENT_LOOKUP_CODE, H.MEMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(72)
+        description: ""
+        name: PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: COALESCE(C.PLANNING_ALIAS, H.MEMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: SOURCE_SYSTEM_CLIENT_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6b7c8d9e-0f1a-2b3c-4d5e-6f7a8b9c0d1e
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: COALESCE(C.SOURCE_SYSTEM_CLIENT_LOOKUP_CODE, H.MEMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: SOURCE_SYSTEM_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: C.SOURCE_SYSTEM_CLIENT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DW_CLIENT_MASTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: C.DW_CLIENT_MASTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: C.SOURCE_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: C.DW_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: CHAR(1)
+        description: ""
+        name: CLIENT_STATUS_INDICATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: COALESCE(C.CLIENT_STATUS_INDICATOR, 'N')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: CHANGE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2f3a4b5-c6d7-e8f9-a0b1-c2d3e4f5a6b7
+                stepCounter: d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6
+            transform: L.CHANGE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: ORIGINAL_PLANNING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+                stepCounter: d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6
+            transform: L.ORIGINAL_PLANNING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: ORIGINAL_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+                stepCounter: d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6
+            transform: L.ORIGINAL_LOOKUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(72)
+        description: ""
+        name: ORIGINAL_PLANNING_ALIAS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+                stepCounter: d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6
+            transform: L.ORIGINAL_PLANNING_ALIAS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DW_CLIENT_MASTER_ID_ORIGINAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+                stepCounter: d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6
+            transform: L.DW_CLIENT_MASTER_ID_ORIGINAL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: DATE
+        description: ""
+        name: BEGIN_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: C.BEGIN_POST_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: DATE
+        description: ""
+        name: END_POST_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+                stepCounter: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+            transform: C.END_POST_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: DW_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SPPA_PLANNING_FCCS_CLIENT_STAGING_INSERT'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a
+          stepCounter: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: DW_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SPPA_PLANNING_FCCS_CLIENT_STAGING_INSERT'"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          C: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+          H: b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+          L: d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: REFINED-PLANNING
+            nodeName: CTE_LOOKUP_CODE_CHANGES_fccs_client_staging_insert
+          - locationName: REFINED-PLANNING
+            nodeName: TMP_NEW_PLANNING_CLIENT
+          - locationName: REFINED-PLANNING
+            nodeName: TMPCLIENTHIERARCHY
+          - locationName: SRC-ADF_TMP
+            nodeName: PLANNING_FCCS_CLIENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('REFINED-PLANNING', 'TMPCLIENTHIERARCHY') }} AS H
+            LEFT OUTER JOIN {{ ref('REFINED-PLANNING', 'TMP_NEW_PLANNING_CLIENT') }} AS C ON H.MEMBER = C.PLANNING_ID
+            LEFT OUTER JOIN {{ ref('REFINED-PLANNING', 'CTE_LOOKUP_CODE_CHANGES_fccs_client_staging_insert') }} AS L ON C.PLANNING_ID = L.PLANNING_ID
+            LEFT OUTER JOIN (SELECT PLANNING_ID FROM {{ ref('SRC-ADF_TMP', 'PLANNING_FCCS_CLIENT') }} WHERE PLANNING_ID LIKE '%_Client_Parent') AS P ON H.MEMBER = P.PLANNING_ID
+            WHERE C.CLIENT_STATUS_INDICATOR IS NOT NULL
+            OR L.PLANNING_ID IS NOT NULL 
+            OR P.PLANNING_ID IS NULL
+            ORDER BY H.SORT_ORDER, H.GROUP_ID, H.ROW_ID
+        name: PLANNING_FCCS_CLIENT_STAGING
+        noLinkRefs: []
+  name: PLANNING_FCCS_CLIENT_STAGING
+  overrideSQL: false
+  schema: PLANNING
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
