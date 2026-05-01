@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: Dummy bridge records for reserve transactions with zero amounts
   isMultisource: false
-  locationName: SRC-ASTRUS
+  locationName: ASTRUS-PRESENTATION
   materializationType: table
   metadata:
     appliedNodeTests: []

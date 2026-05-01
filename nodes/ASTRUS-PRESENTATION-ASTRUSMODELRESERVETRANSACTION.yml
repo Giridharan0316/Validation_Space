@@ -11,7 +11,7 @@ operation:
   deployEnabled: true
   description: Union of actual reserve transactions and dummy bridge records with zero amounts
   isMultisource: false
-  locationName: SRC-ASTRUS
+  locationName: ASTRUS-PRESENTATION
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -172,15 +172,15 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: SRC-ASTRUS
+          - locationName: ASTRUS-PRESENTATION
             nodeName: STG_ACA_CLAIM_RESERVE
-          - locationName: SRC-ASTRUS
+          - locationName: ASTRUS-PRESENTATION
             nodeName: STG_ACA_RESERVE_TRANSACTION
         join:
           joinCondition: |-
-            FROM {{ ref('SRC-ASTRUS', 'STG_ACA_RESERVE_TRANSACTION') }}
+            FROM {{ ref('ASTRUS-PRESENTATION', 'STG_ACA_RESERVE_TRANSACTION') }}
             UNION ALL
-            SELECT * FROM {{ ref('SRC-ASTRUS', 'STG_ACA_CLAIM_RESERVE') }})
+            SELECT * FROM {{ ref('ASTRUS-PRESENTATION', 'STG_ACA_CLAIM_RESERVE') }})
         name: ASTRUSMODELRESERVETRANSACTION
         noLinkRefs: []
   name: ASTRUSMODELRESERVETRANSACTION

@@ -11,7 +11,7 @@ operation:
   deployEnabled: true
   description: Union of actual payment transactions and dummy bridge records with zero amounts
   isMultisource: false
-  locationName: SRC-ASTRUS
+  locationName: ASTRUS-PRESENTATION
   materializationType: view
   metadata:
     appliedNodeTests: []

@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: true
-  locationName: ASTRUS-REFINED
+  locationName: ASTRUS-PRESENTATION
   materializationType: view
   metadata:
     appliedNodeTests: []
