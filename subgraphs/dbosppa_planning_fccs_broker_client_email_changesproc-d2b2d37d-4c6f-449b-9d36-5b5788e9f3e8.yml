@@ -1,0 +1,7 @@
+fileVersion: 1
+id: d2b2d37d-4c6f-449b-9d36-5b5788e9f3e8
+name: dbo.sppa_planning_fccs_broker_client_email_changes.proc
+steps:
+  - 273eaa32-564c-4c4c-baeb-f169ff8d50f7
+  - a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+type: Subgraph

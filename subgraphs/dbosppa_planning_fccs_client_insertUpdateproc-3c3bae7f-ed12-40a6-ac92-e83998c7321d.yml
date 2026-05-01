@@ -1,0 +1,8 @@
+fileVersion: 1
+id: 3c3bae7f-ed12-40a6-ac92-e83998c7321d
+name: dbo.sppa_planning_fccs_client_insertUpdate.proc
+steps:
+  - 765e91c7-9c2e-4f38-a400-047c737acb64
+  - 7ddb49f2-dbc9-4354-986f-475bbb45c806
+  - 83df92d4-0ebf-4f37-a128-0955ec03199e
+type: Subgraph

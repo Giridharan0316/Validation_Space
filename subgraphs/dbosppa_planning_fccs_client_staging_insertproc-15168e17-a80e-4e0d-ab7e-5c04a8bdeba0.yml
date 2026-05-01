@@ -1,0 +1,15 @@
+fileVersion: 1
+id: 15168e17-a80e-4e0d-ab7e-5c04a8bdeba0
+name: dbo.sppa_planning_fccs_client_staging_insert.proc
+steps:
+  - 1388b612-ea74-47db-8772-f885c3319c36
+  - 22c832a2-2ab5-42cf-9cf5-12c1b8493012
+  - 273eaa32-564c-4c4c-baeb-f169ff8d50f7
+  - 765e91c7-9c2e-4f38-a400-047c737acb64
+  - 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+  - 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+  - b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6
+  - d1e2f3a4-b5c6-d7e8-f9a0-b1c2d3e4f5a6
+  - e72b38f8-bca4-41d3-a4c5-84e4f1656a81
+  - f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+type: Subgraph
