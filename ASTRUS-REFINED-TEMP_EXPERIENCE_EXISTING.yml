@@ -1,0 +1,303 @@
+fileVersion: 1
+id: 777a777a-7777-7777-7777-777777777777
+name: TEMP_EXPERIENCE_EXISTING
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777778
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_TRANSACTION_EXPERIENCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bafc527-5264-4414-9e27-6e87eb937196
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: ROW_NUMBER() OVER (ORDER BY T.SOURCE_SYSTEM_CLAIM_ID ASC) * -1
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777779
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: UNIQUE_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bafc527-5264-4414-9e27-6e87eb937196
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: T.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777780
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: CHAR(2)
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 255e1237-2f61-4a66-988b-9742b3a4d1b0
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: T.COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777781
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EXPERIENCE_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'1776-07-04'::DATE"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777782
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "10000"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777783
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4efee5eb-8c16-4dd8-880f-3d25d5fc5da3
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: SUM(IFF(RT.RESERVE_TYPE_COLUMN_NUMBER = 'COL1', T.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0.00))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777784
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4efee5eb-8c16-4dd8-880f-3d25d5fc5da3
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: SUM(IFF(RT.RESERVE_TYPE_COLUMN_NUMBER = 'COL2', T.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0.00))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777785
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4efee5eb-8c16-4dd8-880f-3d25d5fc5da3
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: SUM(IFF(RT.RESERVE_TYPE_COLUMN_NUMBER = 'COL3', T.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0.00))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777786
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4efee5eb-8c16-4dd8-880f-3d25d5fc5da3
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: SUM(IFF(RT.RESERVE_TYPE_COLUMN_NUMBER = 'COL4', T.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0.00))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777787
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4efee5eb-8c16-4dd8-880f-3d25d5fc5da3
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: SUM(IFF(RT.RESERVE_TYPE_COLUMN_NUMBER = 'COL5', T.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0.00))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777788
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT6
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4efee5eb-8c16-4dd8-880f-3d25d5fc5da3
+                stepCounter: ade966e7-aef2-42b1-ab3c-456e364e4bf2
+            transform: SUM(IFF(RT.RESERVE_TYPE_COLUMN_NUMBER = 'COL6', T.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE, 0.00))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777789
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_CHANGE_AMOUNT1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "0.00"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777790
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_CHANGE_AMOUNT2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "0.00"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777791
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_CHANGE_AMOUNT3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "0.00"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777792
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_CHANGE_AMOUNT4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "0.00"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777793
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_CHANGE_AMOUNT5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "0.00"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777794
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_CHANGE_AMOUNT6
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "0.00"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777a777a-7777-7777-7777-777777777795
+          stepCounter: 777a777a-7777-7777-7777-777777777777
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_EXISTING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "TRUE"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          C: C
+          CC: CC
+          RT: RT
+          T: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_EXPERIENCE_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_EXPERIENCE
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_COVERAGE_CODE
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_RESERVE_TYPE_MAPPING
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION') }} AS T
+            INNER JOIN (
+                SELECT UNIQUE_CLAIM_ID, MIN(TO_CHAR(EXPERIENCE_TRANSACTION_DATE, 'YYYYMMDD')) AS ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE
+                FROM {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_EXPERIENCE') }}
+                WHERE ACA_DATE_UPDATED > IFF({{ parameters.iReprocessStartTransactionDate }} IS NULL, (SELECT COALESCE(MAX(ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) FROM {{ ref('ALLIANT_CLref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION') }} WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')), '1900-01-01'::DATE)
+                AND EXPERIENCE_TRANSACTION_DATE >= COALESCE({{ parameters.iReprocessStartTransactionDate }}, '1900-01-01'::DATE)
+                GROUP BY UNIQUE_CLAIM_ID
+            ) AS C
+            ON C.UNIQUE_CLAIM_ID = T.SOURCE_SYSTEM_CLAIM_ID
+            AND C.ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE > T.ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_COVERAGE_CODE') }} AS CC
+            ON CC.CODE = T.COVERAGE_GROUP_CODE
+            LEFT JOIN {{ ref('ALLIANT_CLAIMS_ASTRUS_REF', 'ACA_RESERVE_TYPE_MAPPING') }} AS RT
+            ON RT.CLASS_CODE = CC.CLASS
+            AND RT.RESERVE_TYPE = T.RESERVE_TYPE
+            AND RT.ACA_SOURCE_SYSTEM_ID = T.ACA_SOURCE_SYSTEM_ID
+            WHERE T.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_DBO', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
+            GROUP BY T.SOURCE_SYSTEM_CLAIM_ID, T.COVERAGE_GROUP_CODE
+        name: TEMP_EXPERIENCE_EXISTING
+        noLinkRefs: []
+  name: TEMP_EXPERIENCE_EXISTING
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

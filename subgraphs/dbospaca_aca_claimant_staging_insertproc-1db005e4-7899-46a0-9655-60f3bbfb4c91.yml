@@ -1,0 +1,14 @@
+fileVersion: 1
+id: 1db005e4-7899-46a0-9655-60f3bbfb4c91
+name: dbo.spaca_aca_claimant_staging_insert.proc
+steps:
+  - 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+  - 54a1d4ec-f316-4107-b302-3c8c7608c02a
+  - 6b3602f3-1388-4663-82ff-b63de87cd4f0
+  - 92a0298e-cd8e-4f31-8a06-aae2b89d058a
+  - b4c27b3e-4061-4598-9075-4d687ae29558
+  - c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+  - c50fb9ef-5d15-46f0-a19e-e320d3674653
+  - f6a0cc6a-d43b-4653-a551-78c6b732432a
+  - f9124dd7-ebec-4286-aba2-5d6e2c2f1f00
+type: Subgraph

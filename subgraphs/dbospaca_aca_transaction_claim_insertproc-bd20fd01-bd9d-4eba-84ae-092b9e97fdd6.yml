@@ -1,0 +1,7 @@
+fileVersion: 1
+id: bd20fd01-bd9d-4eba-84ae-092b9e97fdd6
+name: dbo.spaca_aca_transaction_claim_insert.proc
+steps:
+  - 509b5ab2-9952-4eaf-8b1e-61e8c9b3a32f
+  - d0e581be-6409-4694-ab20-b0477b583ab7
+type: Subgraph

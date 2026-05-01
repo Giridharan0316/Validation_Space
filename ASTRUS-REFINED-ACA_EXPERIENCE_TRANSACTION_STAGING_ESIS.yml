@@ -1,0 +1,363 @@
+fileVersion: 1
+id: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+name: ACA_EXPERIENCE_TRANSACTION_STAGING_ESIS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1b2b3b4-c1c2-d1d2-e1e2-f1f2f3f4f5f6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: BINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_EXPERIENCE_TRANSACTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MD5_BINARY(TO_JSON(OBJECT_CONSTRUCT('unique_claim_id', C.SOURCE_SYSTEM_CLAIM_ID, 'experience_transaction_date', CURRENT_TIMESTAMP(), 'transaction_sequence_number', IFNULL(TS.MAX_TRANSACTION_SEQUENCE_NUMBER, 0) + C.TRANSACTION_SEQUENCE_NUMBER, 'reserve_type', C.RESERVE_TYPE)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1c2c3c4-d1d2-e1e2-f1f2-g1g2g3g4g5g6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a2b2c2d-2e2f-2a2b-2c2d-2e2f2a2b2c2d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1d2d3d4-e1e2-f1f2-g1g2-h1h2h3h4h5h6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: BINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a9b9c9d-9e9f-9a9b-9c9d-9e9f9a9b9c9d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.SOURCE_SYSTEM_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1e2e3e4-f1f2-g1g2-h1h2-i1i2i3i4i5i6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a1b1c1d-1e1f-1a1b-1c1d-1e1f1a1b1c1d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1f2f3f4-g1g2-h1h2-i1i2-j1j2j3j4j5j6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a3b3c3d-3e3f-3a3b-3c3d-3e3f3a3b3c3d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: g1g2g3g4-h1h2-i1i2-j1j2-k1k2k3k4k5k6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8a8b8c8d-8e8f-8a8b-8c8d-8e8f8a8b8c8d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: IFNULL(C.ACA_POLICY_ID, -1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: h1h2h3h4-i1i2-j1j2-k1k2-l1l2l3l4l5l6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a4b4c4d-4e4f-4a4b-4c4d-4e4f4a4b4c4d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: TO_VARCHAR(C.TRANSACTION_DATE, 'YYYYMMDD')::NUMBER(10,0)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: i1i2i3i4-j1j2-k1k2-l1l2-m1m2m3m4m5m6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_DATE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "-1"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: j1j2j3j4-k1k2-l1l2-m1m2-n1n2n3n4n5n6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a0b0c0d-0e0f-0a0b-0c0d-0e0f0a0b0c0d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: k1k2k3k4-l1l2-m1m2-n1n2-o1o2o3o4o5o6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: DATE
+        description: ""
+        name: POLICY_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: l1l2l3l4-m1m2-n1n2-o1o2-p1p2p3p4p5p6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EXPERIENCE_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a4b4c4d-4e4f-4a4b-4c4d-4e4f4a4b4c4d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: m1m2m3m4-n1n2-o1o2-p1p2-q1q2q3q4q5q6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a
+                stepCounter: 4eb57291-d0ad-319c-6fb2-5d7ec4a1928a
+            transform: IFNULL(TS.MAX_TRANSACTION_SEQUENCE_NUMBER, 0) + C.TRANSACTION_SEQUENCE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: n1n2n3n4-o1o2-p1p2-q1q2-r1r2r3r4r5r6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: RECIPIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: o1o2o3o4-p1p2-q1q2-r1r2-s1s2s3s4s5s6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DATE_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: p1p2p3p4-q1q2-r1r2-s1s2-t1t2t3t4t5t6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DATE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: q1q2q3q4-r1r2-s1s2-t1t2-u1u2u3u4u5u6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: CHAR(2)
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6a6b6c6d-6e6f-6a6b-6c6d-6e6f6a6b6c6d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: r1r2r3r4-s1s2-t1t2-u1u2-v1v2v3v4v5v6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a7b7c7d-7e7f-7a7b-7c7d-7e7f7a7b7c7d
+                stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+            transform: C.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: s1s2s3s4-t1t2-u1u2-v1v2-w1w2w3w4w5w6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: EXPERIENCE_AMOUNT_BY_RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: (IFF(IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT, 0.00) <= 0, 0, IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT, 0.00)) + IFNULL(PMT.PAYMENT_AMOUNT, 0.00) - IFNULL(REC.RECOVERY_AMOUNT, 0.00)) - LAG(IFF(IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT, 0.00) <= 0, 0, IFNULL(RES.RESERVE_AMOUNT, 0.00) - IFNULL(PMT.PAYMENT_AMOUNT, 0.00)) + IFNULL(PMT.PAYMENT_AMOUNT, 0.00) - IFNULL(REC.RECOVERY_AMOUNT, 0.00), 1, IFNULL(INC.INCURRED_AMOUNT, 0.00)) OVER (PARTITION BY C.SOURCE_SYSTEM_CLAIM_ID, C.ACA_RESERVE_TYPE_ID ORDER BY C.TRANSACTION_DATE ASC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: t1t2t3t4-u1u2-v1v2-w1w2-x1x2x3x4x5x6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: u1u2u3u4-v1v2-w1w2-x1x2-y1y2y3y4y5y6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: v1v2v3v4-w1w2-x1x2-y1y2-z1z2z3z4z5z6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SPACA_ACA_EXPERIENCE_TRANSACTION_STAGING_ESIS_INSERT'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: w1w2w3w4-x1x2-y1y2-z1z2-a1a2a3a4a5a6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: x1x2x3x4-y1y2-z1z2-a1a2-b1b2b3b4b5b6
+          stepCounter: 93a0c7e6-25f2-86e1-b4g7-02c319f6e7df
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SPACA_ACA_EXPERIENCE_TRANSACTION_STAGING_ESIS_INSERT'"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          C: C
+          INC: INC
+          PMT: PMT
+          REC: REC
+          RES: RES
+          TS: TS
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_ESIS_INCURRED_EXISTING_INCURRED
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_ESIS_INCURRED_MAX_TRANSACTION_SEQUENCE_NUMBER
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_ESIS_INCURRED_TOTAL_PAYMENT
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_ESIS_INCURRED_TOTAL_RECOVERY
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_ESIS_INCURRED_TOTAL_RESERVE
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'TEMP_ESIS_INCURRED_NEW_TRANSACTION') }} AS C
+            LEFT JOIN {{ ref('ASTRUS-REFINED', 'TEMP_ESIS_INCURRED_EXISTING_INCURRED') }} AS INC ON INC.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID AND INC.ACA_RESERVE_TYPE_ID = C.ACA_RESERVE_TYPE_ID
+            LEFT JOIN {{ ref('ASTRUS-REFINED', 'TEMP_ESIS_INCURRED_MAX_TRANSACTION_SEQUENCE_NUMBER') }} AS TS ON TS.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID
+            LEFT JOIN {{ ref('ASTRUS-REFINED', 'TEMP_ESIS_INCURRED_TOTAL_PAYMENT') }} AS PMT ON PMT.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID AND PMT.ACA_RESERVE_TYPE_ID = C.ACA_RESERVE_TYPE_ID AND PMT.TRANSACTION_DATE = C.TRANSACTION_DATE
+            LEFT JOIN {{ ref('ASTRUS-REFINED', 'TEMP_ESIS_INCURRED_TOTAL_RECOVERY') }} AS REC ON REC.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID AND REC.ACA_RESERVE_TYPE_ID = C.ACA_RESERVE_TYPE_ID AND REC.TRANSACTION_DATE = C.TRANSACTION_DATE
+            LEFT JOIN {{ ref('ASTRUS-REFINED', 'TEMP_ESIS_INCURRED_TOTAL_RESERVE') }} AS RES ON RES.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID AND RES.ACA_RESERVE_TYPE_ID = C.ACA_RESERVE_TYPE_ID AND RES.TRANSACTION_DATE = C.TRANSACTION_DATE
+        name: ACA_EXPERIENCE_TRANSACTION_STAGING_ESIS
+        noLinkRefs: []
+  name: ACA_EXPERIENCE_TRANSACTION_STAGING_ESIS
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

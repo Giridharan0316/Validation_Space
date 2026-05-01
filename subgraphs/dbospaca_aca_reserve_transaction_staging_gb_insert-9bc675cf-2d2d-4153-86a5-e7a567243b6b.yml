@@ -1,0 +1,25 @@
+fileVersion: 1
+id: 9bc675cf-2d2d-4153-86a5-e7a567243b6b
+name: dbo.spaca_aca_reserve_transaction_staging_gb_insert
+steps:
+  - 00ae3614-ceb3-27a2-92c4-34e7aef4960f
+  - 11bf4725-dfc4-38b3-a3d5-45f8bf05a710
+  - 22c05836-e0d5-49c4-b4e6-5609c016b821
+  - 253a155f-129a-4ff2-bfa4-96fbac65a041
+  - 33d16947-f1e6-4ad5-c5f7-671ad122c932
+  - 37a6fa90-9582-4856-b606-64d275dda709
+  - 44e27a58-02f7-4be6-d608-782bd233da43
+  - 6b88cb68-8c7f-422b-8b92-43624a18313d
+  - 88265e9c-463b-492a-1a4c-5c6f26861e87
+  - 8ad360da-ac1d-4359-9ded-c07eb20a9ed1
+  - 99376fad-574c-503b-2b5d-6d7037972f98
+  - aa4870be-685d-614c-3c6e-7e8148a830a9
+  - ade966e7-aef2-42b1-ab3c-456e364e4bf2
+  - bb5981cf-796e-725d-4d7f-8f9259b941ba
+  - c90baf43-94c7-410f-bcea-8da7c9de97ba
+  - cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+  - d429cce8-85b5-438d-8168-b7f50c95cadc
+  - dd7b03e1-9b80-947f-6f91-01b47bd163dc
+  - ee8c14f2-ac91-0580-70a2-12c58ce274ed
+  - ff9d2503-bda2-1691-81b3-23d69df385fe
+type: Subgraph
