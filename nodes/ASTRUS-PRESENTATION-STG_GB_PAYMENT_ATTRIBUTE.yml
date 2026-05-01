@@ -13,7 +13,7 @@ operation:
   description: ""
   isMultisource: false
   locationName: ASTRUS-PRESENTATION
-  materializationType: view
+  materializationType: table
   metadata:
     appliedNodeTests: []
     columns:
@@ -334,7 +334,7 @@ operation:
   name: STG_GB_PAYMENT_ATTRIBUTE
   overrideSQL: false
   schema: ASTRUS
-  sqlType: View
+  sqlType: Stage
   type: sql
   version: 1
 type: Node

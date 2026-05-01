@@ -1,11 +1,16 @@
 fileVersion: 1
-id: 918d86de-8974-4109-8dad-cbe58b0a78e9
-name: ACA_EXPERIENCE_TRANSACTION
+id: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
+name: ACA_EXPERIENCE_TRANSACTION_1
 operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
-    preSQL: ""
+    preSQL: |-
+      BEGIN
+      DELETE FROM {{ ref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION')}}
+      WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'ESIS')
+        AND EXPERIENCE_TRANSACTION_DATE IN (SELECT DISTINCT EXPERIENCE_TRANSACTION_DATE FROM {{ ref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION_STAGING_ESIS') }});
+      END;
     testsEnabled: true
     truncateBefore: false
   database: AUS_DEV_REFINED
@@ -19,8 +24,8 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 9adda59f-aa48-431e-93de-89b3d38a92f8
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 97f3724c-d3fe-4b53-b413-a864971c0800
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARBINARY
         description: ""
@@ -30,11 +35,11 @@ operation:
           - columnReferences:
               - columnCounter: b9000253-5174-42ca-b793-13a385ebf370
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"SOURCE_SYSTEM_EXPERIENCE_TRANSACTION_ID\""
+            transform: SRC.SOURCE_SYSTEM_EXPERIENCE_TRANSACTION_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: c5755668-7ef0-459a-b3d0-2eaaccbe9ec1
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 638663ed-5e36-4074-8b65-4f40f0962e7a
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: NUMBER
         description: ""
@@ -44,11 +49,11 @@ operation:
           - columnReferences:
               - columnCounter: 231449f3-896a-4aa4-ba4c-e83621bbba5f
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"ACA_CLAIM_ID\""
+            transform: SRC.ACA_CLAIM_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 0b3c45d1-6e72-4208-88fa-d6eaab8aaf4f
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 3ff5b399-563b-4835-bca5-b7787f7b3d32
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: NUMBER
         description: ""
@@ -58,11 +63,11 @@ operation:
           - columnReferences:
               - columnCounter: 34c2d753-1e64-4500-be59-1db54edda2b4
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"ACA_RESERVE_TYPE_ID\""
+            transform: SRC.ACA_RESERVE_TYPE_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: de51a4d8-e6d2-4ee4-b432-c05219cef1cd
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 28c8de2c-cfcd-4b68-b80c-78332155d8f6
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: NUMBER
         description: ""
@@ -72,11 +77,11 @@ operation:
           - columnReferences:
               - columnCounter: e6fc666b-0c3c-4699-b1e0-44f80f0fc1f0
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"ACA_POLICY_ID\""
+            transform: SRC.ACA_POLICY_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: ce640755-b0ee-4a66-9fa5-2291ddeca056
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: e01a8f6f-2b74-4b47-b3c4-9540c4973307
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: NUMBER
         description: ""
@@ -86,11 +91,11 @@ operation:
           - columnReferences:
               - columnCounter: 8a8a1bec-4a0b-4e3e-bb27-0b0a4aa4cd7a
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE\""
+            transform: SRC.ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: fef9eca2-1ea4-413c-b64c-f5959709fe8d
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: d345a90d-5872-4bd5-a4b5-1262d04a8e57
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: NUMBER
         description: ""
@@ -100,11 +105,11 @@ operation:
           - columnReferences:
               - columnCounter: 9d1402c2-850f-48d9-8d92-93e7a6fb7eee
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"ACA_DATE_TYPE_ID\""
+            transform: SRC.ACA_DATE_TYPE_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6535dfc6-949a-4b3a-8c75-d50805a9cd58
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 1d6360c7-2c1f-4420-b4da-3982e57f1295
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -114,11 +119,11 @@ operation:
           - columnReferences:
               - columnCounter: ec55969e-3060-4814-9d08-4878e1bc12cd
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"SOURCE_SYSTEM_CLAIM_ID\""
+            transform: SRC.SOURCE_SYSTEM_CLAIM_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 55cb464c-b1f1-4778-8ca2-61b7f70c0de0
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: f32490d1-0f72-4752-bf6d-a36c927f12e8
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: DATE
         description: ""
@@ -128,11 +133,11 @@ operation:
           - columnReferences:
               - columnCounter: 4f8a1a64-078d-4ce7-9a03-6ee77cabdd6e
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"EXPERIENCE_TRANSACTION_DATE\""
+            transform: SRC.EXPERIENCE_TRANSACTION_DATE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 034dead0-a189-4778-aeef-2f762c9c3ff9
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: d1a03f8a-c328-4e89-a2a1-e0544f9f7535
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: NUMBER
         description: ""
@@ -142,11 +147,11 @@ operation:
           - columnReferences:
               - columnCounter: 81cca1a1-c412-4593-9b45-00983ed7d836
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"TRANSACTION_SEQUENCE_NUMBER\""
+            transform: SRC.TRANSACTION_SEQUENCE_NUMBER
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 9f5f91a6-8850-42f9-a806-236d35e8ba81
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: edc63836-39ce-444b-9e45-1216503c94d1
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -156,11 +161,11 @@ operation:
           - columnReferences:
               - columnCounter: d4bed858-f9de-4c7f-ad52-6882b53f7afa
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"RECIPIENT_NUMBER\""
+            transform: SRC.RECIPIENT_NUMBER
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 761fd14b-d241-4b7e-971f-4c3f2bdea1f9
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 1b24e4d6-f365-4f4a-8ed0-55e16b9b3a32
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -170,11 +175,11 @@ operation:
           - columnReferences:
               - columnCounter: bb4c221d-660c-4784-9a42-5633dcacc070
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"DATE_TYPE_CODE\""
+            transform: SRC.DATE_TYPE_CODE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: a13da2a5-0748-4655-aeec-7d19e0581157
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: c0651842-81e1-452f-bdab-9706a78216ab
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -184,11 +189,11 @@ operation:
           - columnReferences:
               - columnCounter: 559aa25c-73ce-4ed2-a410-d4d506310641
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"DATE_TYPE\""
+            transform: SRC.DATE_TYPE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: eff23a1f-c78c-4e78-a7ed-9e153b683886
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 5e0c5299-d5c4-406a-a53f-bb54a5585f97
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -198,11 +203,11 @@ operation:
           - columnReferences:
               - columnCounter: 6993a521-409d-4898-b551-12d37dc1ae8a
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"PAYMENT_TYPE_CODE\""
+            transform: SRC.PAYMENT_TYPE_CODE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 2e154cc2-7a7b-4ce7-aecd-120a751096e9
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: b132049e-b570-4ccb-8e81-2292025283f3
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -212,11 +217,11 @@ operation:
           - columnReferences:
               - columnCounter: 1075411c-48a3-4c78-b2b1-c6e5b6e0f806
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"COVERAGE_GROUP_CODE\""
+            transform: SRC.COVERAGE_GROUP_CODE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 9c6cf534-0401-4f14-b190-a0033d1cfba5
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 631039da-68e1-4c6e-826d-e9c855a004f1
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -226,11 +231,11 @@ operation:
           - columnReferences:
               - columnCounter: 5c4daab8-b5ed-423e-8297-674062f9e978
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"RESERVE_TYPE\""
+            transform: SRC.RESERVE_TYPE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: def5bc37-ae44-4704-b47d-90497ea78bea
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 17b9415c-3f20-41ed-84a1-0268a2529241
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: DECIMAL(38,2)
         description: ""
@@ -240,11 +245,11 @@ operation:
           - columnReferences:
               - columnCounter: 766ab093-37b9-492a-91f4-45da89a25d45
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"EXPERIENCE_AMOUNT_BY_RESERVE_TYPE\""
+            transform: SRC.EXPERIENCE_AMOUNT_BY_RESERVE_TYPE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: d0275fdd-7d3a-460a-b26a-6dcb52e491c6
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 3108c353-c90a-4777-be8e-cde72776c535
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: NUMBER
         description: ""
@@ -254,11 +259,11 @@ operation:
           - columnReferences:
               - columnCounter: 26086f29-a394-4545-96b2-8fe03de66ac6
                 stepCounter: 4969d502-fb37-4223-912a-2de6ebc4560f
-            transform: "\"SRC\".\"ACA_SOURCE_SYSTEM_ID\""
+            transform: SRC.ACA_SOURCE_SYSTEM_ID
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: f924f5d6-73be-4cf3-a458-0c5c25e6bcc2
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 421c97a7-5847-4148-93d3-13824ed2c89f
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: TIMESTAMP_NTZ
         description: ""
@@ -266,11 +271,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"SRC\".\"ACA_DATE_CREATED\""
+            transform: CURRENT_TIMESTAMP()
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 78863957-d702-4135-9d4b-571ee095a901
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: a60f38eb-9d8e-4f0b-a19f-c6670a4a9c69
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -278,11 +283,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"SRC\".\"ACA_CREATE_USER\""
+            transform: "'dbo.spaca_aca_experience_transaction_esis_deleteInsert'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 1456a964-97e6-499c-8dd5-37a3666a1010
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: b13c8f8b-f9d6-4e5c-9c77-4b7b25e1a14f
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: TIMESTAMP_NTZ
         description: ""
@@ -290,11 +295,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"SRC\".\"ACA_DATE_UPDATED\""
+            transform: CURRENT_TIMESTAMP()
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: d0fcb9ee-9e98-4947-8efd-0935a3c8c993
-          stepCounter: 918d86de-8974-4109-8dad-cbe58b0a78e9
+          columnCounter: 326f30a9-2508-4122-b258-75c1a7044fde
+          stepCounter: 54b4862b-e7b8-444a-9c74-2782e4f04c6a
         config: {}
         dataType: VARCHAR
         description: ""
@@ -302,75 +307,22 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"SRC\".\"ACA_UPDATE_USER\""
+            transform: "'dbo.spaca_aca_experience_transaction_esis_deleteInsert'"
     cteString: ""
-    description: ""
-    destinationName: ""
     enabledColumnTestIDs: []
-    materializationOption: ""
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          SRC: 4969d502-fb37-4223-912a-2de6ebc4560f
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: ASTRUS-REFINED
-            nodeName: ACA_EXPERIENCE_TRANSACTION_1
-          - locationName: ASTRUS-REFINED
-            nodeName: ACA_EXPERIENCE_TRANSACTION_2
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_EXPERIENCE_TRANSACTION_STAGING_ESIS
         join:
-          joinCondition: |-
-            FROM (
-                SELECT 
-                    SOURCE_SYSTEM_EXPERIENCE_TRANSACTION_ID,
-                    ACA_CLAIM_ID,
-                    ACA_RESERVE_TYPE_ID,
-                    ACA_POLICY_ID,
-                    ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE,
-                    ACA_DATE_TYPE_ID,
-                    SOURCE_SYSTEM_CLAIM_ID,
-                    EXPERIENCE_TRANSACTION_DATE,
-                    TRANSACTION_SEQUENCE_NUMBER,
-                    RECIPIENT_NUMBER,
-                    DATE_TYPE_CODE,
-                    DATE_TYPE,
-                    PAYMENT_TYPE_CODE,
-                    COVERAGE_GROUP_CODE,
-                    RESERVE_TYPE,
-                    EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-                    ACA_SOURCE_SYSTEM_ID,
-                    ACA_DATE_CREATED,
-                    ACA_CREATE_USER,
-                    ACA_DATE_UPDATED,
-                    ACA_UPDATE_USER
-                FROM {{ ref('ASTRUS-REFINED', 'ACA_EXPERIENCE_TRANSACTION_1') }}
-                UNION
-                SELECT 
-                    SOURCE_SYSTEM_EXPERIENCE_TRANSACTION_ID,
-                    ACA_CLAIM_ID,
-                    ACA_RESERVE_TYPE_ID,
-                    ACA_POLICY_ID,
-                    ACA_DATE_ID_EXPERIENCE_TRANSACTION_DATE,
-                    ACA_DATE_TYPE_ID,
-                    SOURCE_SYSTEM_CLAIM_ID,
-                    EXPERIENCE_TRANSACTION_DATE,
-                    TRANSACTION_SEQUENCE_NUMBER,
-                    RECIPIENT_NUMBER,
-                    DATE_TYPE_CODE,
-                    DATE_TYPE,
-                    PAYMENT_TYPE_CODE,
-                    COVERAGE_GROUP_CODE,
-                    RESERVE_TYPE,
-                    EXPERIENCE_AMOUNT_BY_RESERVE_TYPE,
-                    ACA_SOURCE_SYSTEM_ID,
-                    ACA_DATE_CREATED,
-                    ACA_CREATE_USER,
-                    ACA_DATE_UPDATED,
-                    ACA_UPDATE_USER
-                FROM {{ ref('ASTRUS-REFINED', 'ACA_EXPERIENCE_TRANSACTION_2') }}
-            ) "SRC"
-        name: ACA_EXPERIENCE_TRANSACTION
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION_STAGING_ESIS') }} "SRC"
+        name: ACA_EXPERIENCE_TRANSACTION_1
         noLinkRefs: []
-  name: ACA_EXPERIENCE_TRANSACTION
+  name: ACA_EXPERIENCE_TRANSACTION_1
   overrideSQL: false
   schema: ASTRUS
   sqlType: Stage

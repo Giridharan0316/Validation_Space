@@ -1,13 +1,13 @@
 fileVersion: 1
 id: 5937a01d-5b3a-4418-8d4e-28f0e0f39385
-name: FCT_ACA_EXPERIENCE_TRANSACTION
+name: ACA_EXPERIENCE_TRANSACTION_2
 operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
     preSQL: |-
       BEGIN
-      DELETE FROM ALLIANT_CLAIMS_ASTRUS.DBO.FCT_ACA_EXPERIENCE_TRANSACTION
+      DELETE FROM  {{ ref('ASTRUS-REFINED', 'ACA_EXPERIENCE_TRANSACTION')}}
       WHERE ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
       AND EXPERIENCE_TRANSACTION_DATE IN (SELECT DISTINCT EXPERIENCE_TRANSACTION_DATE FROM {{ ref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION_STAGING_GB') }});
       END
@@ -27,7 +27,7 @@ operation:
           columnCounter: 0f2b2c2c-a25a-47d3-83f5-081e9b28f9d0
           stepCounter: 5937a01d-5b3a-4418-8d4e-28f0e0f39385
         config: {}
-        dataType: VARCHAR
+        dataType: VARBINARY
         description: ""
         name: SOURCE_SYSTEM_EXPERIENCE_TRANSACTION_ID
         nullable: true
@@ -295,22 +295,23 @@ operation:
           - columnReferences: []
             transform: "'spaca_aca_experience_transaction_gb_deleteInsert'"
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
-          ACA_EXPERIENCE_TRANSACTION_STAGING_GB: S
+          S: fb82260e-f65e-4eeb-ae79-a574453070ae
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC-ASTRUS
             nodeName: ACA_EXPERIENCE_TRANSACTION_STAGING_GB
-          - locationName: SRC-ASTRUS
-            nodeName: ACA_SOURCE_SYSTEM
         join:
-          joinCondition: FROM ref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION_STAGING_GB')B') }} "S"
-        name: FCT_ACA_EXPERIENCE_TRANSACTION
+          joinCondition: FROM {{ref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION_STAGING_GB') }} "S"
+        name: ACA_EXPERIENCE_TRANSACTION_2
         noLinkRefs: []
-  name: FCT_ACA_EXPERIENCE_TRANSACTION
+  name: ACA_EXPERIENCE_TRANSACTION_2
   overrideSQL: false
   schema: ASTRUS
   sqlType: Stage
