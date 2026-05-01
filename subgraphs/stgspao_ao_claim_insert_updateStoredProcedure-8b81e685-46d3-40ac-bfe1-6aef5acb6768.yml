@@ -1,0 +1,12 @@
+fileVersion: 1
+id: 8b81e685-46d3-40ac-bfe1-6aef5acb6768
+name: stg.spao_ao_claim_insert_update.StoredProcedure
+steps:
+  - 051a8d05-b049-43c3-b4e6-ecfc1e1cd7f7
+  - 1693c923-b2b7-4d40-b4e8-3353844ab68b
+  - 3a39e8a7-96a8-4223-bed8-a287dfb6389f
+  - 3ede18f8-3ca9-4420-8e03-04be0b48e9dc
+  - 582e0b12-9c18-490d-85fa-76d0ea80b038
+  - 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+  - b0015ad0-8abf-4ec1-912f-4dc975b34cc4
+type: Subgraph

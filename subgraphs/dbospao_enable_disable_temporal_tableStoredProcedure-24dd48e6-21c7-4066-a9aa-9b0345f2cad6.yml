@@ -1,0 +1,6 @@
+fileVersion: 1
+id: 24dd48e6-21c7-4066-a9aa-9b0345f2cad6
+name: dbo.spao_enable_disable_temporal_table.StoredProcedure
+steps:
+  - 5b4e3c92-7f8d-4a1b-9e2c-3d6f1a8b5c4e
+type: Subgraph

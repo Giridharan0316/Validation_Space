@@ -1,0 +1,8 @@
+fileVersion: 1
+id: 6863572e-c7d7-4f15-9ca9-56a0cf367dbf
+name: stg.spao_ao_response_feed_insert_update.StoredProcedure
+steps:
+  - 220c14c5-34ad-4e08-9bd6-2db1cb31e34b
+  - 330c14c5-34ad-4e08-9bd6-2db1cb31e34c
+  - c3708b20-56e1-4999-9e54-68782ba835a7
+type: Subgraph

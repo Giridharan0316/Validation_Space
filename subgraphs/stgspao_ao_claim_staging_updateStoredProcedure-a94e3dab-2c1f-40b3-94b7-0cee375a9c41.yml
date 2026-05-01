@@ -1,0 +1,7 @@
+fileVersion: 1
+id: a94e3dab-2c1f-40b3-94b7-0cee375a9c41
+name: stg.spao_ao_claim_staging_update.StoredProcedure
+steps:
+  - 9a801faa-69c9-4477-b82f-b9a0a3aafcd7
+  - f1e2d3c4-b5a6-9f8e-7d6c-5b4a3f2e1d0c
+type: Subgraph
