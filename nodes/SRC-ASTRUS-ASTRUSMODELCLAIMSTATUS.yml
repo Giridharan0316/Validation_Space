@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 59e2b10a-3134-45b0-8c2f-87009405a4d1
+id: 8d9ea3b1-4f2c-47a2-9b3e-1085c3b06e41
 name: ASTRUSMODELCLAIMSTATUS
 operation:
   database: AUS_DEV_RAW
@@ -13,10 +13,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b704944b-f2a8-48b2-b1b7-a0680a6b72a6
-          stepCounter: 59e2b10a-3134-45b0-8c2f-87009405a4d1
+          columnCounter: 01e7a3b4-9c2d-45f8-b1a6-3d8e2f9c4b7a
+          stepCounter: 8d9ea3b1-4f2c-47a2-9b3e-1085c3b06e41
         config: {}
-        dataType: NUMBER
+        dataType: NUMBER(10,0)
         defaultValue: ""
         description: ""
         name: ACA_CLAIM_ID
@@ -32,8 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0f2f45c8-1090-48e0-a590-f94d35c59367
-          stepCounter: 59e2b10a-3134-45b0-8c2f-87009405a4d1
+          columnCounter: 4c8b1a9f-3d2e-475b-a6c3-9f8e1d2b4a5c
+          stepCounter: 8d9ea3b1-4f2c-47a2-9b3e-1085c3b06e41
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -51,10 +51,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f3d2a762-c1f0-4a87-8495-263228a9b20e
-          stepCounter: 59e2b10a-3134-45b0-8c2f-87009405a4d1
+          columnCounter: 2a9f3c1b-7d8e-46b5-a1c3-8f2e4d9b6a7c
+          stepCounter: 8d9ea3b1-4f2c-47a2-9b3e-1085c3b06e41
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(2)
         defaultValue: ""
         description: ""
         name: CLAIM_STATUS_CODE

@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 79f7d08f-e14b-4874-915f-d2e8509b532d
+id: f6b713ce-948a-49c5-84e0-3dc912a5108f
 name: ASTRUSMODELINCURREDTRANSACTION
 operation:
   database: AUS_DEV_RAW
@@ -13,10 +13,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 1f02170f-c38a-4933-911e-089a80371ef3
-          stepCounter: 79f7d08f-e14b-4874-915f-d2e8509b532d
+          columnCounter: c9d0e1f2-a3b4-48c5-d6e7-f8a9b0c1d2e3
+          stepCounter: f6b713ce-948a-49c5-84e0-3dc912a5108f
         config: {}
-        dataType: NUMBER
+        dataType: NUMBER(10,0)
         defaultValue: ""
         description: ""
         name: ACA_CLAIM_ID
@@ -32,8 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f791a8e1-5121-4217-a9a3-5c8c67924c7f
-          stepCounter: 79f7d08f-e14b-4874-915f-d2e8509b532d
+          columnCounter: e1f2a3b4-c5d6-49e7-f8a9-b0c1d2e3f4a5
+          stepCounter: f6b713ce-948a-49c5-84e0-3dc912a5108f
         config: {}
         dataType: DATE
         defaultValue: ""
@@ -51,10 +51,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 671e2270-36e2-45e0-aa31-e1293c6be4a0
-          stepCounter: 79f7d08f-e14b-4874-915f-d2e8509b532d
+          columnCounter: a3b4c5d6-e7f8-4af9-b0c1-d2e3f4a5b6c7
+          stepCounter: f6b713ce-948a-49c5-84e0-3dc912a5108f
         config: {}
-        dataType: NUMBER
+        dataType: NUMBER(19,2)
         defaultValue: ""
         description: ""
         name: EXPERIENCE_AMOUNT_BY_RESERVE_TYPE
@@ -70,10 +70,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b4388e63-54cd-4e94-8461-12c8230f878b
-          stepCounter: 79f7d08f-e14b-4874-915f-d2e8509b532d
+          columnCounter: c5d6e7f8-a9b0-4bc1-d2e3-f4a5b6c7d8e9
+          stepCounter: f6b713ce-948a-49c5-84e0-3dc912a5108f
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(16)
         defaultValue: ""
         description: ""
         name: RESERVE_TYPE
