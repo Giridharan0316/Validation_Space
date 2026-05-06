@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 48935501-460a-4200-b598-3fb90ed8f044
+name: dbo.spaca_aca_transaction_payment_insert.proc
+steps:
+  - 1e505ab3-6fc9-4fa2-bc70-eaf2011b2bb8
+  - 485959b9-22ea-42c4-8948-d61420ddd675
+type: Subgraph

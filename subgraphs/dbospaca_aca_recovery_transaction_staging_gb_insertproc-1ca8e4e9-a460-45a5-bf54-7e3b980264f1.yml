@@ -1,0 +1,10 @@
+fileVersion: 1
+id: 1ca8e4e9-a460-45a5-bf54-7e3b980264f1
+name: dbo.spaca_aca_recovery_transaction_staging_gb_insert.proc
+steps:
+  - 0f296f01-c243-48f2-8b8a-d390fb4cdbd6
+  - 2a5ac153-8f57-4744-9ff1-c31d4c6d3eac
+  - 7c8d9e0f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+  - 86f62beb-e4a8-4d03-9ee1-8faf76c1a4d6
+  - 8d9e0f1a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+type: Subgraph

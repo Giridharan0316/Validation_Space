@@ -1,0 +1,69 @@
+fileVersion: 1
+id: dd7b03e1-9b80-947f-6f91-01b47bd163dc
+name: SUBQUERY_MIN_TRANSACTION_DATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e5w94sp-tj83-2pu7-tq2z-vx7u8v9y0x1w
+          stepCounter: dd7b03e1-9b80-947f-6f91-01b47bd163dc
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0t4l83he-iy72-1ej6-if1o-km6j7k8n9m0l
+                stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+            transform: SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f6x05tq-uk94-3qv8-ur3a-wy8v9w0z1y2x
+          stepCounter: dd7b03e1-9b80-947f-6f91-01b47bd163dc
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3w7o16kh-lb05-4hm9-li4r-np9m0n1q2p3o
+                stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+            transform: MIN(ACA_DATE_ID_TRANSACTION_DATE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_GB_RESERVE_NEW_TRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'TEMP_GB_RESERVE_NEW_TRANSACTION') }}
+            GROUP BY SOURCE_SYSTEM_CLAIM_ID
+        name: SUBQUERY_MIN_TRANSACTION_DATE
+        noLinkRefs: []
+  name: SUBQUERY_MIN_TRANSACTION_DATE
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

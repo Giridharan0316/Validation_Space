@@ -1,0 +1,145 @@
+fileVersion: 1
+id: 3429ba7d-30f1-4db5-b82b-bca24d3184cd
+name: PSTG_SPACA_ACA_TRANSACTION_PAYMENT_STAGING_UPDATE_NULL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+      UPDATE {{ref('SRC-ASTRUS','ACA_TRANSACTION_PAYMENT_STAGING')}}
+      SET 
+      	PAYMENT_MESSAGE = NULL,
+      	PAYEE_LASTNAME = NULL,
+      	PAYEE_ORGANIZATION_NAME = NULL,
+      	PAYEE_ADDRESSLINE_ONE = NULL,
+      	PAYEE_ADDRESSLINE_TWO = NULL,
+      	PAYEE_ADDRESSLINE_THREE = NULL,
+      	PAYEE_ADDRESS = NULL,
+      	PAYEE_IRS_TAX_IDENTIFICATION_NUMBER = NULL,
+      	MAIL_TO_LASTNAME = NULL,
+      	MAIL_TO_ORGANIZATIONNAME = NULL,
+      	MAIL_TO_ADDRESSLINEONE = NULL,
+      	MAIL_TO_ADDRESSLINETWO = NULL,
+      	MAIL_TO_ADDRESSLINETHREE = NULL,
+      	MAIL_TO_ADDRESS = NULL,
+      	CLIENT_NUMBER_BANK = NULL,
+      	BANK_NUMBER = NULL,
+      	ACCOUNT_NUMBER = NULL,
+      	ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+      	ACA_UPDATE_USER = 'spaca_aca_transaction_payment_staging_update_null';
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8ab5e9cc-161b-46cb-8d76-efdbfe9a9f4c
+          stepCounter: 3429ba7d-30f1-4db5-b82b-bca24d3184cd
+        config: {}
+        dataType: BINARY(16)
+        description: ""
+        name: ACA_TRANSACTION_PAYMENT_STAGING_KEY
+        nullable: true
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5c6e864-16a7-4b5b-a828-56dfd2239611
+          stepCounter: 3429ba7d-30f1-4db5-b82b-bca24d3184cd
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9eb9c74-27d9-43c2-af32-680f55cf5201
+          stepCounter: 3429ba7d-30f1-4db5-b82b-bca24d3184cd
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f1d0725-d72b-4cd7-bf53-7a915decf0d4
+          stepCounter: 3429ba7d-30f1-4db5-b82b-bca24d3184cd
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d302a5c4-06d9-4a0b-8dc2-48817bfcb663
+          stepCounter: 3429ba7d-30f1-4db5-b82b-bca24d3184cd
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3248cfd-0279-4db8-927b-2d3cf836ab87
+          stepCounter: 3429ba7d-30f1-4db5-b82b-bca24d3184cd
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41a6f8ec-c1e1-43bf-b586-ef9c0ecde5a4
+          stepCounter: 3429ba7d-30f1-4db5-b82b-bca24d3184cd
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: PSTG_SPACA_ACA_TRANSACTION_PAYMENT_STAGING_UPDATE_NULL
+        noLinkRefs: []
+  name: PSTG_SPACA_ACA_TRANSACTION_PAYMENT_STAGING_UPDATE_NULL
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

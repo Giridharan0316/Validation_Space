@@ -1,0 +1,127 @@
+fileVersion: 1
+id: de40c49a-e279-4560-a29d-4cba08e925fc
+name: SPACA_ASTRUS_DATA_LOAD_FILE_PROCESSING_EMAIL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+        -- Parameters from the original stored procedure signature, using sample call values
+        LET MACHINE VARCHAR(100) := 'DEV-SQLV16-01';
+        LET FROM_RECIPIENT VARCHAR(100) := 'ssis@alliant';
+        LET TO_RECIPIENT VARCHAR(100) := 'venkata.rajula@alliant.com';
+        LET COPY_RECIPIENT VARCHAR(100) := NULL;
+
+        LET TABLEHTML_ASTRUS VARCHAR;
+        LET SUBJECT VARCHAR(500);
+        LET CURRENT_DATE_VAR DATE := CAST(CURRENT_TIMESTAMP() AS DATE);
+        LET RECORDS_FOUND BOOLEAN := FALSE;
+
+        SELECT EXISTS (
+            SELECT 1 FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_PYRAMID_STAGING') }} WHERE CAST(ACA_DATE_CREATED AS DATE) = :CURRENT_DATE_VAR
+            UNION ALL
+            SELECT 1 FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_TRANSACTION_CLAIM_STAGING') }} WHERE CAST(ACA_DATE_CREATED AS DATE) = :CURRENT_DATE_VAR
+            UNION ALL
+            SELECT 1 FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_TRANSACTION_EXCESS_STAGING') }} WHERE CAST(ACA_DATE_CREATED AS DATE) = :CURRENT_DATE_VAR
+            UNION ALL
+            SELECT 1 FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_TRANSACTION_EXPERIENCE_STAGING') }} WHERE CAST(ACA_DATE_CREATED AS DATE) = :CURRENT_DATE_VAR
+            UNION ALL
+            SELECT 1 FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_TRANSACTION_HEADER_STAGING') }} WHERE CAST(ACA_DATE_CREATED AS DATE) = :CURRENT_DATE_VAR
+            UNION ALL
+            SELECT 1 FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_TRANSACTION_PAYMENT_STAGING') }} WHERE CAST(ACA_DATE_CREATED AS DATE) = :CURRENT_DATE_VAR
+            UNION ALL
+            SELECT 1 FROM {{ ref('ALLIANT_CLAIMS_ASTRUS_STAGE_DBO', 'ACA_TRANSACTION_THIRD_PARTY_RECOVERY_STAGING') }} WHERE CAST(ACA_DATE_CREATED AS DATE) = :CURRENT_DATE_VAR
+        ) INTO :RECORDS_FOUND;
+
+        IF (NOT :RECORDS_FOUND) THEN
+            TABLEHTML_ASTRUS := '<html><body>' ||
+                             '<h1>No Astrus(GB) Files for ASG Load Processing ' || TO_VARCHAR(:CURRENT_DATE_VAR) || '</h1>' ||
+                             '</body></html>';
+        END IF;
+
+        IF (TABLEHTML_ASTRUS IS NOT NULL) THEN
+            SUBJECT := :MACHINE || ': Astrus ASG Load Processing';
+
+            LET FULL_RECIPIENTS VARCHAR := :TO_RECIPIENT;
+            IF (:COPY_RECIPIENT IS NOT NULL) THEN
+                FULL_RECIPIENTS := FULL_RECIPIENTS || ',' || :COPY_RECIPIENT;
+            END IF;
+
+            -- NOTE: The msdb.dbo.sp_send_dbmail procedure needs to be replaced with a
+            --       Snowflake equivalent, such as a call to SYSTEM$SEND_EMAIL.
+            --       This requires an email notification integration to be configured in Snowflake.
+            --       Example: CALL SYSTEM$SEND_EMAIL('your_integration_name', :FULL_RECIPIENTS, :SUBJECT, :TABLEHTML_ASTRUS, 'HTML');
+
+        END IF;
+      END;
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b3017ca-d843-4dc9-983b-9e90956285a8
+          stepCounter: de40c49a-e279-4560-a29d-4cba08e925fc
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        name: DUMMY_COLUMN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "1"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          T1: T1
+          T2: T2
+          T3: T3
+          T4: T4
+          T5: T5
+          T6: T6
+          T7: T7
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_PYRAMID_STAGING
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_CLAIM_STAGING
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_EXCESS_STAGING
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_EXPERIENCE_STAGING
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_HEADER_STAGING
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_PAYMENT_STAGING
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_THIRD_PARTY_RECOVERY_STAGING
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ACA_PYRAMID_STAGING') }} AS T1
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_CLAIM_STAGING') }} AS T2 ON 1=0
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_EXCESS_STAGING') }} AS T3 ON 1=0
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_EXPERIENCE_STAGING') }} AS T4 ON 1=0
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_HEADER_STAGING') }} AS T5 ON 1=0
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_PAYMENT_STAGING') }} AS T6 ON 1=0
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_THIRD_PARTY_RECOVERY_STAGING') }} AS T7 ON 1=0
+            WHERE 1=0
+        name: SPACA_ASTRUS_DATA_LOAD_FILE_PROCESSING_EMAIL
+        noLinkRefs: []
+  name: SPACA_ASTRUS_DATA_LOAD_FILE_PROCESSING_EMAIL
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

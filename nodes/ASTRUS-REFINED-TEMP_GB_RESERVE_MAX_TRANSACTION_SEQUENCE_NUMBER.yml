@@ -1,0 +1,75 @@
+fileVersion: 1
+id: ee8c14f2-ac91-0580-70a2-12c58ce274ed
+name: TEMP_GB_RESERVE_MAX_TRANSACTION_SEQUENCE_NUMBER
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3g7y16ur-vl05-4rw9-vs4b-xz9w0x1a2z3y
+          stepCounter: ee8c14f2-ac91-0580-70a2-12c58ce274ed
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6ebfb581-ec99-4f8c-8975-acb842ae334d
+                stepCounter: d429cce8-85b5-438d-8168-b7f50c95cadc
+            transform: T.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4h8z27vs-wm16-5sx0-wt5c-ya0x1y2b3a4z
+          stepCounter: ee8c14f2-ac91-0580-70a2-12c58ce274ed
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: MAX_TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe331b76-49a0-4a35-9165-c1c2ce044ab9
+                stepCounter: d429cce8-85b5-438d-8168-b7f50c95cadc
+            transform: MAX(T.TRANSACTION_SEQUENCE_NUMBER)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          C: C
+          T: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_RESERVE_TRANSACTION
+          - locationName: ASTRUS-REFINED
+            nodeName: SUBQUERY_MIN_TRANSACTION_DATE
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ACA_RESERVE_TRANSACTION') }} AS T
+            INNER JOIN {{ ref('ASTRUS-REFINED', 'SUBQUERY_MIN_TRANSACTION_DATE') }} AS C
+            ON C.SOURCE_SYSTEM_CLAIM_ID = T.SOURCE_SYSTEM_CLAIM_ID AND C.ACA_DATE_ID_TRANSACTION_DATE > T.ACA_DATE_ID_TRANSACTION_DATE
+            GROUP BY T.SOURCE_SYSTEM_CLAIM_ID
+        name: TEMP_GB_RESERVE_MAX_TRANSACTION_SEQUENCE_NUMBER
+        noLinkRefs: []
+  name: TEMP_GB_RESERVE_MAX_TRANSACTION_SEQUENCE_NUMBER
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

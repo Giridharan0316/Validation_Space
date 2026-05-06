@@ -1,0 +1,83 @@
+fileVersion: 1
+id: ff9d2503-bda2-1691-81b3-23d69df385fe
+name: SUBQUERY_MIN_TRANSACTION_DATE_BY_TYPE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5i9a38wt-xn27-6ty1-xu6d-zb1y2z3c4b5a
+          stepCounter: ff9d2503-bda2-1691-81b3-23d69df385fe
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0t4l83he-iy72-1ej6-if1o-km6j7k8n9m0l
+                stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+            transform: SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6j0b49xu-yo38-7uz2-yv7e-ac2z3a4d5c6b
+          stepCounter: ff9d2503-bda2-1691-81b3-23d69df385fe
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1u5m94if-jz83-2fk7-jg2p-ln7k8l9o0n1m
+                stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+            transform: ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7k1c50yv-zp49-8va3-zw8f-bd3a4b5e6d7c
+          stepCounter: ff9d2503-bda2-1691-81b3-23d69df385fe
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3w7o16kh-lb05-4hm9-li4r-np9m0n1q2p3o
+                stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+            transform: MIN(ACA_DATE_ID_TRANSACTION_DATE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_GB_RESERVE_NEW_TRANSACTION
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'TEMP_GB_RESERVE_NEW_TRANSACTION') }}
+            GROUP BY SOURCE_SYSTEM_CLAIM_ID, ACA_RESERVE_TYPE_ID
+        name: SUBQUERY_MIN_TRANSACTION_DATE_BY_TYPE
+        noLinkRefs: []
+  name: SUBQUERY_MIN_TRANSACTION_DATE_BY_TYPE
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

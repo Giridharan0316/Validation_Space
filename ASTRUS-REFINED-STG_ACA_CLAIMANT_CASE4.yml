@@ -1,0 +1,530 @@
+fileVersion: 1
+id: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+name: STG_ACA_CLAIMANT_CASE4
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c01
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: BINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIMANT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c01
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.SOURCE_SYSTEM_CLAIMANT_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c02
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_EMPLOYMENT_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c02
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.ACA_EMPLOYMENT_STATUS_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c03
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_MARITAL_STATUS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c03
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.ACA_MARITAL_STATUS_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c04
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(12)
+        description: ""
+        name: CLAIMANT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c04
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.CLAIMANT_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c05
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: BINARY(8000)
+        description: ""
+        name: CLAIMANT_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c05
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.CLAIMANT_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c06
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: BINARY(8000)
+        description: ""
+        name: LAST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c06
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.LAST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c07
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: BINARY(8000)
+        description: ""
+        name: FIRST_NAME_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c07
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.FIRST_NAME_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c08
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: BINARY(8000)
+        description: ""
+        name: ORGANIZATION_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c08
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.ORGANIZATION_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c09
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: BINARY(8000)
+        description: ""
+        name: ADDRESS_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c09
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.ADDRESS_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0a
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0a
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.CITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0b
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0b
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.STATE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0c
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: CHAR(3)
+        description: ""
+        name: COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0c
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0d
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(11)
+        description: ""
+        name: ZIP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0d
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.ZIP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0e
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        name: AGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0e
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.AGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0f
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: CHAR(1)
+        description: ""
+        name: GENDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c0f
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.GENDER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c10
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: BINARY(8000)
+        description: ""
+        name: SSN_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c10
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.SSN_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c11
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: AVERAGE_WEEKLY_WAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c11
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.AVERAGE_WEEKLY_WAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c12
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: NCCI_JOB_CLASSIFICATION_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c12
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.NCCI_JOB_CLASSIFICATION_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c13
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: LENGTH_OF_SERVICE_IN_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c13
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.LENGTH_OF_SERVICE_IN_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c14
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: BINARY(8000)
+        description: ""
+        name: PHONE_ENCRYPTED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c14
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.PHONE_ENCRYPTED
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c15
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: DATE
+        description: ""
+        name: HIRE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c15
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.HIRE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c16
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: CHAR(1)
+        description: ""
+        name: EMPLOYMENT_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c16
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.EMPLOYMENT_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c17
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: EMPLOYMENT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c17
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.EMPLOYMENT_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c18
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: DATE
+        description: ""
+        name: BIRTH_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c18
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.BIRTH_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c19
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: CHAR(1)
+        description: ""
+        name: MARITAL_STATUS_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c19
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.MARITAL_STATUS_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1a
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: MARITAL_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1a
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.MARITAL_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1b
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: OCCUPATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1b
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.OCCUPATION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1c
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        name: EMPLOYEE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1c
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.EMPLOYEE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1d
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: CASE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "4"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1e
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CASE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Records In ESIS that don''t exists in GB'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1f
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID_WINNER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c1f
+                stepCounter: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+            transform: ESIS.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c20
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c21
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(128)
+        description: ""
+        name: ACA_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'dbo.spaca_aca_claimant_staging_insert'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c22
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: ACA_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41d3e5f2-9c8a-4b6d-a2c4-7e9f8a6b5c23
+          stepCounter: c02c0b5f-fcbe-4f40-8f9f-0740a6b7e076
+        config: {}
+        dataType: VARCHAR(128)
+        description: ""
+        name: ACA_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'dbo.spaca_aca_claimant_staging_insert'"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ESIS: 3bbdcd85-05d5-451e-a4b5-fb38cd16f194
+          GB: 92a0298e-cd8e-4f31-8a06-aae2b89d058a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIMANT
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIMANT_ESIS
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIMANT_GB
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIMANT_ESIS') }} AS ESIS
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_CLAIMANT_GB') }} AS GB
+            ON GB.SOURCE_SYSTEM_CLAIMANT_ID = ESIS.SOURCE_SYSTEM_CLAIMANT_ID
+            AND GB.ACA_DATE_UPDATED > (SELECT COALESCE(MAX(ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIMANT') }} WHERE ACA_CLAIMANT_ID <> -1)
+            WHERE ESIS.ACA_CLAIMANT_ESIS_ID <> -1
+            AND ESIS.ACA_DATE_UPDATED > (SELECT COALESCE(MAX(ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIMANT') }} WHERE ACA_CLAIMANT_ID <> -1)
+            AND GB.SOURCE_SYSTEM_CLAIMANT_ID IS NULL
+        name: STG_ACA_CLAIMANT_CASE4
+        noLinkRefs: []
+  name: STG_ACA_CLAIMANT_CASE4
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

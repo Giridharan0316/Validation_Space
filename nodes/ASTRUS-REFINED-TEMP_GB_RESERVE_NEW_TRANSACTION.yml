@@ -1,0 +1,215 @@
+fileVersion: 1
+id: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+name: TEMP_GB_RESERVE_NEW_TRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9s3k72gd-hx61-0di5-he0n-jl5i6j7m8l9k
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d68d5a25-b106-44f5-bea1-ce4c73733268
+                stepCounter: 37a6fa90-9582-4856-b606-64d275dda709
+            transform: IFNULL(CT.ACA_CLAIM_ID, -1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0t4l83he-iy72-1ej6-if1o-km6j7k8n9m0l
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3m7e16ax-br05-4xc9-by4h-df9c0d1g2f3e
+                stepCounter: bb5981cf-796e-725d-4d7f-8f9259b941ba
+            transform: C.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1u5m94if-jz83-2fk7-jg2p-ln7k8l9o0n1m
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4n8f27by-cs16-5yd0-cz5i-eg0d1e2h3g4f
+                stepCounter: bb5981cf-796e-725d-4d7f-8f9259b941ba
+            transform: C.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2v6n05jg-ka94-3gl8-kh3q-mo8l9m0p1o2n
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5o9g38cz-dt27-6ze1-da6j-fh1e2f3i4h5g
+                stepCounter: bb5981cf-796e-725d-4d7f-8f9259b941ba
+            transform: C.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3w7o16kh-lb05-4hm9-li4r-np9m0n1q2p3o
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6p0h49da-eu38-7af2-eb7k-gi2f3g4j5i6h
+                stepCounter: bb5981cf-796e-725d-4d7f-8f9259b941ba
+            transform: C.ACA_DATE_ID_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4x8p27li-mc16-5in0-mj5s-oq0n1o2r3q4p
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: CHAR(2)
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7q1i50eb-fv49-8bg3-fc8l-hj3g4h5k6j7i
+                stepCounter: bb5981cf-796e-725d-4d7f-8f9259b941ba
+            transform: C.COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5y9q38mj-nd27-6jo1-nk6t-pr1o2p3s4r5q
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8r2j61fc-gw50-9ch4-gd9m-ik4h5i6l7k8j
+                stepCounter: bb5981cf-796e-725d-4d7f-8f9259b941ba
+            transform: C.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6z0r49nk-oe38-7kp2-ol7u-qs2p3q4t5s6r
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 873ab5be-b265-4a22-b82e-c356d2980c36
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.ACA_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a1s50ol-pf49-8lq3-pm8v-rt3q4r5u6t7s
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: BINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7eff8b0-9bca-4841-ae32-2c3b3719ba31
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.SOURCE_SYSTEM_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b2t61pm-qg50-9mr4-qn9w-su4r5s6v7u8t
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bb38a36-f848-49d1-865f-e9f7e604ccf7
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c3u72qn-rh61-0ns5-ro0x-tv5s6t7w8v9u
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23e00dd1-198b-4c6e-b249-66d19b0174b6
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d4v83ro-si72-1ot6-sp1y-uw6t7u8x9w0v
+          stepCounter: cc6a92d0-8a7f-836e-5e80-90a36ac052cb
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROW_NUMBER() OVER (PARTITION BY C.SOURCE_SYSTEM_CLAIM_ID ORDER BY C.TRANSACTION_DATE, C.ACA_RESERVE_TYPE_ID)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          C: C
+          CT: CT
+          P: P
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: C_TRANSACTIONS
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_POLICY
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'C_TRANSACTIONS') }} AS C
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }} AS CT ON CT.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID AND CT.ACA_CURRENT_FLAG = 'Y'
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_POLICY') }} AS P ON P.ACA_POLICY_ID = CT.ACA_POLICY_ID
+        name: TEMP_GB_RESERVE_NEW_TRANSACTION
+        noLinkRefs: []
+  name: TEMP_GB_RESERVE_NEW_TRANSACTION
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

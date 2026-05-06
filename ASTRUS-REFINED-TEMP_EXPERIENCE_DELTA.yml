@@ -1,0 +1,153 @@
+fileVersion: 1
+id: 999c999c-9999-9999-9999-999999999999
+name: TEMP_EXPERIENCE_DELTA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999991
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_TRANSACTION_EXPERIENCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 888b888b-8888-8888-8888-888888888889
+                stepCounter: 888b888b-8888-8888-8888-888888888888
+            transform: ACA_TRANSACTION_EXPERIENCE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999992
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: CHAR(2)
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 888b888b-8888-8888-8888-888888888891
+                stepCounter: 888b888b-8888-8888-8888-888888888888
+            transform: CLAIM_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999993
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: DELTA_AMOUNT1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(EXPERIENCE_CHANGE_AMOUNT1 - LAG(EXPERIENCE_AMOUNT1, 1, 0) OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY EXPERIENCE_TRANSACTION_DATE ASC, TRANSACTION_SEQUENCE_NUMBER DESC) AS NUMBER(19, 2)) - CAST(EXPERIENCE_CHANGE_AMOUNT1 - EXPERIENCE_AMOUNT1 AS NUMBER(19, 2))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999994
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: DELTA_AMOUNT2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(EXPERIENCE_CHANGE_AMOUNT2 - LAG(EXPERIENCE_AMOUNT2, 1, 0) OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY EXPERIENCE_TRANSACTION_DATE ASC, TRANSACTION_SEQUENCE_NUMBER DESC) AS NUMBER(19, 2)) - CAST(EXPERIENCE_CHANGE_AMOUNT2 - EXPERIENCE_AMOUNT2 AS NUMBER(19, 2))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999995
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: DELTA_AMOUNT3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(EXPERIENCE_CHANGE_AMOUNT3 - LAG(EXPERIENCE_AMOUNT3, 1, 0) OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY EXPERIENCE_TRANSACTION_DATE ASC, TRANSACTION_SEQUENCE_NUMBER DESC) AS NUMBER(19, 2)) - CAST(EXPERIENCE_CHANGE_AMOUNT3 - EXPERIENCE_AMOUNT3 AS NUMBER(19, 2))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999996
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: DELTA_AMOUNT4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(EXPERIENCE_CHANGE_AMOUNT4 - LAG(EXPERIENCE_AMOUNT4, 1, 0) OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY EXPERIENCE_TRANSACTION_DATE ASC, TRANSACTION_SEQUENCE_NUMBER DESC) AS NUMBER(19, 2)) - CAST(EXPERIENCE_CHANGE_AMOUNT4 - EXPERIENCE_AMOUNT4 AS NUMBER(19, 2))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999997
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: DELTA_AMOUNT5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(EXPERIENCE_CHANGE_AMOUNT5 - LAG(EXPERIENCE_AMOUNT5, 1, 0) OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY EXPERIENCE_TRANSACTION_DATE ASC, TRANSACTION_SEQUENCE_NUMBER DESC) AS NUMBER(19, 2)) - CAST(EXPERIENCE_CHANGE_AMOUNT5 - EXPERIENCE_AMOUNT5 AS NUMBER(19, 2))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999998
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: DELTA_AMOUNT6
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(EXPERIENCE_CHANGE_AMOUNT6 - LAG(EXPERIENCE_AMOUNT6, 1, 0) OVER (PARTITION BY UNIQUE_CLAIM_ID ORDER BY EXPERIENCE_TRANSACTION_DATE ASC, TRANSACTION_SEQUENCE_NUMBER DESC) AS NUMBER(19, 2)) - CAST(EXPERIENCE_CHANGE_AMOUNT6 - EXPERIENCE_AMOUNT6 AS NUMBER(19, 2))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999c999c-9999-9999-9999-999999999990
+          stepCounter: 999c999c-9999-9999-9999-999999999999
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_EXISTING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 888b888b-8888-8888-8888-888888888906
+                stepCounter: 888b888b-8888-8888-8888-888888888888
+            transform: IS_EXISTING
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: TEMP_EXPERIENCE_MEASURE
+        join:
+          joinCondition: FROM {{ ref('ASTRUS-REFINED', 'TEMP_EXPERIENCE_MEASURE') }}
+        name: TEMP_EXPERIENCE_DELTA
+        noLinkRefs: []
+  name: TEMP_EXPERIENCE_DELTA
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
