@@ -480,18 +480,6 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 3b4459f3-a67e-4285-aa90-1c910e83a023
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: 6262a9c0-1fbd-4be4-9b2e-1051188a56a4
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: 11e86620-1bfb-4f41-85ff-de1fa231d9d7
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: e260c0dc-2701-4f5c-9eca-6e9abcb36733
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: 5da2547a-4d9a-4b75-951e-98d89f5aefa9
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: 3204ae4c-c59e-4fbb-b08f-0434a4e630e6
-                stepCounter: 0f296f01-c243-48f2-8b8a-d390fb4cdbd6
               - columnCounter: d1e8f2c3-a5b6-4c7d-8e9f-0a1b2c3d4e5f
                 stepCounter: 47a25032-28df-46f3-a1cd-cc87140b9dc6
             transform: TRY_CAST(P.INDEMNITY_BREAKDOWN_PAYMENT_AMOUNT / 100.0 AS NUMBER(19, 2))
@@ -536,20 +524,6 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 1002053e-e77f-4c12-8bb5-d97dc517414a
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: b6e217b8-2635-4d7d-8832-59284d94fad0
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: 66dda2f1-a342-4982-9b76-6df8589c91a8
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: c5cc2a5f-54c2-4a11-89a0-99e194846cb0
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: c3886ff8-6319-4005-baaa-0c25db312316
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: f54adba0-ef81-4d25-ae82-030ed020e7c1
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: e3e5c7bc-b496-4381-9b66-f4dd9f1341f1
-                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
               - columnCounter: 231ac232-3cb1-4054-a6a7-65d16e5aa334
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
             transform: TP.PAYMENT_AMOUNT
@@ -564,10 +538,6 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f5e4d3c2-b1a0-4987-8c7d-6e5f4a3b2c1d
-                stepCounter: 2e9c1a5d-b8f4-4c73-a1e6-9d8f7b5a4c3d
-              - columnCounter: a1b2c3d4-e5f6-4789-8a9b-0c1d2e3f4a5b
-                stepCounter: 2e9c1a5d-b8f4-4c73-a1e6-9d8f7b5a4c3d
               - columnCounter: e5d4c3b2-a1f0-4987-8a9b-0c1d2e3f4a5b
                 stepCounter: 2e9c1a5d-b8f4-4c73-a1e6-9d8f7b5a4c3d
             transform: P.RESERVED_FOR_INTERNAL_USE
