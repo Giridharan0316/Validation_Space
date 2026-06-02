@@ -1,0 +1,120 @@
+fileVersion: 1
+id: 00ae3614-ceb3-27a2-92c4-34e7aef4960f
+name: TEMP_GB_RESERVE_EXISTING_REMAINING_RESERVE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8l2d61zw-aq50-9wb4-ax9g-ce4b5c6f7e8d
+          stepCounter: 00ae3614-ceb3-27a2-92c4-34e7aef4960f
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6ebfb581-ec99-4f8c-8975-acb842ae334d
+                stepCounter: d429cce8-85b5-438d-8168-b7f50c95cadc
+            transform: RES.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9m3e72ax-br61-0xc5-by0h-df5c6d7g8f9e
+          stepCounter: 00ae3614-ceb3-27a2-92c4-34e7aef4960f
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9dfebecd-7bed-44f6-9987-7569c98d0263
+                stepCounter: d429cce8-85b5-438d-8168-b7f50c95cadc
+            transform: RES.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0n4f83by-cs72-1yd6-cz1i-eg6d7e8h9g0f
+          stepCounter: 00ae3614-ceb3-27a2-92c4-34e7aef4960f
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dafe2025-417a-44a2-89d0-5e38cda57f48
+                stepCounter: d429cce8-85b5-438d-8168-b7f50c95cadc
+            transform: MAX(RES.RESERVE_TYPE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1o5g94cz-dt83-2ze7-da2j-fh7e8f9i0h1g
+          stepCounter: 00ae3614-ceb3-27a2-92c4-34e7aef4960f
+        config: {}
+        dataType: NUMBER(19,2)
+        description: ""
+        name: RESERVE_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 48ea91af-83e0-46fb-b80d-dd48a428419b
+                stepCounter: d429cce8-85b5-438d-8168-b7f50c95cadc
+            transform: SUM(RES.RESERVE_AMOUNT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2p6h05da-eu94-3af8-eb3k-gi8f9g0j1i2h
+          stepCounter: 00ae3614-ceb3-27a2-92c4-34e7aef4960f
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe331b76-49a0-4a35-9165-c1c2ce044ab9
+                stepCounter: d429cce8-85b5-438d-8168-b7f50c95cadc
+            transform: IFNULL(MAX(RES.TRANSACTION_SEQUENCE_NUMBER), 0)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          C: C
+          RES: RES
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_RESERVE_TRANSACTION
+          - locationName: ASTRUS-REFINED
+            nodeName: SUBQUERY_MIN_TRANSACTION_DATE_BY_TYPE
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ACA_RESERVE_TRANSACTION') }} AS RES
+            INNER JOIN {{ ref('ASTRUS-REFINED', 'SUBQUERY_MIN_TRANSACTION_DATE_BY_TYPE') }} AS C
+            ON C.SOURCE_SYSTEM_CLAIM_ID = RES.SOURCE_SYSTEM_CLAIM_ID AND C.ACA_RESERVE_TYPE_ID = RES.ACA_RESERVE_TYPE_ID AND C.ACA_DATE_ID_TRANSACTION_DATE > RES.ACA_DATE_ID_TRANSACTION_DATE
+            WHERE RES.ACA_SOURCE_SYSTEM_ID = (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
+            GROUP BY RES.SOURCE_SYSTEM_CLAIM_ID, RES.ACA_RESERVE_TYPE_ID
+        name: TEMP_GB_RESERVE_EXISTING_REMAINING_RESERVE
+        noLinkRefs: []
+  name: TEMP_GB_RESERVE_EXISTING_REMAINING_RESERVE
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,13 @@
+fileVersion: 1
+id: 80871ff4-3056-468b-92a9-a5e1d87ce3ea
+name: dbo.spaca_astrus_data_load_file_processing_email
+steps:
+  - 01bd1ed2-8487-4468-99ae-543f97b5696e
+  - 0c2c7181-5de7-4f4f-9f0a-05ce4d5f774c
+  - 485959b9-22ea-42c4-8948-d61420ddd675
+  - 64e55880-af30-40bb-81c0-af48b247f14a
+  - a5269fff-8356-4e63-933e-5215490d96a8
+  - b89fde41-c58c-4a06-a9a4-6967e56024a6
+  - d0e581be-6409-4694-ab20-b0477b583ab7
+  - de40c49a-e279-4560-a29d-4cba08e925fc
+type: Subgraph

@@ -1,0 +1,104 @@
+fileVersion: 1
+id: 28b7e9c5-1d6a-4f3b-8290-7c5e1a4d6f82
+name: STG_SPACA_ACA_CONTROL_PACKAGE_SOURCE_TABLE_UPDATE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+          LET proc_name STRING := 'spaca_aca_control_package_source_table_update';
+          LET current_timestamp TIMESTAMP_NTZ := CURRENT_TIMESTAMP();
+          LET sourceGroupId INT := {{ parameters.ISOURCEGROUPID }};
+          LET sqlDropStatements STRING;
+
+          SELECT LISTAGG('DROP TABLE IF EXISTS ' || DATABASE_NAME || '.' || SCHEMA_NAME || '.' || TABLE_NAME || BACKUP_TABLE_NAME_POSTFIX, ';')
+          INTO :sqlDropStatements
+          FROM {{ ref_no_link('SRC', 'ACA_CONTROL_PACKAGE_SOURCE_TABLE') }}
+          WHERE BACKED_UP_FLAG = 0 AND SOURCE_GROUP_ID = :sourceGroupId;
+
+          IF (:sqlDropStatements IS NOT NULL) THEN
+              EXECUTE IMMEDIATE :sqlDropStatements;
+          END IF;
+
+          FOR row_var IN (
+              SELECT
+                  ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID,
+                  DATABASE_NAME,
+                  SCHEMA_NAME,
+                  TABLE_NAME,
+                  BACKUP_TABLE_NAME_POSTFIX
+              FROM {{ ref_no_link('SRC', 'ACA_CONTROL_PACKAGE_SOURCE_TABLE') }}
+              WHERE BACKED_UP_FLAG = 0 AND SOURCE_GROUP_ID = :sourceGroupId
+          )
+          DO
+              BEGIN TRANSACTION;
+
+              LET sqlInsert STRING := 'CREATE OR REPLACE TABLE ' || row_var.DATABASE_NAME || '.' || row_var.SCHEMA_NAME || '.' || row_var.TABLE_NAME || row_var.BACKUP_TABLE_NAME_POSTFIX || ' AS SELECT * FROM ' || row_var.DATABASE_NAME || '.' || row_var.SCHEMA_NAME || '.' || row_var.TABLE_NAME;
+              EXECUTE IMMEDIATE :sqlInsert;
+
+              LET backedupRecordCount INT := IFNULL(SQLROWCOUNT, 0);
+
+              UPDATE {{ ref_no_link('SRC', 'ACA_CONTROL_PACKAGE_SOURCE_TABLE') }}
+              SET
+                  BACKED_UP_FLAG = 1,
+                  BACKED_UP_RECORD_COUNT = :backedupRecordCount,
+                  ACA_DATE_UPDATED = :current_timestamp,
+                  ACA_UPDATE_USER = :proc_name
+              WHERE ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID = :row_var.ACA_CONTROL_PACKAGE_SOURCE_TABLE_ID;
+
+              LET sqlTruncate STRING := 'TRUNCATE TABLE ' || row_var.DATABASE_NAME || '.' || row_var.SCHEMA_NAME || '.' || row_var.TABLE_NAME;
+              EXECUTE IMMEDIATE :sqlTruncate;
+
+              COMMIT;
+          END FOR;
+
+      EXCEPTION
+          WHEN OTHER THEN
+              ROLLBACK;
+              RAISE;
+      END;
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d9f1e7b-2a5c-4830-9b6d-1c5e8f2a4b70
+          stepCounter: 28b7e9c5-1d6a-4f3b-8290-7c5e1a4d6f82
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CURRENT_TIMESTAMP()
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CONTROL_PACKAGE_SOURCE_TABLE
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_CONTROL_PACKAGE_SOURCE_TABLE') }}
+        name: STG_SPACA_ACA_CONTROL_PACKAGE_SOURCE_TABLE_UPDATE
+        noLinkRefs: []
+  name: STG_SPACA_ACA_CONTROL_PACKAGE_SOURCE_TABLE_UPDATE
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

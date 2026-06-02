@@ -1,0 +1,11 @@
+fileVersion: 1
+id: 2495cf1f-6a6f-4450-a77c-9c0d2e39a9bb
+name: dbo.spaca_aca_payment_transaction_deleteInsert.proc
+steps:
+  - 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5000
+  - 1f5e0cc1-716d-4983-99c0-8338e3893e93
+  - 5d4c3b2a-6f7e-8d9c-0b1a-2b3c4d5e6000
+  - 6e5d4c3b-7a8b-9c0d-1e2f-3a4b5c6d7000
+  - 7f6e5d4c-8b9a-0b1c-2d3e-4f5a6b7c8000
+  - fbfa3bcc-2eb8-4791-b608-a82a6d335f6e
+type: Subgraph

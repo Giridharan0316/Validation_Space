@@ -1,0 +1,6 @@
+fileVersion: 1
+id: a9bd5b41-ae53-49ee-bf50-6119d30b9b77
+name: dbo.spaca_aca_recovery_transaction_staging_gb_update.proc
+steps:
+  - 5b6c9345-42df-422f-87d4-b77209cbfe9c
+type: Subgraph

@@ -1,0 +1,13 @@
+fileVersion: 1
+id: 2ea1f539-8d95-4065-a802-97fee6785ea0
+name: dbo.spaca_aca_policy_staging_insert.proc
+steps:
+  - 1e5b8d4c-a1b2-4c3d-e5f6-0a1b2c3d4e5f
+  - 2f6c9e5d-b2c3-5d4e-f6a7-1b2c3d4e5f6a
+  - 4b8e1a7f-d4e5-7f6a-b8c9-3d4e5f6a7b8c
+  - 5c9f2b8a-e5f6-8a7b-c9d0-4e5f6a7b8c9d
+  - 6b88cb68-8c7f-422b-8b92-43624a18313d
+  - 6d0a3c9b-f6a7-9b8c-d0e1-5f6a7b8c9d0e
+  - 7e1b4d0c-a7b8-0c9d-e1f2-6a7b8c9d0e1f
+  - 8f2c5e1d-b8c9-1d0e-f2a3-7b8c9d0e1f2a
+type: Subgraph

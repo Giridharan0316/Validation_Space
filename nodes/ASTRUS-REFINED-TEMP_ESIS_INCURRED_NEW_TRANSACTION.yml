@@ -1,0 +1,215 @@
+fileVersion: 1
+id: 3da46180-bf9c-208b-5fa1-4c6db3908179
+name: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-REFINED
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a1b1c1d-1e1f-1a1b-1c1d-1e1f1a1b1c1d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d68d5a25-b106-44f5-bea1-ce4c73733268
+                stepCounter: 37a6fa90-9582-4856-b606-64d275dda709
+            transform: IFNULL(CT.ACA_CLAIM_ID, -1)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a2b2c2d-2e2f-2a2b-2c2d-2e2f2a2b2c2d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2b3c4d5-e6f7-a8b9-c0d1-e2f3a4b5c6d7
+                stepCounter: 2c93507f-ae8b-1f7a-4e9a-3b5ca28f7068
+            transform: C.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a3b3c3d-3e3f-3a3b-3c3d-3e3f3a3b3c3d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_RESERVE_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b3c4d5e6-f7a8-b9c0-d1e2-f3a4b5c6d7e8
+                stepCounter: 2c93507f-ae8b-1f7a-4e9a-3b5ca28f7068
+            transform: C.ACA_RESERVE_TYPE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a4b4c4d-4e4f-4a4b-4c4d-4e4f4a4b4c4d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c4d5e6f7-a8b9-c0d1-e2f3-a4b5c6d7e8f9
+                stepCounter: 2c93507f-ae8b-1f7a-4e9a-3b5ca28f7068
+            transform: C.TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a5b5c5d-5e5f-5a5b-5c5d-5e5f5a5b5c5d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_DATE_ID_TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d5e6f7a8-b9c0-d1e2-f3a4-b5c6d7e8f9a0
+                stepCounter: 2c93507f-ae8b-1f7a-4e9a-3b5ca28f7068
+            transform: C.ACA_DATE_ID_TRANSACTION_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a6b6c6d-6e6f-6a6b-6c6d-6e6f6a6b6c6d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: CHAR(2)
+        description: ""
+        name: COVERAGE_GROUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6f7a8b9-c0d1-e2f3-a4b5-c6d7e8f9a0b1
+                stepCounter: 2c93507f-ae8b-1f7a-4e9a-3b5ca28f7068
+            transform: C.COVERAGE_GROUP_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a7b7c7d-7e7f-7a7b-7c7d-7e7f7a7b7c7d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: RESERVE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7a8b9c0-d1e2-f3a4-b5c6-d7e8f9a0b1c2
+                stepCounter: 2c93507f-ae8b-1f7a-4e9a-3b5ca28f7068
+            transform: C.RESERVE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a8b8c8d-8e8f-8a8b-8c8d-8e8f8a8b8c8d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: NUMBER(10,0)
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 873ab5be-b265-4a22-b82e-c356d2980c36
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.ACA_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a9b9c9d-9e9f-9a9b-9c9d-9e9f9a9b9c9d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: BINARY(16)
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7eff8b0-9bca-4841-ae32-2c3b3719ba31
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.SOURCE_SYSTEM_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a0b0c0d-0e0f-0a0b-0c0d-0e0f0a0b0c0d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bb38a36-f848-49d1-865f-e9f7e604ccf7
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.POLICY_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23e00dd1-198b-4c6e-b249-66d19b0174b6
+                stepCounter: 6b88cb68-8c7f-422b-8b92-43624a18313d
+            transform: P.EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e
+          stepCounter: 3da46180-bf9c-208b-5fa1-4c6db3908179
+        config: {}
+        dataType: NUMBER(19,0)
+        description: ""
+        name: TRANSACTION_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROW_NUMBER() OVER (PARTITION BY C.SOURCE_SYSTEM_CLAIM_ID ORDER BY C.TRANSACTION_DATE ASC, C.ACA_RESERVE_TYPE_ID ASC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          C: C
+          CT: CT
+          P: P
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: ASTRUS-REFINED
+            nodeName: COMBINED_SOURCE_TRANSACTIONS
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_POLICY
+        join:
+          joinCondition: |-
+            FROM {{ ref('ASTRUS-REFINED', 'COMBINED_SOURCE_TRANSACTIONS') }} AS C
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }} AS CT ON CT.SOURCE_SYSTEM_CLAIM_ID = C.SOURCE_SYSTEM_CLAIM_ID AND CT.ACA_CURRENT_FLAG = 'Y'
+            LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_POLICY') }} AS P ON P.ACA_POLICY_ID = CT.ACA_POLICY_ID
+        name: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+        noLinkRefs: []
+  name: TEMP_ESIS_INCURRED_NEW_TRANSACTION
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
