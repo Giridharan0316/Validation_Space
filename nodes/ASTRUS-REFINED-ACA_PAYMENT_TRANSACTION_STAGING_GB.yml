@@ -471,7 +471,7 @@ operation:
             transform: P.INDEMNITY_BREAKDOWN_DCI_BENEFIT_TYPE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+          columnCounter: 1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c7c
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: NUMBER(19,2)
@@ -499,7 +499,7 @@ operation:
             transform: P.CLAIM_COVERAGE_CODE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 3c4d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6e7f
+          columnCounter: 3c4d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6ej9
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: VARCHAR
@@ -515,7 +515,7 @@ operation:
             transform: RT.RESERVE_TYPE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 4d5e6f7a-8b9c-4d0e-1f2a-3b4c5d6e7f8a
+          columnCounter: 4d5e6f7a-8b9c-4d0e-1f2a-3b4c5d6e7f9n
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: NUMBER(19,2)
