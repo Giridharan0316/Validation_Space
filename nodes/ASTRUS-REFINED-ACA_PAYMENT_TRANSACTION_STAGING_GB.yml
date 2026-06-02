@@ -480,7 +480,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: d1e8f2c3-a5b6-4c7d-8e9f-0a1b2c3d4e5f
+              - columnCounter: d1e8f2c3-a5b6-4c7d-8e9f-0a1b2c3d4e6y
                 stepCounter: 47a25032-28df-46f3-a1cd-cc87140b9dc6
             transform: TRY_CAST(P.INDEMNITY_BREAKDOWN_PAYMENT_AMOUNT / 100.0 AS NUMBER(19, 2))
       - appliedColumnTests: {}
@@ -508,9 +508,9 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 3c0f160f-83cf-40c3-b547-c064a2aa0656
+              - columnCounter: 3c0f160f-83cf-40c3-b547-c064a2aa0123
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: e8fdcfc2-1f36-4569-afe1-045f4fd9b208
+              - columnCounter: e8fdcfc2-1f36-4569-afe1-045f4fd9b123
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
             transform: RT.RESERVE_TYPE
       - appliedColumnTests: {}
@@ -524,7 +524,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 231ac232-3cb1-4054-a6a7-65d16e5aa339
+              - columnCounter: 231ac232-3cb1-4054-a6a7-65d16e5aa124
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
             transform: TP.PAYMENT_AMOUNT
       - appliedColumnTests: {}
