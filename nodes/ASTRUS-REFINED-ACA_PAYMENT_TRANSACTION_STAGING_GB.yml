@@ -485,7 +485,7 @@ operation:
             transform: TRY_CAST(P.INDEMNITY_BREAKDOWN_PAYMENT_AMOUNT / 100.0 AS NUMBER(19, 2))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e
+          columnCounter: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6f
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: VARCHAR
@@ -494,7 +494,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 3b4459f3-a67e-4285-aa90-1c910e83a023
+              - columnCounter: 3b4459f3-a67e-4285-aa90-1c910e83a024
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
             transform: P.CLAIM_COVERAGE_CODE
       - appliedColumnTests: {}
@@ -508,9 +508,9 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 3c0f160f-83cf-40c3-b547-c064a2aa0642
+              - columnCounter: 3c0f160f-83cf-40c3-b547-c064a2aa0656
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
-              - columnCounter: e8fdcfc2-1f36-4569-afe1-045f4fd9b206
+              - columnCounter: e8fdcfc2-1f36-4569-afe1-045f4fd9b208
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
             transform: RT.RESERVE_TYPE
       - appliedColumnTests: {}
@@ -524,12 +524,12 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 231ac232-3cb1-4054-a6a7-65d16e5aa334
+              - columnCounter: 231ac232-3cb1-4054-a6a7-65d16e5aa339
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
             transform: TP.PAYMENT_AMOUNT
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 5e6f7a8b-9c0d-4e1f-2a3b-4c5d6e7f8a9b
+          columnCounter: 5e6f7a8b-9c0d-4e1f-2a3b-4c5d6e7f8a9c
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: VARCHAR
@@ -538,12 +538,12 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: e5d4c3b2-a1f0-4987-8a9b-0c1d2e3f4a5b
+              - columnCounter: e5d4c3b2-a1f0-4987-8a9b-0c1d2e3f4a5c
                 stepCounter: 2e9c1a5d-b8f4-4c73-a1e6-9d8f7b5a4c3d
             transform: P.RESERVED_FOR_INTERNAL_USE
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6f7a8b9c-0d1e-4f2a-3b4c-5d6e7f8a9b0c
+          columnCounter: 6f7a8b9c-0d1e-4f2a-3b4c-5d6e7f8a9b0i
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: NUMBER
@@ -552,12 +552,12 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 792d7fad-0043-48b6-a439-3472e9f23c33
+              - columnCounter: 792d7fad-0043-48b6-a439-3472e9f23c37
                 stepCounter: 253a155f-129a-4ff2-bfa4-96fbac65a041
             transform: (SELECT ACA_SOURCE_SYSTEM_ID FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} WHERE SOURCE_SYSTEM = 'GB')
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 7a8b9c0d-1e2f-4a3b-4c5d-6e7f8a9b0c1d
+          columnCounter: 7a8b9c0d-1e2f-4a3b-4c5d-6e7f8a9b0c1u
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: TIMESTAMP_NTZ
@@ -569,7 +569,7 @@ operation:
             transform: CURRENT_TIMESTAMP()
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 8b9c0d1e-2f3a-4b4c-5d6e-7f8a9b0c1d2e
+          columnCounter: 8b9c0d1e-2f3a-4b4c-5d6e-7f8a9b0c1d2f
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: VARCHAR
@@ -581,7 +581,7 @@ operation:
             transform: "'DBO.SPACA_ACA_PAYMENT_TRANSACTION_STAGING_GB_INSERT'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 9c0d1e2f-3a4b-4c5d-6e7f-8a9b0c1d2e3f
+          columnCounter: 9c0d1e2f-3a4b-4c5d-6e7f-8a9b0c1d2e3k
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: TIMESTAMP_NTZ
@@ -593,7 +593,7 @@ operation:
             transform: CURRENT_TIMESTAMP()
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 0d1e2f3a-4b5c-4d6e-7f8a-9b0c1d2e3f4a
+          columnCounter: 0d1e2f3a-4b5c-4d6e-7f8a-9b0c1d2e3f4w
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: VARCHAR
