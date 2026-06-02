@@ -466,7 +466,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5da2547a-4d9a-4b75-951e-98d89f5aefa9
+              - columnCounter: 5da2547a-4d9a-4b75-951e-98d89f5aefa0
                 stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
             transform: P.INDEMNITY_BREAKDOWN_DCI_BENEFIT_TYPE
       - appliedColumnTests: {}
@@ -485,7 +485,7 @@ operation:
             transform: TRY_CAST(P.INDEMNITY_BREAKDOWN_PAYMENT_AMOUNT / 100.0 AS NUMBER(19, 2))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6f
+          columnCounter: 2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6o
           stepCounter: 5c4d3e2f-1a0b-4987-9a8b-7c6d5e4f3a2b
         config: {}
         dataType: VARCHAR
