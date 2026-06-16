@@ -1,0 +1,68 @@
+fileVersion: 1
+id: 8d9e3f1a-5e1f-4c2b-d39f-6f7a8b9c0d1e
+name: VW_ACA_INJURY_BODY_PART_CODE_ESIS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e0f4a2b-6f2a-4d3c-e4a0-7a8b9c0d1e2f
+          stepCounter: 8d9e3f1a-5e1f-4c2b-d39f-6f7a8b9c0d1e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NATURE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 73ee0532-290a-4fe7-be29-78826acee149
+                stepCounter: 89ed1367-e3dc-4f81-8df2-750d004047fb
+            transform: S2.INJURY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a01a5b3c-7a3b-4e4d-f5b1-8b9c0d1e2f3a
+          stepCounter: 8d9e3f1a-5e1f-4c2b-d39f-6f7a8b9c0d1e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NATURE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91b6665f-b0c7-4ade-8116-b339ee33b5e5
+                stepCounter: 89ed1367-e3dc-4f81-8df2-750d004047fb
+            transform: S2.INJURY_DESCRIPTION
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_INJURY_BODY_PART_CODE_ESIS: S2
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_INJURY_BODY_PART_CODE_ESIS
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_INJURY_BODY_PART_CODE_ESIS') }} AS S2
+        name: VW_ACA_INJURY_BODY_PART_CODE_ESIS
+        noLinkRefs: []
+  name: VW_ACA_INJURY_BODY_PART_CODE_ESIS
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

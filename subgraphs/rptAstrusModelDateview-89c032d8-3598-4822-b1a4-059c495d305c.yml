@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 89c032d8-3598-4822-b1a4-059c495d305c
+name: rpt.AstrusModelDate.view
+steps:
+  - 2ab75bdf-6670-4449-8588-6fafdaa7df6b
+  - 5a73e618-9366-4c74-95e5-337c767e7c85
+type: Subgraph

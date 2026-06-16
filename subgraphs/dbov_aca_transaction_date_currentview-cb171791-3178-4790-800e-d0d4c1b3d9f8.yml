@@ -1,0 +1,16 @@
+fileVersion: 1
+id: cb171791-3178-4790-800e-d0d4c1b3d9f8
+name: dbo.v_aca_transaction_date_current.view
+steps:
+  - 00112233-4455-6677-8899-aabbccddeeff
+  - 11223344-5566-7788-99aa-bbccddeeff00
+  - 1ea860aa-18f9-47e3-a699-b0e37b32d01a
+  - 2d078752-e34f-4131-9b72-88927c404c4d
+  - 3aeba5a8-8846-43a1-a6ec-d69fd6eef338
+  - 5678abcd-ef01-2345-6789-abcdef012345
+  - a1a2a3a4-b1b2-c1c2-d1d2-e1e2e3e4e5f6
+  - b293bb9b-831d-4924-bc38-f96b8203914d
+  - bf4539cd-e087-4561-ad48-18ce7ee65a22
+  - deadbeef-cafe-babe-feed-facebeadcafe
+  - fedcba98-7654-3210-fedc-ba9876543210
+type: Subgraph

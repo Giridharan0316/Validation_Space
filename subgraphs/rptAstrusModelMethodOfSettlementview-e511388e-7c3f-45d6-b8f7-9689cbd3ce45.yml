@@ -1,0 +1,12 @@
+fileVersion: 1
+id: e511388e-7c3f-45d6-b8f7-9689cbd3ce45
+name: rpt.AstrusModelMethodOfSettlement.view
+steps:
+  - 10470cc4-1a19-4fcc-8360-e716b8bbf675
+  - 17b9b1d3-3538-4b77-a843-f117c767675e
+  - 31d8c265-8119-46dd-92e0-187ed254db0d
+  - 59a16f5c-8dfc-45b6-bfd1-2132e4d9f67a
+  - 8fce4594-da02-4d44-a74d-9fc75c3bf9ca
+  - 9a78e474-1a9f-437a-8b3d-4250280f2c41
+  - fe7a3c3f-916c-4877-941f-8984918e7b39
+type: Subgraph

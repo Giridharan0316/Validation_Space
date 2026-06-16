@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 6278381d-7921-4233-9f3e-13167a988855
+name: rpt.AstrusModelNcciAct.view
+steps:
+  - 6a936404-1efc-46f5-bb97-5fd814a7e8dc
+  - bc0a149a-9e12-4c59-a2e6-7eb8980b1df9
+type: Subgraph

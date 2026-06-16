@@ -1,0 +1,6 @@
+fileVersion: 1
+id: c2b94d22-ba7f-4503-9b4a-e332937a59cd
+name: rpt.AstrusModelClaimTransaction.view
+steps:
+  - 8fce4594-da02-4d44-a74d-9fc75c3bf9ca
+type: Subgraph

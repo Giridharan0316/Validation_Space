@@ -1,0 +1,63 @@
+fileVersion: 1
+id: 9a8b7c6d-5e4f-4d3c-2b1a-0f9e8d7c6b5a
+name: STG_DISTINCT_JURISDICTION_STATES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c5d6e7f-8d9c-4b0a-1e2f-3d4c5b6a7b8c
+          stepCounter: 9a8b7c6d-5e4f-4d3c-2b1a-0f9e8d7c6b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BENEFIT_JURISDICTION_STATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: edc088c5-d1d6-43c6-8b4c-c1cc3a79cea1
+                stepCounter: 8fce4594-da02-4d44-a74d-9fc75c3bf9ca
+              - columnCounter: 8b1d7965-6d7d-4488-a14e-48987301519b
+                stepCounter: 169dbd7b-8349-4700-b685-b4cdeb8b6a65
+            transform: S.BENEFIT_JURISDICTION_STATE_CODE
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_NCCI_LOSS_COVERAGE_CODE
+        join:
+          joinCondition: |-
+            FROM (SELECT T.BENEFIT_JURISDICTION_STATE_CODE
+            FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }} AS T
+            EXCEPT
+            SELECT C.BENEFIT_STATE
+            FROM {{ ref('SRC-ASTRUS', 'ACA_NCCI_LOSS_COVERAGE_CODE') }} AS C
+            WHERE C.BENEFIT_STATE <> 'XX') AS S
+        name: STG_DISTINCT_JURISDICTION_STATES
+        noLinkRefs: []
+  name: STG_DISTINCT_JURISDICTION_STATES
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

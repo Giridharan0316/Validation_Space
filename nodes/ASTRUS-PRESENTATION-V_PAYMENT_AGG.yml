@@ -1,0 +1,68 @@
+fileVersion: 1
+id: a1a2a3a4-b1b2-c1c2-d1d2-e1e2e3e4e5f6
+name: V_PAYMENT_AGG
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c688d22-1b17-4e52-af89-b1d9ed301389
+          stepCounter: a1a2a3a4-b1b2-c1c2-d1d2-e1e2e3e4e5f6
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 02b11c06-f6f7-4b94-b9fd-3d24a14bc551
+                stepCounter: bf4539cd-e087-4561-ad48-18ce7ee65a22
+            transform: T.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b1d4c78-750d-4395-8a21-4fde2e8c2813
+          stepCounter: a1a2a3a4-b1b2-c1c2-d1d2-e1e2e3e4e5f6
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c2b1e53-7dc3-4815-bbc8-d607e78c55d9
+                stepCounter: bf4539cd-e087-4561-ad48-18ce7ee65a22
+            transform: MAX(T.TRANSACTION_DATE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_PAYMENT_TRANSACTION: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_PAYMENT_TRANSACTION
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_PAYMENT_TRANSACTION') }} AS T GROUP BY T.ACA_SOURCE_SYSTEM_ID
+        name: V_PAYMENT_AGG
+        noLinkRefs: []
+  name: V_PAYMENT_AGG
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

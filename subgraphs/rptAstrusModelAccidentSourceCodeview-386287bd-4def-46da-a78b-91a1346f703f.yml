@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 386287bd-4def-46da-a78b-91a1346f703f
+name: rpt.AstrusModelAccidentSourceCode.view
+steps:
+  - 7c322f86-33fa-49a8-884b-9072cb0b66a2
+  - 9a7b7524-749e-4b77-8d77-6f8d167f082e
+type: Subgraph

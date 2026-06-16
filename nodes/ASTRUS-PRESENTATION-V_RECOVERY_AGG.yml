@@ -1,0 +1,68 @@
+fileVersion: 1
+id: 11223344-5566-7788-99aa-bbccddeeff00
+name: V_RECOVERY_AGG
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+          stepCounter: 11223344-5566-7788-99aa-bbccddeeff00
+        config: {}
+        dataType: INT
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2ca25f29-002c-488b-a19a-3788f8ab3600
+                stepCounter: 2d078752-e34f-4131-9b72-88927c404c4d
+            transform: T.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b
+          stepCounter: 11223344-5566-7788-99aa-bbccddeeff00
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a236b92-f311-4b66-927f-9bb53f6778d4
+                stepCounter: 2d078752-e34f-4131-9b72-88927c404c4d
+            transform: MAX(T.RECOVERY_TRANSACTION_DATE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_RECOVERY_TRANSACTION: T
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_RECOVERY_TRANSACTION
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_RECOVERY_TRANSACTION') }} AS T GROUP BY T.ACA_SOURCE_SYSTEM_ID
+        name: V_RECOVERY_AGG
+        noLinkRefs: []
+  name: V_RECOVERY_AGG
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

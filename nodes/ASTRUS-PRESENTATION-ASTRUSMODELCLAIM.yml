@@ -1,0 +1,535 @@
+fileVersion: 1
+id: 59a16f6b-0a75-47e2-8987-9d628659173f
+name: ASTRUSMODELCLAIM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5734891-6e3e-4623-a15e-a20c3866878b
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed130061-7f23-454f-be1f-c4d99d88a7d6
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ACA_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d5a7114-1e0d-4a1d-85d0-9d33b3d4f3b5
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d44044a3-bc55-44fa-b654-566fb22519fb
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ACA_SOURCE_SYSTEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d14e397-a7ef-41e9-897d-2b73b22e11e0
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ff6dfa6e-c983-4c28-b4bc-bf850a044e87
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0e3037f-380d-4b95-a22d-3d4c6d649d25
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_DATE_ID_CLAIM_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 48cff7b2-ce64-4c08-a567-7add33d29899
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ACA_DATE_ID_CLAIM_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 45789f2d-4522-4277-a128-09259837a544
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_DATE_ID_ORIGINAL_OPEN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aee879b5-e01a-4f16-b494-d2e46de6507c
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ACA_DATE_ID_ORIGINAL_OPEN_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e8612f0e-e5b1-4f9b-81f1-3a059d606774
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_ACCOUNT_STRUCTURE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe047659-ef8b-4620-a687-f9dcb3d07e62
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ACA_ACCOUNT_STRUCTURE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c5c14cf2-1e96-410e-bd29-00f7f3259e87
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CLAIM_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dc3c9387-9e09-4a86-b08a-4ef3a38d99d1
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.CLAIM_SEQUENCE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90059e9a-7b3b-4170-87a7-33f7c413550e
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fd1ae26-938e-44d8-92c9-efbb81f4a30f
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ACCIDENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 489e5883-7c30-4e5a-a3a3-9562479f9797
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d877c8de-76cf-4415-9166-27f2407c5b04
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.CLIENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d749f7e8-f72b-4d43-9878-380d19e59d9f
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EMPLOYEE_IDENTIFICATION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3211f83-1261-4c38-8b3e-79111df91968
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL, employee_identification_number_encrypted, 1, '123') AS VARCHAR(256))
+        transform: SNOWFLAKE_DECRYPT(ACA_CLAIM.EMPLOYEE_IDENTIFICATION_NUMBER_ENCRYPTED)::VARCHAR(256)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a632e85a-0d29-4d64-9f4a-a7195d886618
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fa0d957e-b6e9-4a90-962e-7f090d154c4c
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL, employer_federal_tax_identification_number_encrypted, 1, '123') AS VARCHAR(256))
+        transform: SNOWFLAKE_DECRYPT(ACA_CLAIM.EMPLOYER_FEDERAL_TAX_IDENTIFICATION_NUMBER_ENCRYPTED)::VARCHAR(256)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c23d3e69-9524-4f22-91e8-71e98198f86f
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CLAIM_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4939e4c9-9694-457d-a312-c141d3a6e8d0
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.CLAIM_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1a3f65b-f112-4299-bb6e-437535b91b9b
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ORIGINAL_OPEN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24b8bdf5-5088-4455-9778-646e5eba9a90
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ORIGINAL_OPEN_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 15b49749-74e1-4171-aa3a-4a24f464041b
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DEATH_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b7220ce0-b430-452d-88e3-eb42483b6ecb
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: CAST(DECRYPTBYKEYAUTOCERT(CERT_ID('Certificate1'), NULL, death_date_encrypted, 1, '123') AS VARCHAR(256))
+        transform: SNOWFLAKE_DECRYPT(ACA_CLAIM.DEATH_DATE_ENCRYPTED)::VARCHAR(256)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4d9a706-e0e6-42d0-9983-094191395804
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRODUCT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71a39c5b-fd33-411d-b189-08f8022ef21c
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.PRODUCT_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1c49909-786d-4959-9941-0f730c455f75
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_ACT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0a52d8f4-0af9-438f-8f1a-7592f4ddf1b5
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.NCCI_ACT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93e8787f-1d42-4f35-9686-641555546522
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SOCIAL_SECURITY_OR_OTHER_OFFSET_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 265e1294-dcd1-4440-9537-2d3fcbf0ce44
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.SOCIAL_SECURITY_OR_OTHER_OFFSET_AMOUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e88942b4-7d49-43c3-8f0a-6e5a6ef625a6
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5260f505-caf2-4968-bf03-ba0bffb01169
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.CLAIM_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b8d7732-c518-472e-8399-522199f18731
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_CAUSE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1ba492b5-649a-42d0-9cb7-fdbc0a46abbd
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ACCIDENT_CAUSE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c02f5a63-470a-4849-8086-353d7d740c0f
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 528deb59-1fa3-43bf-8eaa-333fda89fe0d
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.ACCIDENT_COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91b5c470-38e2-430b-99f5-46b7a5e427eb
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BENEFIT_JURISDICTION_COUNTRY_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30bfd7de-cb00-41d3-9e8d-126555ab50f8
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.BENEFIT_JURISDICTION_COUNTRY_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 601a08ea-0144-406d-bc87-124b815617a2
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SIC_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e61b218-5d58-405f-82df-3b1dd53db1ad
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.SIC_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77a1649e-f0b9-4678-b114-1e7552de5b94
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLIENT_OPTIONAL_ACCIDENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: daa86c16-f70f-4a9d-ad15-0d3bcb1dea9b
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.CLIENT_OPTIONAL_ACCIDENT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d264c7d-cf5f-4632-bd32-35e61266b88b
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LOSS_CLAIMANT_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8844ada2-68f1-45ce-a75d-c94995d4191d
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.LOSS_CLAIMANT_SEQUENCE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3e98663-8a3d-4c3e-8120-00100d040776
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOSS_CLIENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4250aa00-acae-4ec4-b6b8-1b3b92a41838
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.LOSS_CLIENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f93f1ac-6950-424f-9e66-6b2f7f95029e
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOSS_REFERENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86c50de9-bd0c-4c6d-918f-662d8b4e17cc
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.LOSS_REFERENCE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5a7e6d4-8d4e-4b2a-88bc-b2a8d32d3999
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOSS_TRADING_PARTNER_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4067969d-e633-4fbd-98ec-bb70a3e9714c
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.LOSS_TRADING_PARTNER_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5543c3f6-42d3-4b6e-827d-8eb7ef40183e
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOSS_TRADING_PARTNER_CODE_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 09c81829-51f6-447b-80c0-31a68320686d
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.LOSS_TRADING_PARTNER_CODE_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c34812a4-79b8-444f-b6bb-35d0e2341857
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COMPANION_ACCIDENT_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b81394ff-d176-42ff-b28c-4e0c8a204890
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.COMPANION_ACCIDENT_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2e23612-45e0-4a87-a2f2-1d7010a300c3
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COMPANION_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88e1ab44-9884-4d8c-835d-a328f45dc8ae
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.COMPANION_COVERAGE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9324c16a-0e99-4d6d-8889-4b82d029525c
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: COMPANION_COVERAGE_SEQUENCE_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8829e85a-68c2-488f-ad69-525507154d5e
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.COMPANION_COVERAGE_SEQUENCE_NUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed116812-32b0-4660-bf8f-287ed5c179c3
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SIR_PROGRAM_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aef3fc87-af58-41ac-8467-31df4dde828e
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.SIR_PROGRAM_FLAG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63b8417c-a492-494b-bf5f-0d941865c52c
+          stepCounter: 59a16f6b-0a75-47e2-8987-9d628659173f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ce406d3-fdbb-4e31-96d6-7afc5a30f87f
+                stepCounter: 3873c208-fccc-418e-9d6d-957be5dc1e15
+            transform: ""
+        transform: ACA_CLAIM.SOURCE_SYSTEM
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_CLAIM: ACA_CLAIM
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIM
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM') }} "ACA_CLAIM"
+        name: ASTRUSMODELCLAIM
+        noLinkRefs: []
+  name: ASTRUSMODELCLAIM
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,68 @@
+fileVersion: 1
+id: 485121c0-023a-4467-85b2-38f36c646b5a
+name: VW_ACCIDENT_TYPE_CODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_REFINED
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a0b380f5-93df-4028-a46a-785c490a612d
+          stepCounter: 485121c0-023a-4467-85b2-38f36c646b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_TYPE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed75287a-33b1-4800-b77f-4af1320237f6
+                stepCounter: 1ead0646-cf68-4883-997b-8c0cf62502d6
+            transform: S.TYPE_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6046e72b-bbd7-4632-9c3f-c38d4957e87b
+          stepCounter: 485121c0-023a-4467-85b2-38f36c646b5a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCIDENT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d27e1c1-2198-4a74-8751-9a98b153e3b2
+                stepCounter: 1ead0646-cf68-4883-997b-8c0cf62502d6
+            transform: S.DESCRIPTION
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_ACCIDENT_TYPE_CODE: S
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_ACCIDENT_TYPE_CODE
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_ACCIDENT_TYPE_CODE') }} AS S
+        name: VW_ACCIDENT_TYPE_CODE
+        noLinkRefs: []
+  name: VW_ACCIDENT_TYPE_CODE
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

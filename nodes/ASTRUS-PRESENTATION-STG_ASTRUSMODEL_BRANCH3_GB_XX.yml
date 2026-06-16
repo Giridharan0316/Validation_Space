@@ -1,0 +1,112 @@
+fileVersion: 1
+id: 9a78e474-1a9f-437a-8b3d-4250280f2c41
+name: STG_ASTRUSMODEL_BRANCH3_GB_XX
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63f72153-f728-4422-bc57-cdeff42b9c78
+          stepCounter: 9a78e474-1a9f-437a-8b3d-4250280f2c41
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d0b1930f-f8d4-409f-b303-bdfbeaed4108
+                stepCounter: 31d8c265-8119-46dd-92e0-187ed254db0d
+              - columnCounter: edc088c5-d1d6-43c6-8b4c-c1cc3a79cea1
+                stepCounter: 8fce4594-da02-4d44-a74d-9fc75c3bf9ca
+            transform: REPLACE(MS.SOURCE_SYSTEM_METHOD_OF_SETTLEMENT_CODE, 'XX', S.BENEFIT_JURISDICTION_STATE_CODE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1a2e7c9-f14d-4e9b-980b-f3513a9485fd
+          stepCounter: 9a78e474-1a9f-437a-8b3d-4250280f2c41
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a911c10a-a33c-4595-a41c-44c6687f2029
+                stepCounter: 31d8c265-8119-46dd-92e0-187ed254db0d
+            transform: MS.METHOD_OF_SETTLEMENT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b07044f-c07a-4dd5-950c-396a5f78c85c
+          stepCounter: 9a78e474-1a9f-437a-8b3d-4250280f2c41
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: METHOD_OF_SETTLEMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17b077a2-f2de-425d-bb8c-7f55fca78351
+          stepCounter: 9a78e474-1a9f-437a-8b3d-4250280f2c41
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_METHOD_OF_SETTLEMENT_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 55ec3e58-e4f2-4f8b-886c-99dfbc33ea1c
+                stepCounter: 31d8c265-8119-46dd-92e0-187ed254db0d
+            transform: MS.NCCI_METHOD_OF_SETTLEMENT_CODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3108c028-09f1-4df2-a391-443b78263529
+          stepCounter: 9a78e474-1a9f-437a-8b3d-4250280f2c41
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NCCI_METHOD_OF_SETTLEMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 87e0008c-7d71-4b6a-a397-c450917bebbd
+                stepCounter: 31d8c265-8119-46dd-92e0-187ed254db0d
+            transform: MS.NCCI_METHOD_OF_SETTLEMENT
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          MS: 31d8c265-8119-46dd-92e0-187ed254db0d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_METHOD_OF_SETTLEMENT_GB
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_METHOD_OF_SETTLEMENT_GB') }} AS MS CROSS JOIN (SELECT BENEFIT_JURISDICTION_STATE_CODE FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }} WHERE SOURCE_SYSTEM = 'GB' EXCEPT SELECT BENEFIT_STATE FROM {{ref('SRC-ASTRUS', 'ACA_METHOD_OF_SETTLEMENT_GB') }} WHERE BENEFIT_STATE <> 'XX') AS S WHERE MS.BENEFIT_STATE = 'XX'
+        name: STG_ASTRUSMODEL_BRANCH3_GB_XX
+        noLinkRefs: []
+  name: STG_ASTRUSMODEL_BRANCH3_GB_XX
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

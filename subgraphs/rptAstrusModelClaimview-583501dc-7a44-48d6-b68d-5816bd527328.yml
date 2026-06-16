@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 583501dc-7a44-48d6-b68d-5816bd527328
+name: rpt.AstrusModelClaim.view
+steps:
+  - 3873c208-fccc-418e-9d6d-957be5dc1e15
+  - 59a16f6b-0a75-47e2-8987-9d628659173f
+type: Subgraph

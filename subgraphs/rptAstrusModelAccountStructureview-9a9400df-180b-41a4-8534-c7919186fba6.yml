@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 9a9400df-180b-41a4-8534-c7919186fba6
+name: rpt.AstrusModelAccountStructure.view
+steps:
+  - 569e223c-9a29-417d-8153-62c47018d96d
+  - e5f7917c-787c-4b3a-b520-d41722d30751
+type: Subgraph
