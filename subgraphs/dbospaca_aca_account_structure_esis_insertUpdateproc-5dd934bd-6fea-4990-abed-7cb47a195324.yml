@@ -1,0 +1,8 @@
+fileVersion: 1
+id: 5dd934bd-6fea-4990-abed-7cb47a195324
+name: dbo.spaca_aca_account_structure_esis_insertUpdate.proc
+steps:
+  - 1f0e447b-7b0a-4a6c-9c9c-b16f39d25e01
+  - 5275b4b4-9784-4e90-9fda-1ab999653bde
+  - 5938f29d-4c3e-4621-995f-97d81a8685e1
+type: Subgraph

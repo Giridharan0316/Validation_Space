@@ -1,0 +1,81 @@
+fileVersion: 1
+id: 3962d3a3-488b-4a34-90aa-939e9432d56a
+name: ACA_CLAIMANT_STAGING_ESIS_DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      UPDATE {{ ref('SRC-ASTRUS', 'ACA_CLAIMANT_STAGING_ESIS') }}
+      SET 
+          CLAIMANT_ENCRYPTED = ENCRYPT(C.CLAIMANT, 'encryption_key'),
+          LAST_NAME_ENCRYPTED = ENCRYPT(C.LAST_NAME, 'encryption_key'),
+          FIRST_NAME_ENCRYPTED = ENCRYPT(C.FIRST_NAME, 'encryption_key'),
+          ORGANIZATION_ENCRYPTED = ENCRYPT(C.ORGANIZATION, 'encryption_key'),
+          ADDRESS_ENCRYPTED = ENCRYPT(C.ADDRESS, 'encryption_key'),
+          SSN_ENCRYPTED = ENCRYPT(C.SSN, 'encryption_key'),
+          PHONE_ENCRYPTED = ENCRYPT(C.PHONE, 'encryption_key'),
+          
+          CLAIMANT = NULL,
+          LAST_NAME = NULL,
+          FIRST_NAME = NULL,
+          ORGANIZATION = NULL,
+          ADDRESS = NULL,
+          SSN = NULL,
+          PHONE = NULL,
+          
+          ACA_EMPLOYMENT_STATUS_ID = COALESCE(E.ACA_EMPLOYMENT_STATUS_ESIS_ID, -1),
+          EMPLOYMENT_STATUS = E.EMPLOYMENT_STATUS,
+          ACA_MARITAL_STATUS_ID = COALESCE(M.ACA_MARITAL_STATUS_ID, -1),
+          MARITAL_STATUS = M.MARITAL_STATUS,
+          ACA_SOURCE_SYSTEM_ID = S.ACA_SOURCE_SYSTEM_ID,
+          
+          ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          ACA_UPDATE_USER = 'dbo.spaca_aca_claimant_staging_esis_update'
+      FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIMANT_STAGING_ESIS') }} C
+      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} S
+          ON S.SOURCE_SYSTEM = C.SOURCE_SYSTEM
+      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_EMPLOYMENT_STATUS_ESIS') }} E
+          ON E.EMPLOYMENT_STATUS_CODE = C.EMPLOYMENT_STATUS_CODE
+      LEFT JOIN {{ ref('SRC-ASTRUS', 'ACA_MARITAL_STATUS') }} M
+          ON M.MARITAL_STATUS_CODE = C.MARITAL_STATUS_CODE;
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_CLAIMS_ASTRUS_STAGE
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_claimant_staging_esis_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57193f0-48e0-43fc-a720-d16ed420e6e7
+          stepCounter: 3962d3a3-488b-4a34-90aa-939e9432d56a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBSHIFT_PSTG_NODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: "''"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: ACA_CLAIMANT_STAGING_ESIS_DBSHIFT_PSTG_NODE
+        noLinkRefs: []
+  name: ACA_CLAIMANT_STAGING_ESIS_DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: DBO
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

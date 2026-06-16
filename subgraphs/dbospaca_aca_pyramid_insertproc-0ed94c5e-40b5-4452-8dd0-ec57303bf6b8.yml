@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 0ed94c5e-40b5-4452-8dd0-ec57303bf6b8
+name: dbo.spaca_aca_pyramid_insert.proc
+steps:
+  - 5979c3d2-36e1-4c28-912f-8700a4d5e27a
+  - b89fde41-c58c-4a06-a9a4-6967e56024a6
+type: Subgraph

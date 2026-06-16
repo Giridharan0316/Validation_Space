@@ -1,0 +1,6 @@
+fileVersion: 1
+id: 4d5aa44a-71d4-4cab-a3ba-83c7d17e0a68
+name: dbo.spaca_aca_transaction_payment_staging_update.proc
+steps:
+  - 52d119a0-c44f-4d37-832c-35222b31f71a
+type: Subgraph

@@ -1,0 +1,119 @@
+fileVersion: 1
+id: ecb7cdf7-2222-4b08-a284-aeab54f31897
+name: TEMP_ESIS_MISSING_CLAIM_POLICY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: CTE to identify missing claim policy relationships for ESIS payment transactions
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dd3a9-3a74-7410-915d-824d19921c8f
+          stepCounter: ecb7cdf7-2222-4b08-a284-aeab54f31897
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CLAIM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.SOURCE_SYSTEM_CLAIM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dd3a9-3a74-7410-915d-86ba0fd85953
+          stepCounter: ecb7cdf7-2222-4b08-a284-aeab54f31897
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: P.SOURCE_SYSTEM_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dd3a9-3a74-7410-915d-8bbdcaa5a3fa
+          stepCounter: ecb7cdf7-2222-4b08-a284-aeab54f31897
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACA_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: P.ACA_POLICY_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019dd3a9-3a74-7410-915d-8d1f4ff3dca5
+          stepCounter: ecb7cdf7-2222-4b08-a284-aeab54f31897
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CLAIM_COVERAGE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.CLAIM_COVERAGE_CODE
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIM
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_CLAIM_TRANSACTION
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_PAYMENT_TRANSACTION_STAGING_ESIS
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_POLICY
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_SOURCE_SYSTEM
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM') }} C
+            INNER JOIN {{ ref('SRC-ASTRUS', 'ACA_CLAIM_TRANSACTION') }} CT 
+              ON CT.ACA_CLAIM_ID = C.ACA_CLAIM_ID
+            INNER JOIN {{ ref('SRC-ASTRUS', 'ACA_POLICY') }} P 
+              ON P.ACA_POLICY_ID = CT.ACA_POLICY_ID
+            WHERE CT.ACA_SOURCE_SYSTEM_ID = (
+              SELECT ACA_SOURCE_SYSTEM_ID 
+              FROM {{ ref('SRC-ASTRUS', 'ACA_SOURCE_SYSTEM') }} 
+              WHERE SOURCE_SYSTEM = (
+                SELECT MAX(SOURCE_SYSTEM) 
+                FROM {{ ref('SRC-ASTRUS', 'ACA_PAYMENT_TRANSACTION_STAGING_ESIS') }}
+              )
+            )
+            AND CT.ACA_CURRENT_FLAG = 'Y'
+            AND CT.ACA_POLICY_ID <> -1
+            AND C.SOURCE_SYSTEM_CLAIM_ID IN (
+              SELECT DISTINCT SOURCE_SYSTEM_CLAIM_ID 
+              FROM {{ ref('SRC-ASTRUS', 'ACA_PAYMENT_TRANSACTION_STAGING_ESIS') }} 
+              WHERE SOURCE_SYSTEM_POLICY_ID IS NULL 
+              OR CLAIM_COVERAGE_CODE IS NULL
+            )
+        name: TEMP_ESIS_MISSING_CLAIM_POLICY
+        noLinkRefs: []
+  name: TEMP_ESIS_MISSING_CLAIM_POLICY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,6 @@
+fileVersion: 1
+id: 24b8eae1-504d-4df7-86e3-f6aa651f5bc1
+name: dbo.spaca_aca_transaction_header_staging_update.proc
+steps:
+  - 3c7a6e1f-4b8e-4a9d-b8d2-1c0f1d2e3a4b
+type: Subgraph

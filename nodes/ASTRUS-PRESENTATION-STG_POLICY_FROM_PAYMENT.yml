@@ -1,0 +1,86 @@
+fileVersion: 1
+id: 06d6c5e4-f3a2-4b7c-8d9e-1f2a3b4c5d6e
+name: STG_POLICY_FROM_PAYMENT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: AUS_DEV_PRESENTATION
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: ASTRUS-PRESENTATION
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3435ed5-a4b3-4f8c-b13d-4e5f6a7b8c9d
+          stepCounter: 06d6c5e4-f3a2-4b7c-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: VARCHAR(30)
+        description: ""
+        name: POLICY_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a271c0b2-2ecb-4a9b-8d8f-f93bdb1f559b
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: SRC.POLICY_NUMBER30
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4346fe4-b3c2-4e7b-c24e-5f6a7b8c9d0e
+          stepCounter: 06d6c5e4-f3a2-4b7c-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: DATE
+        description: ""
+        name: POLICY_EFFECTIVE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 65641d69-b1ff-446f-9faf-2d70098ce48f
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: SRC.POLICY_EFFECTIVE_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f52570f3-c2d1-4d6a-d35f-6a7b8c9d0e1f
+          stepCounter: 06d6c5e4-f3a2-4b7c-8d9e-1f2a3b4c5d6e
+        config: {}
+        dataType: DATE
+        description: ""
+        name: POLICY_EXPIRATION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e5d5d347-7e75-47f0-9cba-b488abf65ae9
+                stepCounter: 08d539fd-64d9-4206-84fa-8f21ddbe7092
+            transform: SRC.POLICY_EXPIRATION_DATE
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ACA_TRANSACTION_PAYMENT: SRC
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_TRANSACTION_PAYMENT
+          - locationName: SRC-ASTRUS
+            nodeName: ACA_POLICY_GB
+          - locationName: SRC-ASTRUS
+            nodeName: V_ACA_TRANSACTION_DATE_CURRENT
+        join:
+          joinCondition: FROM {{ ref('SRC-ASTRUS', 'ACA_TRANSACTION_PAYMENT') }} "SRC" WHERE SRC.POLICY_NUMBER30 IS NOT NULL AND SRC.ACA_DATE_UPDATED > (SELECT IFNULL(MAX(T2.ACA_DATE_UPDATED), '1776-07-04 00:00:00.000'::TIMESTAMP_NTZ) FROM {{ ref('SRC-ASTRUS', 'ACA_POLICY_GB') }} AS T2 WHERE T2.ACA_POLICY_GB_ID <> -1) AND SRC.PAYMENT_TRANSACTION_DATE > (SELECT T3.TRANSACTION_DATE FROM {{ ref('SRC-ASTRUS', 'V_ACA_TRANSACTION_DATE_CURRENT') }} AS T3 WHERE T3.SOURCE_SYSTEM = 'GB')
+        name: STG_POLICY_FROM_PAYMENT
+        noLinkRefs: []
+  name: STG_POLICY_FROM_PAYMENT
+  overrideSQL: false
+  schema: ASTRUS
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

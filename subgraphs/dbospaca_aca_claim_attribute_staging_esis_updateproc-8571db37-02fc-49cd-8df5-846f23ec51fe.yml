@@ -1,0 +1,6 @@
+fileVersion: 1
+id: 8571db37-02fc-49cd-8df5-846f23ec51fe
+name: dbo.spaca_aca_claim_attribute_staging_esis_update.proc
+steps:
+  - 593b4823-1d2a-41f2-b8f9-4b6e568778f7
+type: Subgraph

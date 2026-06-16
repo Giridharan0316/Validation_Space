@@ -1,0 +1,6 @@
+fileVersion: 1
+id: 50ff65f2-86f3-4a61-b8b5-34a15fc907a1
+name: dbo.spaca_aca_claimant_staging_esis_update.proc
+steps:
+  - 3962d3a3-488b-4a34-90aa-939e9432d56a
+type: Subgraph

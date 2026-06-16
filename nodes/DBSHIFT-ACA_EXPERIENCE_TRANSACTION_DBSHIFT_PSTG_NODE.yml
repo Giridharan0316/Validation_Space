@@ -1,0 +1,59 @@
+fileVersion: 1
+id: b3c3d3f9-7e3f-4e1d-8f2c-5c6b9e7d2b0a
+name: ACA_EXPERIENCE_TRANSACTION_DBSHIFT_PSTG_NODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: |-
+      BEGIN
+          UPDATE {{ ref('SRC-ASTRUS', 'ACA_EXPERIENCE_TRANSACTION') }} p
+          SET 
+          p.ACA_CLAIM_ID = c.ACA_CLAIM_ID,
+          p.ACA_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          p.ACA_UPDATE_USER = 'dbo.spaca_aca_experience_transaction_update'
+          FROM {{ ref('SRC-ASTRUS', 'ACA_CLAIM') }} c
+          WHERE c.SOURCE_SYSTEM_CLAIM_ID = p.SOURCE_SYSTEM_CLAIM_ID
+          AND p.ACA_CLAIM_ID = -1
+          AND p.SOURCE_SYSTEM_CLAIM_ID IS NOT NULL;
+      END;
+    testsEnabled: true
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: UPDATE-only conversion of spaca_aca_experience_transaction_update
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d
+          stepCounter: b3c3d3f9-7e3f-4e1d-8f2c-5c6b9e7d2b0a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: CURRENT_TIMESTAMP()
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: ACA_EXPERIENCE_TRANSACTION_DBSHIFT_PSTG_NODE
+        noLinkRefs: []
+  name: ACA_EXPERIENCE_TRANSACTION_DBSHIFT_PSTG_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

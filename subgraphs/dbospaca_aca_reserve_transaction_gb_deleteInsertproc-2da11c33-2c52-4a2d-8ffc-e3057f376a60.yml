@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 2da11c33-2c52-4a2d-8ffc-e3057f376a60
+name: dbo.spaca_aca_reserve_transaction_gb_deleteInsert.proc
+steps:
+  - 10239b66-2660-4c87-aa4b-6acb2efaace6
+  - 593b4823-1d2a-464a-9d90-0f2b3e80ac7a
+type: Subgraph

@@ -1,0 +1,14 @@
+fileVersion: 1
+id: 6c239f59-3e51-4377-95b1-3ebd0828deff
+name: dbo.spaca_aca_account_structure_staging_gb_insert.proc
+steps:
+  - 0b1c2d3e-4f3f-4f3f-a1b3-5c8e7f6a4b2d
+  - 1f0c4e8d-a1b3-4f9a-8b6c-4d3e1f0c4e8d
+  - 253a155f-129a-4ff2-bfa4-96fbac65a041
+  - 3c6b2a1f-9c8d-4e7f-a1b3-5c8e7f6a4b2d
+  - 6a3f8f2b-9d41-4c12-881b-3f2d2f7e9a0d
+  - 7e8f9a0b-1c2d-4e3f-a1b3-5c8e7f6a4b2d
+  - 8f9a0b1c-2d3e-4f3f-a1b3-5c8e7f6a4b2d
+  - 9a0b1c2d-3e4f-4f3f-a1b3-5c8e7f6a4b2d
+  - a5269fff-8356-4e63-933e-5215490d96a8
+type: Subgraph
