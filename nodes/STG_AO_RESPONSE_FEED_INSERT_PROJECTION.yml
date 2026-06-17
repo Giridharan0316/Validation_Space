@@ -1,0 +1,956 @@
+fileVersion: 1
+id: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+name: STG_AO_RESPONSE_FEED_INSERT_PROJECTION
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ''
+    preSQL: ''
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ''
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c439bb17-b769-42b8-9333-e18e8d89069d
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: MATCHING_POLICY_NUMBER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 322c3682-132d-4560-af60-0d3a776c968f
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.MATCHING_POLICYNUMBER
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b13c8736-ec18-47ca-829d-4876b3f71c35
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: POLICY_NUMBER_EPIC
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 7a6f23f6-4993-4a11-8848-185d269865aa
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.POLICYNUMBER_EPIC
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 97ac725b-0136-4074-a6c3-1d02c8969b82
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: POLICY_NUMBER_MDM_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 8d72855e-04d3-4a7b-b891-eb6ecf91b7d5
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.POLICY_NUMBER_MDM_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e878842f-7634-45e0-84c1-90a6c0b3d688
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLIENT_MDM_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 2617f14b-5777-4402-986c-4828f780e9a5
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.CLIENT_MDM_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b57199b4-368f-474c-a337-33671239eb87
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: EPIC_CLIENT_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 47b19816-3e0e-450f-90e8-07e5b562a14b
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.EPIC_CLIENT_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d32d0c2e-4b68-45e0-a75d-384358a98f1f
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: EPIC_POLICY_DESCRIPTION
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d196e8e8-6d8b-4a4b-9701-d0b4843b0d45
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.EPIC_POLICY_DESCRIPTION
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f2b1d3d-c128-4e89-afb5-f481a5c60207
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: POLICY_ERROR_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c76e4695-885f-4022-b5f7-6ecdd2b1e161
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.POLICY_ERROR_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: e01518f8-b397-400a-b333-5c02685764d8
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRIMARY_PRODUCER_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 1a9d18b3-3df8-45ee-98c4-e408d1326c95
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRIMARYPRODUCER_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 1a9d18b3-3df8-45ee-98c4-e408d1326c95
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRIMARY_PRODUCER_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 15e80277-2de7-47b2-bd5a-dfd738f7d0e9
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRIMARYPRODUCER_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c76e4695-885f-4022-b5f7-6ecdd2b1e161
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRIMARY_PRODUCER_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: ed1d7311-66fc-4f81-9f93-1833d7b43a9f
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRIMARYPRODUCER_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b56d56be-5727-466d-a60d-7b247b97a26f
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRIMARY_SERVICE_REP_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 9f03222e-3367-4638-aa23-6da5e69e2c65
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRIMARYSERVICEREP_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 6f966113-d3c5-4d7a-8f2e-e48f07ed2e33
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRIMARY_SERVICE_REP_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c1191590-b193-4560-9d33-9118c7c29373
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRIMARYSERVICEREP_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d196e8e8-6d8b-4a4b-9701-d0b4843b0d45
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRIMARY_SERVICE_REP_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 8b671a53-41c1-45bd-a2e6-7b028da6383e
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRIMARYSERVICEREP_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d684f866-9e96-41f2-9852-6b9449f809d8
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SALES_LEAD_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 54b4f3b5-7798-4676-9d33-9cd1d33c528f
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.SALESLEAD_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 77114660-f655-46aa-a39c-5e48dd26919a
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SALES_LEAD_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 6736ca91-0373-455a-b97f-99eb4e4b52ab
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.SALESLEAD_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9355743b-ab1e-45fa-9461-9f933d6a666e
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SALES_LEAD_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 9781442c-a02b-419b-a36c-941d63d6b2c8
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.SALESLEAD_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a6315264-b9c1-4712-a8c3-294b631d8e13
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SERVICE_LEAD_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d1c9f2b8-2e06-444a-9b56-c74ed4e514f7
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.SERVICELEAD_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 54a9d9c2-5576-46c5-af49-2e06c138b368
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SERVICE_LEAD_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: ab417387-5735-4302-aa1b-876ac898d2da
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.SERVICELEAD_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 63f68d90-880c-4e8c-8f2c-e2a225381f21
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SERVICE_LEAD_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: b56d56be-5727-466d-a60d-7b247b97a26f
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.SERVICELEAD_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f3174246-a4c3-424a-9e79-880e92215c0e
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_MANAGER_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d684f866-9e96-41f2-9852-6b9449f809d8
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTMANAGER_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a63f7615-de5e-473d-9d48-3fd695123d53
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_MANAGER_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 512b9380-6e47-495c-9c97-6c2e3612d267
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTMANAGER_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 2d1130d7-27e1-432d-8869-7c88b90c102c
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_MANAGER_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 8d1f057a-6419-4ec4-ab07-063a56247c45
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTMANAGER_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: b5c0f209-46be-4d1a-8c9f-3aa6df257a41
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ASSISTANT_ACCOUNT_MANAGER_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: ed1a6fcf-6571-4ac3-9828-d7d8102d512a
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ASSISTANTACCOUNTMANAGER_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7e735165-f481-4240-a077-90c061807d4b
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ASSISTANT_ACCOUNT_MANAGER_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 77a16701-d8d0-42f0-a035-4424e81ac68a
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ASSISTANTACCOUNTMANAGER_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 322c3682-132d-4560-af60-0d3a776c968f
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ASSISTANT_ACCOUNT_MANAGER_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 63b841de-1a89-4b47-ab86-8a71d6fcd66a
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ASSISTANTACCOUNTMANAGER_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d3b90554-1b33-469a-9e6b-a7dd95295c65
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_EXECUTIVE_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 5d133d52-6b3a-4934-bc2c-7b002496a7eb
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTEXECUTIVE_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d1c9f2b8-2e06-444a-9b56-c74ed4e514f7
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_EXECUTIVE_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 8b0eb3c4-4d8e-48a0-97b4-e461b1b0d241
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTEXECUTIVE_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5d9435b8-d9d3-4835-a13a-594285df649f
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_EXECUTIVE_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 669466be-4dd5-48b8-b248-2b874531853a
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTEXECUTIVE_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a6b6edda-0056-4b6c-a6cd-f8c6e25785f7
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_REPRESENTATIVE_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: ca3b1c67-d86b-4e1c-ad93-79d363784186
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTREPRESENTATIVE_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c4126131-ab41-477c-a029-7cc1325d7426
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_REPRESENTATIVE_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0f836567-ca17-43a9-a9b0-9125fc7f174c
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTREPRESENTATIVE_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a9d82e18-d069-43c2-8438-e421a71e7807
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ACCOUNT_REPRESENTATIVE_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 42cf41e8-3a9d-478a-a9f8-85473fc34526
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ACCOUNTREPRESENTATIVE_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c119d854-e0c3-424a-a1ed-314ef8d61386
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ASSISTANT_ACCOUNT_REPRESENTATIVE_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: b13c8736-ec18-47ca-829d-4876b3f71c35
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ASSISTANDACCOUNTREPRESENTATIVE_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d3f3d7ac-4a37-4f04-944d-500e5deca6d8
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ASSISTANT_ACCOUNT_REPRESENTATIVE_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 97ac725b-0136-4074-a6c3-1d02c8969b82
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ASSISTANTACCOUNTREPRESENTATIVE_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 1a8c381c-0e78-43d5-ae23-b1d51a660a92
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ASSISTANT_ACCOUNT_REPRESENTATIVE_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: e878842f-7634-45e0-84c1-90a6c0b3d688
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ASSISTANTACCOUNTREPRESENTATIVE_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8b67caab-ab2e-4b72-b7e6-23057e938933
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLAIMS_ADVOCATE_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: b57199b4-368f-474c-a337-33671239eb87
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.CLAIMSADVOCATE_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5d5a9d80-5753-48b4-a690-d3a985f43a99
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLAIMS_ADVOCATE_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d32d0c2e-4b68-45e0-a75d-384358a98f1f
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.CLAIMSADVOCATE_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 76f9d789-72c0-40e8-8b5e-0c03a3d5440c
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: CLAIMS_ADVOCATE_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0f2b1d3d-c128-4e89-afb5-f481a5c60207
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.CLAIMSADVOCATE_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f806963-3958-450e-b2d9-e93ec7d519b5
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ADDITIONAL_SERVICER_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: e01518f8-b397-400a-b333-5c02685764d8
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ADDITIONALSERVICER_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7c5520e7-cd4a-46da-b72e-d0092404e3b7
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ADDITIONAL_SERVICER_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 6f966113-d3c5-4d7a-8f2e-e48f07ed2e33
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ADDITIONALSERVICER_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 15e6179b-2a29-4786-8d14-8f4b1e32d527
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ADDITIONAL_SERVICER_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 5d133d52-6b3a-4934-bc2c-7b002496a7eb
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ADDITIONALSERVICER_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5747e914-7221-4f15-992e-50348c407887
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: BENEFITS_UNDERWRITER_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d1c9f2b8-2e06-444a-9b56-c74ed4e514f7
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.BENEFITSUNDERWRITER_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c023df37-eb4a-4e20-801a-8ac14e8b398a
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: BENEFITS_UNDERWRITER_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 5d9435b8-d9d3-4835-a13a-594285df649f
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.BENEFITSUNDERWRITER_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a6b6edda-0056-4b6c-a6cd-f8c6e25785f7
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: BENEFITS_UNDERWRITE_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: a6b6edda-0056-4b6c-a6cd-f8c6e25785f7
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.BENEFITSUNDERWRITE_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c4126131-ab41-477c-a029-7cc1325d7426
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PC_BUDGET_PRODUCER_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c4126131-ab41-477c-a029-7cc1325d7426
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PCBUDGETPRODUCER_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a9d82e18-d069-43c2-8438-e421a71e7807
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PC_BUDGET_PRODUCER_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: a9d82e18-d069-43c2-8438-e421a71e7807
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PCBUDGETPRODUCER_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c119d854-e0c3-424a-a1ed-314ef8d61386
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PC_BUDGET_PRODUCER_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: c119d854-e0c3-424a-a1ed-314ef8d61386
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PCBUDGETPRODUCER_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: d3f3d7ac-4a37-4f04-944d-500e5deca6d8
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PC_UNDERWRITER_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: d3f3d7ac-4a37-4f04-944d-500e5deca6d8
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PCUNDERWRITER_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 1a8c381c-0e78-43d5-ae23-b1d51a660a92
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PC_UNDERWRITER_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 1a8c381c-0e78-43d5-ae23-b1d51a660a92
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PCUNDERWRITER_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 8b67caab-ab2e-4b72-b7e6-23057e938933
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PC_UNDERWRITER_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 8b67caab-ab2e-4b72-b7e6-23057e938933
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PCUNDERWRITER_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5d5a9d80-5753-48b4-a690-d3a985f43a99
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRODUCER2_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 5d5a9d80-5753-48b4-a690-d3a985f43a99
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRODUCER2_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 76f9d789-72c0-40e8-8b5e-0c03a3d5440c
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRODUCER2_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 76f9d789-72c0-40e8-8b5e-0c03a3d5440c
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRODUCER2_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 0f806963-3958-450e-b2d9-e93ec7d519b5
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRODUCER2_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 0f806963-3958-450e-b2d9-e93ec7d519b5
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRODUCER2_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 7c5520e7-cd4a-46da-b72e-d0092404e3b7
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRODUCER3_USER_NAME
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 7c5520e7-cd4a-46da-b72e-d0092404e3b7
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRODUCER3_USER_NAME
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 15e6179b-2a29-4786-8d14-8f4b1e32d527
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRODUCER3_EMAIL
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 15e6179b-2a29-4786-8d14-8f4b1e32d527
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRODUCER3_EMAIL
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 5747e914-7221-4f15-992e-50348c407887
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: PRODUCER3_LOOKUP_CODE
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 5747e914-7221-4f15-992e-50348c407887
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.PRODUCER3_LOOKUP_CODE
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: c023df37-eb4a-4e20-801a-8ac14e8b398a
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: MDM_ALLIANT_ONE_MATCHING_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 77114660-f655-46aa-a39c-5e48dd26919a
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.MDM_ID_GUID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 77114660-f655-46aa-a39c-5e48dd26919a
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: ASG_RECORD_GUID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 9355743b-ab1e-45fa-9461-9f933d6a666e
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.ASG_RECORD_GUID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 9355743b-ab1e-45fa-9461-9f933d6a666e
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SF_ACCOUNT_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: a6315264-b9c1-4712-a8c3-294b631d8e13
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.SFACCTID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a6315264-b9c1-4712-a8c3-294b631d8e13
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: DW_CLIENT_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 54a9d9c2-5576-46c5-af49-2e06c138b368
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.DW_CLIENT_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 54a9d9c2-5576-46c5-af49-2e06c138b368
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: NUMBER
+      description: ''
+      name: DW_POLICY_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: 63f68d90-880c-4e8c-8f2c-e2a225381f21
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.DW_POLICY_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 63f68d90-880c-4e8c-8f2c-e2a225381f21
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: SF_ACCOUNT_OWNER_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: f3174246-a4c3-424a-9e79-880e92215c0e
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.SF_ACCOUNT_OWNER_ID
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: f3174246-a4c3-424a-9e79-880e92215c0e
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: EPIC_UNIQUE_POLICY_ID
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences:
+        - columnCounter: a63f7615-de5e-473d-9d48-3fd695123d53
+          stepCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        transform: F.EPIC_UNIQPOLICY
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: a63f7615-de5e-473d-9d48-3fd695123d53
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: AO_DATE_CREATED
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 593b4556-912f-45a2-850c-e2f754756c20
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: AO_CREATE_USER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: '''spao_ao_response_feed_insert_update'''
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 569d6c70-b778-43d8-a8d8-267ec4c570f8
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: TIMESTAMP
+      description: ''
+      name: AO_DATE_UPDATED
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: CURRENT_TIMESTAMP()
+    - appliedColumnTests: {}
+      columnReference:
+        columnCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+        stepCounter: 564f7b6d-a169-450f-a3ac-640a2df3d1c1
+      config: {}
+      dataType: VARCHAR
+      description: ''
+      name: AO_UPDATE_USER
+      nullable: true
+      sourceColumnReferences:
+      - columnReferences: []
+        transform: '''spao_ao_response_feed_insert_update'''
+    cteString: ''
+    enabledColumnTestIDs: []
+    sourceMapping:
+    - aliases:
+        F: F
+      customSQL:
+        customSQL: ''
+      dependencies:
+      - locationName: DBSHIFT
+        nodeName: STG_TMPRESPONSEFEED
+      join:
+        joinCondition: FROM {{ ref('DBSHIFT', 'STG_TMPRESPONSEFEED') }} AS F
+      name: STG_AO_RESPONSE_FEED_INSERT_PROJECTION
+      noLinkRefs: []
+  name: STG_AO_RESPONSE_FEED_INSERT_PROJECTION
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
