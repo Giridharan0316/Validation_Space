@@ -1,0 +1,6 @@
+fileVersion: 1
+id: d8aed81b-416a-4e92-9eae-8d4a9df95854
+name: stg.spao_ao_response_feed_staging_update.StoredProcedure
+steps:
+  - 2d46e1ab-5d18-4710-ba3f-91db4018ca3f
+type: Subgraph

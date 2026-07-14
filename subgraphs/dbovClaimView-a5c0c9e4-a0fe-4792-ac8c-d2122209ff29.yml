@@ -1,0 +1,9 @@
+fileVersion: 1
+id: a5c0c9e4-a0fe-4792-ac8c-d2122209ff29
+name: dbo.vClaim.View
+steps:
+  - 09412e0e-a41f-4b87-9bc9-a37919c513cb
+  - 1693c923-b2b7-4d40-b4e8-3353844ab68b
+  - 3ab9d71e-01cd-4c8d-b14e-6e4695b28b7e
+  - 4254f9c3-83bc-47d6-b41a-73cf4ac62f74
+type: Subgraph

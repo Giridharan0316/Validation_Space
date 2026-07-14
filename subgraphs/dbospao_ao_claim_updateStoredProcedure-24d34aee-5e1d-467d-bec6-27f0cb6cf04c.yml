@@ -1,0 +1,6 @@
+fileVersion: 1
+id: 24d34aee-5e1d-467d-bec6-27f0cb6cf04c
+name: dbo.spao_ao_claim_update.StoredProcedure
+steps:
+  - 8b73a3df-6a3c-41c3-bc97-e836ec3b9a01
+type: Subgraph
